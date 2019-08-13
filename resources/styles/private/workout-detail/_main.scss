@@ -1,0 +1,133 @@
+osg-workout-detail {
+    display: block;
+    background: #ebebeb;
+    width: 100%;
+    padding-top: 92px;
+    padding-bottom: 20px;
+	.navigate-buttons {
+		height: 20px;
+		.left-button {
+			float: left;
+			svg {
+				width: 20px;
+			}
+		}
+		.right-button {
+			float: right;
+		}
+	}
+	.header {
+		background-image: linear-gradient(to bottom right, #ff8d00, #ffb20d);
+		padding: 30px 15px 90px 15px;
+		font-family: $third-font;
+		.navigate-buttons {
+			height: 20px;
+			.left-button {
+				float: left;
+				svg {
+					width: 20px;
+				}
+			}
+			.right-button {
+				float: right;
+			}
+		}
+		.detail-info {
+		    padding-top: 20px;		
+			p {
+			    margin-bottom: 0;
+				font-size: 14px;
+				span {
+					padding-right: 5px;
+					svg {
+						width: 10px;
+						height: 10px;
+					}
+				}
+			}
+			h4 {
+				font-size: 30px;
+				font-weight: bold;
+				margin-bottom: 0;
+				@media screen and (max-width: 414px) {
+					font-size: 27px;
+				}
+				@media screen and (max-width: 375px) {
+					font-size: 23px;
+				}
+				@media screen and (max-width: 360px) {
+					font-size: 22px;
+				}
+				@media screen and (max-width: 320px) {
+					font-size: 20px;
+				}
+			}
+			h5 {
+				@media screen and (max-width: 414px) {
+					font-size: 18px;
+				}
+				@media screen and (max-width: 375px) {
+					font-size: 16px;
+				}
+				@media screen and (max-width: 360px) {
+					font-size: 15px;
+				}
+				@media screen and (max-width: 320px) {
+					font-size: 13px;
+				}
+			}
+		}
+		.regulation {
+			display: flex;
+			margin-top: 20px;
+			p {
+				text-transform: uppercase;
+				font-size: 13px;
+				padding-top: 8px;
+				margin-right: 10px;
+			}
+			.switch-large {
+				width: 100px;
+				height: 30px;
+				border: none;
+				small {
+					width: 45px;
+					height: 24px;
+					border-radius: 15px;
+					top: 3px;
+					left: 3px;
+					background: #000 !important;
+				}
+				&.checked {
+					small {
+						left: 47px;
+						background: #fff !important;
+					}
+				}
+			}
+			.switch {
+				.on {
+					top: 20%;
+				}
+				.off {
+					top: 20%;
+				}
+			}
+		}
+	}
+	.container {
+		margin-top: -95px;
+		&.marginTop {
+			margin-top: -55px;
+		}
+		&.marginNormal {
+			margin-top: -95px;
+		}
+	}
+    @import "workout-detail-upcoming";
+	@import "workout-detail-progress";
+	@import "workout-detail-complete";
+	@import "numberic-slider-purple";
+	@import "numberic-slider-orange";
+	@import "numberic-slider-red";
+}

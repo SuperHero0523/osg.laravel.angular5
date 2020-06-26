@@ -1,8 +1,6 @@
 osg-profile-cover {
     display: block;
     width: 100%;
-    padding-top: 170px;
-    padding-bottom: 140px;
     margin-bottom: -50px;
     background: #1f1f1f url("/assets/images/cover-shape.png") no-repeat left bottom;
     clip-path: ellipse(100% 60% at 50% 40%);
@@ -45,8 +43,6 @@ osg-profile-cover {
 
         figure {
             display: block;
-            width: 225px;
-            height: 225px;
             border-radius: 100%;
             background: $white;
             overflow: hidden;
@@ -58,6 +54,7 @@ osg-profile-cover {
                 left: 0px;
                 right: 0px;
                 bottom: 0px;
+				width: 100%;
             }
         }
 
@@ -68,4 +65,25 @@ osg-profile-cover {
             font-size: rem(25);
         }
     }
+	
+	@media (min-width: 320px) {
+		padding-top: 150px;
+		padding-bottom: 100px;
+		.information {
+			figure {
+				width: 100px;
+				height: 100px;
+			}
+		}
+	}
+	@media (min-width: 1024px) {
+		padding-top: 170px;
+		padding-bottom: 140px;
+		.information {
+			figure {
+				width: 225px;
+				height: 225px;
+			}
+		}
+	}
 }

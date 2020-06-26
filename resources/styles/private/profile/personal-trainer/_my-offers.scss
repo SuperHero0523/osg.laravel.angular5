@@ -1,8 +1,6 @@
 osg-personal-trainer-offers {
     display: block;
-    border-bottom: solid 1px #bfbfbf;
-    margin-bottom: 40px;
-
+	
     .title {
         display: block;
         margin-bottom: 10px;
@@ -14,7 +12,23 @@ osg-personal-trainer-offers {
 
     .offers-container {
         @extend .row;
-
+		
+		owl-carousel-o {
+			width: 100%;
+			.owl-theme {
+				.owl-dots {
+					margin-top: -10px;
+					.owl-dot {
+						&.active {
+							span {
+								background: #ffa600;
+							}
+						}
+					}
+				}
+			}
+		}
+			
         .offer {
             @extend .col-lg-3;
             @extend .col-sm-6;

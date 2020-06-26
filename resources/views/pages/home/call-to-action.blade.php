@@ -4,7 +4,7 @@
         <div class="container h-100">
             <div class="row justify-content-center align-items-center h-100">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-10">
-                    <h2><small>A NEW WAY TO</small>  CREATE, FIND & EXECUTE <br>STRENGTH TRAINING PROGRAMS</h2>
+                    <h2><small>A NEW WAY TO</small>  CREATE, FIND & TRACK <br>STRENGTH TRAINING PROGRAMS</h2>
                     <div class="stars">
                         <img src="images/stars.png" class="img-fluid d-block mx-auto" alt="">
                     </div>

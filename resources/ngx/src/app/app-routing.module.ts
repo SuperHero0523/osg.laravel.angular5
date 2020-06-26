@@ -10,6 +10,7 @@ import { ExperienceBankComponent } from './experience-bank/components/main.compo
 import { StrengthStandardsComponent } from './strength-standards/components/main.component';
 import { WorkoutLogComponent } from './workout-log/components/main.component';
 import { WorkoutDetailComponent } from './workout-detail/components/main.component';
+import { InterviewComponent } from './interview/components/main.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -18,12 +19,13 @@ const routes: Routes = [
   { path: 'strength-standards', component: StrengthStandardsComponent},
   { path: 'program-designs', component: InformationComponent},
   { path: 'workout-log', component: WorkoutLogComponent},
-  { path: 'workout-detail/:date/:type', component: WorkoutDetailComponent},
+  { path: 'workout-detail/:date/:status', component: WorkoutDetailComponent},
   { path: 'contacts', component: ContactsComponent},
   { path: 'profile', component: ProfileComponent },
   { path: 'profile/:handle', component: ProfileComponent },
   { path: 'notifications', component: NotificationsComponent },
   { path: 'info', component: InformationComponent },
+  { path: 'interview', component: InterviewComponent },
   { path: 'unknown', component: InformationComponent }
 ];
 

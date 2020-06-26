@@ -1,4 +1,11 @@
 osg-program-designer-program-design {
+	display: block;
+	@media (min-width: 320px) {
+		margin-top: 100px;
+	}
+	@media (min-width: 768px) {
+		margin-top: 50px;
+	}
     .title {
         display: block;
         width: 100%;
@@ -17,6 +24,9 @@ osg-program-designer-program-design {
         }
 
         .sort-box {
+			@media (max-width: 480px) {
+				display: none;
+			}
             font-weight: bold;
             font-size: rem(14);
             font-family: $secondary-font;
@@ -44,96 +54,43 @@ osg-program-designer-program-design {
             }
         }
     }
-
-    .table-top-program {
-        thead {
-            tr {
-                th {
-                    border: none;
-                    font-family: $fourth-font;
-
-                    &:nth-child(2) {
-                        background: #FFF;
-                        text-transform: uppercase;
-                        font-family: $primary-font;
-                        font-size: rem(14);
-                        color: #000;
-                        border-top: 2px solid #78cd18;
-                        border-right: 2px solid #78cd18;
-                        border-left: 2px solid #78cd18;
-                    }
-                }
-            }
-        }
-
-        tbody {
-            tr {
-                td {
-                    background: #FFF;
-                    border: 1px solid #dadada;
-                    font-size: rem(14);
-                    padding: 0.55rem;
-                    color: #000;
-
-                    &.orange {
-                        background: #fff0cf;
-                    }
-
-                    &.green {
-                        background: #e8fecd;
-                    }
-
-                    &.blue {
-                        background: #f0feff;
-                    }
-                }
-                &:not(:nth-child(2)){
-                    td{
-                        &:last-child {
-                            border-right: 2px solid #78cd18;
-                        }
-                    }
-                }
-
-                &:nth-child(odd) {
-                    td {
-                        &:first-child,
-                        &:nth-child(2) {
-                            color: #838383;
-                        }
-                        &:nth-child(2) {
-                            border-right: 2px solid #78cd18;
-                        }
-                    }
-                }
-
-                &:last-child {
-                    td {
-                        border-bottom: 2px solid #78cd18;
-                    }
-                }
-
-                &:first-child,
-                &:nth-child(2) {
-                    td {
-                        font-size: rem(14);
-                        color: #000 !important;
-                    }
-                }
-
-                &:first-child {
-                    td {
-                        vertical-align: middle;
-                        border-top: 2px solid #78cd18;
-
-                        &:first-child,
-                        &:nth-child(2){
-                            border-top: 2px solid #dadada;
-                        }
-                    }
-                }
-
-            }
-        }
-    }
+	.table-program-design {
+		.table-responsive {
+			.table {
+				@media (min-width: 320px) {
+					width: 1279px;
+				}
+				thead {
+					tr {
+						th {
+							&.blue {
+								background: #f0feff;
+							}
+							&.green {
+								background: #e8fecd;
+							}
+							&.red {
+								background: #fff0e8;
+							}							
+						}
+					}
+				}
+				tbody {
+					tr {
+						td {
+							&.green {
+								background: #e8fecd;
+							}
+							&.red {
+								background: #fff0e8;
+							}
+							&.blue {
+								background: #f0feff;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }

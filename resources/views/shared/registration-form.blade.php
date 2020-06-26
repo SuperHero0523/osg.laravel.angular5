@@ -1,54 +1,43 @@
-<form method="POST" action="{{ route('register') }}">
+<form method="POST" action="{{ url('register/step1') }}" id="signup-step1-form">
     @csrf
     <div class="form-group row">
-        <div class="col-12">
-            <input type="text" name="name" id="name" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" required data-msg-required="Please enter your full name">
-            <label for="name">Full name *</label>
-            @if ($errors->has('name'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('name') }}</strong>
-            </span>
-            @endif
+        <div class="col-6">
+            <label for="signup_first_name">First name *</label>
+            <input type="text" name="signup_first_name" id="signup_first_name" class="form-control" required data-msg-required="Please enter your first name">
+        </div>
+        <div class="col-6">
+            <label for="signup_last_name">Last name *</label>
+            <input type="text" name="signup_last_name" id="signup_last_name" class="form-control" required data-msg-required="Please enter your last name">
         </div>
     </div>
     <div class="form-group row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-            <input type="text" name="phone" id="phone" class="form-control" required data-msg-required="Please enter your phone">
-            <label for="phone">Phone number *</label>
+            <label for="signup_phone">Phone number *</label>
+            <input type="text" name="signup_phone" id="signup_phone" class="form-control" required data-msg-required="Please enter your phone">
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-6 mt-3 mt-lg-0">
-            <input type="email" name="email" id="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ request()->has('email') ? request()->get('email') : old('email') }}" required data-msg-required="Please enter your email address">
-            <label for="email">E-mail *</label>
-            @if ($errors->has('email'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('email') }}</strong>
-            </span>
-            @endif
+            <label for="signup_email">E-mail *</label>
+            <input type="email" name="signup_email" id="signup_email" class="form-control" required data-msg-required="Please enter your email address">
         </div>
     </div>
     <div class="form-group row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-            <input type="password" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" name="password" id="password" required data-msg-required="Please enter a password">
-            <label for="password">Password *</label>
-            @if ($errors->has('password'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('password') }}</strong>
-            </span>
-            @endif
+            <label for="signup_password">Password *</label>
+            <input type="password" class="form-control" name="signup_password" id="signup_password" required data-msg-required="Please enter a password">
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-6 mt-3 mt-lg-0">
-            <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" equalTo="#password">
-            <label for="password_confirmation">Retype password *</label>
+            <label for="signup_password_confirmation">Retype password *</label>
+            <input type="password" class="form-control" name="signup_password_confirmation" id="signup_password_confirmation" equalTo="#signup_password">
         </div>
     </div>
     <div class="form-group row">
         <div class="col-12">
-            <select name="role" class="form-control" id="role" required>
-                <option {{ request()->has('personalTrainer')? "selected" : "" }} value="0">Personal Trainer</option>
-                <option {{ request()->has('programDesigner')? "selected" : "" }} value="1">Program Designer</option>
-                <option {{ request()->has('strengthAthlete')? "selected" : "" }} value="2">Strength Athlete</option>
+            <label for="signup_role" class="labelfocus">Select type of user *</label>
+            <select name="signup_role" class="form-control" id="signup_role" required>
+                <option {{ Request::segment(1) == 'personal-trainer' ? "selected" : "" }} value="0">Personal Trainer</option>
+                <option {{ Request::segment(1) == 'program-designer' ? "selected" : "" }} value="1">Program Designer</option>
+                <option {{ Request::segment(1) == 'strength-athlete' ? "selected" : "" }} value="2">Strength Athlete</option>
             </select>
-            <label for="role" class="labelfocus">Select type of user *</label>
         </div>
     </div>
     <div class="checkbox custom-checkbox">
@@ -58,7 +47,7 @@
         </label>
     </div>
     <div class="wrapper-btn text-center text-md-right mt-3">
-        <input type="submit" id="submit-button" value="SIGN UP" class="btn btn-green-gradient btn-block px-5 py-3">
+        <input id="submit-button" type="submit" value="CONTINUE" class="btn btn-green-gradient btn-block px-5 py-3 signup-submit" disabled>
     </div>
     <div class="no-sign-up text-center mt-3">
         <p>Already have an account? <a href="{{ route('login') }}">Login to your account.</a></p>

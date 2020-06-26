@@ -4,7 +4,7 @@
     -webkit-clip-path: ellipse(100% 60% at 50% 40%);
 
     @include media-breakpoint-down(sm) {
-        height: 550px;
+        height: 650px;
     }
     &>img {
         position: relative;
@@ -139,6 +139,7 @@
                     @include media-breakpoint-down(lg){
                         display: block;
                         text-align: center;
+						margin-bottom: 10px;
                     }
                     &.learn-more{
                         color: #FFF;

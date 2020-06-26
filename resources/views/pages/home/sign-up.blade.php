@@ -5,7 +5,7 @@
         </figure>
     </div>
     <div class="col-12 col-sm-12 col-md-6 align-self-center">
-        <div class="content-form">
+        <div class="content-form home">
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-10 col-md-10 col-lg-8 py-5 py-md-0">
                     <h2 class="with-stars black">

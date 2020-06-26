@@ -9,11 +9,20 @@ export class ProgramDesignerComponent implements OnInit{
   
   @Input() applicationUser: ApplicationUser;
 
-  about: string = 'Working as professional trainer for 10 years. I am confident and passionate about what I do for a living. Let me help you transform your personal life, mentally and physically.';
   getStartedSections = ["calendar builder guide", "progression model guide", "about auto-regulation", "experience bank guide"];
+  current_set: string;
 
   ngOnInit(): void {
-    
+    this.current_set = "profile";
   }
 
+  NextPage() {
+    this.current_set = "graph";
+    window.scrollTo(0, 200);
+  }
+
+  PreviousPage() {
+    this.current_set = "profile";
+    window.scrollTo(0, 200);
+  }
 }

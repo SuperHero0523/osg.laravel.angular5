@@ -1,33 +1,49 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'osg-workout-detail-progress',
   templateUrl: './workout-detail-progress.component.html'
 })
 export class WorkoutDetailProgressComponent implements OnInit{
-  
-  @Input() status: string;    
-  reps: number = 8;
-  rtf: number = 1;
-  load: number = 100;
+  @Output() valueChange = new EventEmitter();
+  @Input() reps: number;
+  @Input() rtf: number;
 
   ngOnInit(): void {}
 
   IncraseRTF() {
-    this.rtf ++;
+    if (this.rtf < 5) this.rtf ++;
+    let obj = {
+      reps: this.reps,
+      rtf: this.rtf
+    };
+    this.valueChange.emit(obj);
   }
 
   DecraseRTF() {
-    this.rtf --;
+    if (this.rtf > 0) { this.rtf --; }
+    let obj = {
+      reps: this.reps,
+      rtf: this.rtf
+    };
+    this.valueChange.emit(obj);
   }
 
   IncraseREPS() {
     this.reps ++;
-    this.load += 2.5;
+    let obj = {
+      reps: this.reps,
+      rtf: this.rtf
+    };
+    this.valueChange.emit(obj);
   }
 
   DecraseREPS() {
-    this.reps --;
-    this.load -= 2.5;
+    if (this.reps > 0) { this.reps --; }
+    let obj = {
+      reps: this.reps,
+      rtf: this.rtf
+    };
+    this.valueChange.emit(obj);
   }
 }

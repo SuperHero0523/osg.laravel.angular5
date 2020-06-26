@@ -6,6 +6,40 @@ osg-profile {
     osg-personal-trainer,
     osg-program-designer,
     osg-strength-athlete {
+		position: relative;
+		.slide_button {
+			top: 63px;
+			z-index: 1030;
+			position: sticky;
+			margin-top: -60px;
+			img {
+				width: 45px;
+			}
+			&.prev {
+				float: left;
+			}
+			&.next {
+				float: right;
+			}
+			@media (min-width: 320px) {
+				display: block;
+			}
+			@media (min-width: 1280px) {
+				display: none;
+			}
+		}
+		.slide_page {
+			background: #fff;
+			@media (min-width: 320px) {
+				display: none;
+				&.active {
+					display: block;
+				}
+			}
+			@media (min-width: 1280px) {
+				display: block;
+			}
+		}
         /* display: block;
         .left-box {
             padding-top: rem(120);
@@ -43,7 +77,12 @@ osg-profile {
             }
 
             &:first-child {
-                @include media-breakpoint-up(sm) {
+                @media (min-width: 320px) {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
+				
+				@media (min-width: 1280px) {
                     flex: 0 0 30%;
                     max-width: 30%;
                 }
@@ -53,7 +92,12 @@ osg-profile {
             }
 
             &:last-child {
-                @include media-breakpoint-up(sm) {
+                @media (min-width: 320px) {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
+				
+				@media (min-width: 1280px) {
                     flex: 0 0 70%;
                     max-width: 70%;
                 }

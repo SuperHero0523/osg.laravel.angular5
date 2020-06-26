@@ -1,14 +1,15 @@
 osg-plan-builder {
     display: block;
-    padding-top: rem(120);
     background: #f5f5f5;
     h1 {
         @include section-title(rem(30));
         margin-bottom: 40px;
-        width: 35%;
-        @media (max-width: 1315px){
+        @media (min-width: 320px){
             width: 100%;
         }
+		@media (min-width: 1280px) {
+			width: 45%;	
+		}
     }
 
     h2 {

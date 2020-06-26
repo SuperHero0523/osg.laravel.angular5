@@ -8,9 +8,8 @@ import { ApplicationUser } from 'src/app/core/classes/user';
 export class ProgramDesignerProgramDesignComponent implements OnInit{
     
   @Input() applicationUser: ApplicationUser;
+ 
 
   ngOnInit(): void {
-    
   }
-
 }

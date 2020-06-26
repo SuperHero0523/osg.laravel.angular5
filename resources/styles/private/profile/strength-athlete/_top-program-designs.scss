@@ -1,10 +1,17 @@
 osg-strength-athlete-top-program-designs {
+	display: block;
+	@media (min-width: 320px) {
+		margin-top: 100px;
+	}
+	@media (min-width: 768px) {
+		margin-top: 50px;
+	}
     .title {
         display: block;
         width: 100%;
         border-bottom: solid 1px #b7b7b7;
         padding-bottom: 0px;
-        margin-top: 20px;
+        margin-top: 40px;
         margin-bottom: 40px;
 
         h3 {
@@ -16,7 +23,7 @@ osg-strength-athlete-top-program-designs {
             font-weight: bold;
             font-size: rem(14);
             font-family: $fourth-font;
-
+			
             p {
                 display: inline-block;
                 color: #ababab;
@@ -36,10 +43,22 @@ osg-strength-athlete-top-program-designs {
                     text-transform: uppercase;
                 }
             }
+			
+			@media (min-width: 320px) {
+				text-align: left;
+			}
+			@media (min-width: 1280px) {
+				text-align: right;
+			}
         }
     }
 
     .table-top-program {
+		.table-responsive {
+			.table {
+				width: 99%!important;
+			}
+		}
         thead {
             tr {
                 th {
@@ -64,13 +83,13 @@ osg-strength-athlete-top-program-designs {
                 td {
                     background: #FFF;
                     border: 1px solid #dadada;
-                    font-size: rem(14);
-                    padding: 7px 12px;
+                    font-size: 0.7rem;
+                    padding: 7px 9px;
                     line-height: 16px;
                     font-family: $third-font;
                     color: #000;
                     &.orange{
-                        background: #fff0cf;
+                        background: #fff0cf;						
                     }
                     &.green{
                         background: #e8fecd;
@@ -78,6 +97,9 @@ osg-strength-athlete-top-program-designs {
                     &.blue{
                         background: #f0feff;
                     }
+					&.green-border {
+					    border-left: 2px solid #78cd18;
+					}
                 }
 
                 &:nth-child(odd) {
@@ -107,14 +129,13 @@ osg-strength-athlete-top-program-designs {
                 &:first-child,
                 &:nth-child(2) {
                     td {
-                        font-size: rem(14);
+						font-size: 0.7rem;
                         color: #000 !important;
                     }
                 }
                 &:first-child{
                     td{
                         vertical-align: middle;
-                        border-top: 2px solid #dadada;
                         &:last-child{
                             border-top: solid $orange 2px;
                         }

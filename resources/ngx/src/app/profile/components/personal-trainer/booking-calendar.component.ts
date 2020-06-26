@@ -20,12 +20,7 @@ export class PersonalTrainerBookingCalendarComponent implements OnInit{
   }
 
   showModal(): void{
-    this.bsModalRef = this.modalService.show(
-      PersonalTrainerBookingDetailsModalComponent,
-      {
-          class: 'modal-lg',
-      }
-  );
+    this.bsModalRef = this.modalService.show(PersonalTrainerBookingDetailsModalComponent, {class: 'modal-lg'});
   }
 
 }

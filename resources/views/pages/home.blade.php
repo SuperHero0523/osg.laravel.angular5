@@ -10,3 +10,11 @@
         @include('pages.home.sign-up')
     </div>
 @endsection
+
+@section ('scripts')
+<script>
+	jQuery(function(){
+		new osg.Controllers.home();		
+	});
+</script>
+@endsection

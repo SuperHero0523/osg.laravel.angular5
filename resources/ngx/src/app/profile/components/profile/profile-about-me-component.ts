@@ -14,5 +14,9 @@ export class ProfileAboutMeComponent {
   @Input() country: string = '';
   @Input() location: string = '';
   @Input() profile: string = '';
+  @Input() email: string = '';
 
+  ngOnInit(): void {
+    
+  }
 }

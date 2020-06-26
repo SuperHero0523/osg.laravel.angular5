@@ -9,11 +9,20 @@ export class StrengthAthleteComponent implements OnInit{
   
   @Input() applicationUser: ApplicationUser;
 
-  about: string = 'I have been training weight for 11 years to increase my strength and muscle mass. I love to train hard and try to push beyond my limits, and always aim for proper exercise technique.';
   getStartedSections: string[] = ["the strength athlete profile", "about auto-regulation", "strength standards guide", "experience bank guide", "program design guide"];
+  current_set: string;
 
   ngOnInit(): void {
-    
+    this.current_set = "profile";
   }
 
+  NextPage() {
+    this.current_set = "graph";
+    window.scrollTo(0, 200);
+  }
+
+  PreviousPage() {
+    this.current_set = "profile";
+    window.scrollTo(0, 200);
+  }
 }

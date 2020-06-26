@@ -10,11 +10,14 @@ osg-progression-builder-progressive-overload-graph{
         padding-top: 30px;
         margin-top: 20px;
         margin-bottom: 30px;
+		overflow-x: auto;
+		
 		.c3 svg {
 			font: 12px "Gotham Book";
 			color: #838383;
 		}
 		.c3 {
+			width: 1080px;
 			line {
 				stroke: #128cf3;
 				stroke-width: 1;
@@ -45,6 +48,7 @@ osg-progression-builder-progressive-overload-graph{
             flex-direction: row;
 			margin-top: 30px;
 			margin-left: 18px;
+			width: 1080px;
 			.article_type {
 				position: absolute;
 				width: 50px;
@@ -86,6 +90,7 @@ osg-progression-builder-progressive-overload-graph{
             text-align: center;
             padding-top: 20px;
             padding-bottom: 20px;
+			width: 1080px;
             .dropdown {
                 display: inline-block;
                 margin-right: 10px;

@@ -6,10 +6,32 @@ header {
         -o-transition: all 0.3s ease-in-out;
         -webkit-transition: all 0.3s ease-in-out;
         &.navbar {
-            padding-top: 31px;
-            padding-bottom: 31px;
-            font-family: $fourth-font;
-
+			@media (min-width: 320px) {
+				padding-bottom: 0px;
+				padding-top: 0;
+				height: 62px;
+				.container {
+					margin-top: 62px;
+				}
+			}
+            @media (min-width: 768px) {
+				&.sticky {
+					padding-top: 10px;
+					padding-bottom: 10px;
+					.navbar-brand {
+						transform: scale(0.4);
+						transform-origin: center top;
+						top: -20px;
+					}
+				}
+				padding-bottom: 31px;
+				padding-top: 31px;
+				height: auto;
+				.container {
+					margin-top: auto;
+				}
+			}
+            font-family: $fourth-font;			
             .navbar-toggler {
                 outline: none;
                 padding: 0px;
@@ -24,41 +46,50 @@ header {
                 -moz-transition: .5s ease-in-out;
                 -o-transition: .5s ease-in-out;
                 transition: .5s ease-in-out;
+				
+				span {
+					display: block;
+					position: absolute;
+					height: 4px;
+					width: 100%;
+					background: #fff;
+					opacity: 1;
+					left: 0;
+					
+					&.bar1 {
+						top: 3px;
+					}
 
-                span {
-                    display: block;
-                    position: absolute;
-                    height: 5px;
-                    width: 100%;
-                    background: $yellow;
-                    border-radius: 9px;
-                    opacity: 1;
-                    left: 0;
-                    -webkit-transform: rotate(0deg);
-                    -moz-transform: rotate(0deg);
-                    -o-transform: rotate(0deg);
-                    transform: rotate(0deg);
-                    -webkit-transition: .25s ease-in-out;
-                    -moz-transition: .25s ease-in-out;
-                    -o-transition: .25s ease-in-out;
-                    transition: .25s ease-in-out;
+					&.bar2 {
+						top: 12px;
+					}
 
-                    &:nth-child(1) {
-                        top: 0px;
-                    }
-
-                    &:nth-child(2) {
-                        top: 12px;
-                    }
-
-                    &:nth-child(3) {
-                        top: 24px;
-                    }
-                }
+					&.bar3 {
+						top: 21px;
+					}
+				}
+				&.change {
+					span {
+						&.bar1 {
+							top: auto;
+							transform: rotate(-41deg) translate(-2px, -3px);
+						}
+						
+						&.bar2 {
+							opacity: 0;
+						}
+						
+						&.bar3 {
+							top: auto;
+							transform: rotate(40deg) translate(-3px, 1px);
+						}
+					}
+				}
+                
                 @include media-breakpoint-down(md) {
                     position: absolute;
                     right: 0px;
-                    top: -15px;
+                    top: -42px;
                 }
             }
 
@@ -67,7 +98,7 @@ header {
                 padding: rem(35);
                 border-radius: 50%;
                 position: absolute;
-                top: -50px;
+                top: -53px;
                 z-index: 10;
                 left: -15px;
                 width: 200px;
@@ -78,14 +109,36 @@ header {
                 -webkit-transition: all 0.3s ease-in-out;
 
                 @include media-breakpoint-down(md) {
-                    width: 120px;
+                    width: 80px;
+					padding: 0;
+					border-radius: 0;
+					top: -53px;
+					img {
+						width: 50px;
+					}
                 }
             }
-
+			.navbar-collapse {
+				&.mobile {
+					margin-left: -15px;
+					margin-right: -15px;
+				}
+				@media (min-width: 320px) {
+					&.mobile {
+						background: #111;
+						padding: 20px 10px;
+					}
+				}
+				@media (min-width: 768px) {
+					&.mobile {
+						background: transparent;
+						padding: 0;
+					}
+				}
+			}
             .menu-box {
                 font-size: 16px;
                 @include media-breakpoint-down(md) {
-                    padding-top: 50px;
                     text-align: center;
                 }
 
@@ -93,12 +146,12 @@ header {
                     margin-left: 10px;
                     margin-right: 10px;
                     font-size: rem(14);
+					
                     @include media-breakpoint-down(xs) {
-                        text-align: center;
+                        text-align: left;
                     }
 
                     a {
-                        color: #FFF;
                         text-transform: uppercase;
                         transition: all 0.2s linear;
                         &:hover{
@@ -110,6 +163,18 @@ header {
                             color: $yellow;
                         }
                     }
+					@media (min-width: 320px) {
+						height: 45px;
+						a {
+							color: #d3d3d3;
+						}
+					}
+					@media (min-width: 768px) {
+						height: 37px;
+						a {
+							color: #fff;
+						}
+					}
                 }
             }
 
@@ -137,7 +202,7 @@ header {
                 }
                 @include media-breakpoint-down(md) {
                     justify-content: center;
-                    text-align: center;
+                    text-align: left;
                 }
 
                 &:before {
@@ -158,13 +223,10 @@ header {
                     margin-left: 10px;
 
                     a {
-                        padding-right: 0.5rem;
-                        padding-left: 0.5rem;
                         display: block;
-                        padding: 0.5rem 1rem;
-
+                        padding: 0.5rem 0;
+						
                         &.white-text {
-                            color: $white;
                             font-size: rem(14);
                             font-family: $fourth-font;
                         }
@@ -172,28 +234,41 @@ header {
                         &.btn {
                             font-size: rem(14);
                             font-family: $fourth-font;
+							@media (min-width: 320px) {
+								width: 120px;
+							}
+							@medai (min-width: 768px) {
+								width: auto;
+							}
                         }
                     }
+					@media (min-width: 320px) {
+						a {
+							height: 40px;
+							margin-bottom: 10px;
+							&.white-text {
+								color: #d3d3d3;
+							}
+							&.btn {
+								color: #d3d3d3 !important;
+							}
+						}
+					}
+					@media (min-width: 768px) {
+						a {
+							height: 37px;
+							margin-bottom: 0px;
+							&.white-text {
+								color: #fff;
+							}
+							&.btn {
+								color: #fff !important;
+							}
+						}
+					}
                 }
             }
-
-            &.sticky {
-                padding-top: 10px;
-                padding-bottom: 10px;
-                @include media-breakpoint-down(md) {
-                    padding-top: 30px;
-                    padding-bottom: 30px;
-                }
-                .navbar-brand{
-                    transform: scale(0.4);
-                    transform-origin: center top;
-                    top: -20px;
-                    @include media-breakpoint-down(md) {
-                        transform: scale(1);
-                        top: -50px
-                    }
-                }
-            }
+			
         }
     }
 }

@@ -6,7 +6,7 @@
           <ul>
             <li><a href="{{ url('features')}}">Features</a></li>
             <li><a href="{{ url('strength-athlete')}}">Strength Athlete</a></li>
-            <li><a href="{{ url('program-designer')}}">Training Program Designer</a></li>
+            <li><a href="{{ url('program-designer')}}">Program Designer</a></li>
             <li><a href="{{ url('personal-trainer')}}">Personal Trainer</a></li>
           </ul>
         </div>
@@ -23,7 +23,7 @@
         <h3>For Users</h3>
           <ul>
             <li><a href="{{ url('login')}}">Login</a></li>
-            <li><a href="#">Get Started</a></li>
+            <li><a href="{{ url('register')}}">Get Started</a></li>
             <li><a href="#">FAQ</a></li>
             <li><a href="#">Help Center</a></li>
           </ul>
@@ -52,7 +52,7 @@
               <p class="d-inline-block">Copyright {{date('Y')}} © Optimal Strength Gains AS. All Rights Reserved.</p>
           </div>
           <div class="col-12 col-sm-12 col-lg-4 text-center text-lg-right">
-            <p>Web Design & Web Development: <a href="https://fantasylab.io" target="_blank"><span>FantasyLab.</span></a></p>
+            <p><a href="https://fantasylab.io/ui-ux-design" target="_blank"><span>UI & UX Design & </span></a><a href="https://fantasylab.io/web-development" target="_blank"><span>Web Development: </span></a><a href="https://fantasylab.io" target="_blank"><span>FantasyLab.</span></a></p>
           </div>
         </div>
       </section>

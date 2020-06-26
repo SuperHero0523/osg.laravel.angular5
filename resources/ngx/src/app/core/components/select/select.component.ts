@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, HostBinding } from '@angular/core';
-
+import { NgxSiemaOptions, NgxSiemaService } from 'ngx-siema';
 @Component({
     selector: 'osg-select',
     templateUrl: './select.component.html'
@@ -18,13 +18,16 @@ export class SelectComponent {
         this._options = o;
         this.selection = o[0];
     }
+
+    @Input() type: string;
+
     get options(): string[]{
         return this._options;
     }
 
     @Output() change: EventEmitter<string> = new EventEmitter();
 
-    constructor() { }
+    constructor() {}
 
     ngOnInit() {
         this.selection = this.options.length ? this.options[0] : '';
@@ -42,4 +45,7 @@ export class SelectComponent {
         this.toggle();
     }
 
+    popup() {
+        this.open = !this.open;
+    }
 }

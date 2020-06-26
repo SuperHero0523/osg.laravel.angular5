@@ -1,6 +1,12 @@
 .modal-content{
     background: #f5f5f5;
     padding: 20px 30px 40px;
+	@media (min-width: 320px) {
+		top: 150px;
+	}
+	@media (min-width: 1280px) {
+		top: 0;
+	}
     osg-program-designer-training-day-modal{
         .modal-header{
             border-bottom: solid 1px #cfcfcf;

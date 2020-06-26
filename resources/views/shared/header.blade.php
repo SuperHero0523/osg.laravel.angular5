@@ -2,14 +2,13 @@
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container position-relative">
         <a class="navbar-brand" href="{{ url('/') }}"><img src="/images/logo.png" class="img-fluid d-block mx-auto" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
+        <button class="navbar-toggler" type="button">
+            <span class="bar1"></span>
+            <span class="bar2"></span>
+            <span class="bar3"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse mobile" id="navbarSupportedContent">
             <div class="ml-auto navbar-nav">
                 <ul class="menu-box navbar-nav">
                     <li class="nav-item">

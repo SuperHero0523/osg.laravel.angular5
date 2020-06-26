@@ -9,7 +9,9 @@ osg-progression-builder-program-design {
             tr {
                 th {
                     border: 1px solid #dadada;
-                    font-size: rem(14);
+                    font-size: 0.85rem;
+					font-family: "Gotham Medium";
+					font-weight: 300;
                     color: #000 !important;
                     vertical-align: middle;
                     background: #fff0cf;
@@ -43,23 +45,20 @@ osg-progression-builder-program-design {
                         }
                     }
                 }
-                &:last-child{
-                    th{
-                        font-size: 0.6rem;
-                    }
-                }
             }
         }
 
         tbody {
             tr {
                 td {
-                    background: #FFF;
+                    background: #fff;
                     border: 1px solid #dadada;
-                    font-size: rem(10);
+                    font-size: 0.85rem;
+					font-family: "Gotham Medium";
+					font-weight: 300;
                     padding: 0.55rem;
                     color: #000;
-
+					
                     &.red {
                         background: #fff0e8 !important;
                     }
@@ -71,6 +70,10 @@ osg-progression-builder-program-design {
                     &.blue {
                         background: #f0feff !important;
                     }
+					
+					&.border-bottom {
+						border-bottom: 2px solid #78cd18 !important;
+					}
                 }
 
                 &:nth-child(odd) {
@@ -94,18 +97,6 @@ osg-progression-builder-program-design {
                         border-bottom: 2px solid #78cd18;
                     }
                 }
-/*
-                &:nth-last-child(2){
-                    td {
-                        &:last-child(),
-                        &:nth-last-child(2),
-                        &:nth-last-child(3),
-                        &:nth-last-child(4){
-                            border-bottom: 2px solid #78cd18;
-                        }
-                    }
-                }
-*/
             }
         }
     }

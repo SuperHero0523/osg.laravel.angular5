@@ -1,34 +1,26 @@
-
-<div class="form-title">
-    <p>Completed:</p>
-</div>
-<div class="stepper-group">
-    <div class="stepper">
-        <button class="decrease" (click)="DecraseREPS()"><span>-</span></button>
+<div class="flex-content">
+    <div class="stepper-group">
+        <div class="stepper">
+            <button class="decrease" (click)="DecraseRTF()"><span>-</span></button>
+        </div>
+        <div class="amount">
+            <label><span>Performed RTF</span></label>
+        </div>
+        <div class="stepper">
+            <button class="increase" (click)="IncraseRTF()"><span>+</span></button>
+        </div>
     </div>
+    <div class="stepper-group">
+        <div class="stepper">
+            <button class="decrease" (click)="DecraseREPS()"><span>-</span></button>
+        </div>
+        <div class="amount">
+            <label><span>Performed Reps</span></label>
+        </div>
 
-    <div class="amount">
-        <label class="amount-num">{{reps}}</label>
-        <label><span>Performed Reps</span></label>
-    </div>
-
-    <div class="stepper">
-        <button class="increase" (click)="IncraseREPS()"><span>+</span></button>
-    </div>
-</div>
-<div class="stepper-group">
-    <div class="stepper">
-        <button class="decrease" (click)="DecraseRTF()"><span>-</span></button>
-    </div>
-
-    <div class="amount">
-        <label class="amount-num">{{rtf}}</label>
-        <label><span>Performed RTF</span></label>
-    </div>
-
-    <div class="stepper">
-        <button class="increase" (click)="IncraseRTF()"><span>+</span></button>
+        <div class="stepper">
+            <button class="increase" (click)="IncraseREPS()"><span>+</span></button>
+        </div>
     </div>
 </div>
-<div class="form-des"><p class="amount-num">{{load}}</p><p><span>Autoregulated<br>Load(kg)</span></p></div>
-<div class="form-des"><p><span>Autoregulated<br>Load(%)+2,5</span></p></div>
+

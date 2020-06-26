@@ -1,8 +1,9 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,10 @@ import { ExperienceBankModule } from './experience-bank/experience-bank.module';
 import { StrengthStandardsModule } from './strength-standards/strength-standards.module';
 import { WorkoutLogModule } from './workout-log/workout-log.module';
 import { WorkoutDetailModule } from './workout-detail/workout-detail.module';
+import { InterviewModule } from './interview/interview.module';
 import { MockDataService } from './core/services/mock-data.service';
+import { MessageService } from './core/services/data.service';
+
 
 @NgModule({
   declarations: [
@@ -25,8 +29,11 @@ import { MockDataService } from './core/services/mock-data.service';
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     CoreModule,
     ProfileModule,
     PlanBuilderModule,
@@ -35,13 +42,15 @@ import { MockDataService } from './core/services/mock-data.service';
     WorkoutLogModule,
     WorkoutDetailModule,
     DashboardModule,
-    ContactsModule
+    ContactsModule,
+    InterviewModule
   ],
   providers: [
     ApplicationService,
     MockDataService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    [MessageService]
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

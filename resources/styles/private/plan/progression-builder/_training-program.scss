@@ -32,6 +32,9 @@ osg-progression-builder-training-program {
                 line-height: 31px;
                 font-size: rem(20);
                 margin-left: 10px;
+				svg {
+					width: 21px;
+				}
             }
         }
 
@@ -43,13 +46,27 @@ osg-progression-builder-training-program {
     }
     .training-program-wrapper{
         position: relative;
-        left: 0;
+        left: -70px;
         display: block;
-        width: calc( (#{$DayWidth} * 7) + #{$WeekWidth} + 1px);
+        width: 3000px;
         border-top: solid 1px #dbdbdb;
         border-left: solid 1px #dbdbdb;
         background: #FFF;
         transition: all 0.3s linear;
+		overflow-x: auto;
+		
+		@media (min-width: 320px) {
+			left: 0px;
+		}
+		@media (min-width: 1280px) {
+			left: -70px;
+		}
+		.no-gutters {
+			@media (max-width: 767.98px) {
+				display: flex! important;
+			}
+		}
+		
         .week{
             width: 214px;
             position: relative;
@@ -72,6 +89,7 @@ osg-progression-builder-training-program {
             font-family: $primary-font;
             font-size: rem(14);
             text-transform: uppercase;
+			width: 2956px;
             .week{
                 padding-top: 15px;
                 padding-bottom: 15px;
@@ -82,6 +100,7 @@ osg-progression-builder-training-program {
             }
         }
         .tbody{
+			width: 2956px;
             .week{
                 text-align: center;
                 display: flex;
@@ -314,6 +333,7 @@ osg-progression-builder-training-program {
             }
         }
         .tfooter{
+			width: 2956px;
             .footer-cell{
                 width: 100%;
                 position: relative;

@@ -12,6 +12,9 @@ import { GaugeComponent } from './components/gauge/gauge.component';
 import { SelectComponent } from './components/select/select.component';
 import { EnterInformation } from './components/enter-information/enter-information.component';
 
+import { ResponsiveModule } from 'ngx-responsive';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 let components = [
     NavigationComponent,
@@ -29,7 +32,10 @@ let components = [
   declarations: components,
   imports: [
     BrowserModule,
-    RouterModule
+    RouterModule,
+    CarouselModule,
+    NgbModule,
+    ResponsiveModule.forRoot(),
   ],
   exports: components,
   providers: [],

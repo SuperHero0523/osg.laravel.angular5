@@ -1,6 +1,11 @@
 osg-personal-trainer-experience-bank{
     display: block;
-    margin-bottom: 3rem;
+	@media (min-width: 320px) {
+		margin-top: 100px;
+	}
+	@media (min-width: 768px) {
+		margin-top: 50px;
+	}
     h3 {
         @include section-title;
     }
@@ -8,12 +13,31 @@ osg-personal-trainer-experience-bank{
         @extend .row;
         justify-content: space-between;
         align-items: flex-end;
-        margin-bottom: 15px;
+		margin-bottom: 20px;
+		@media (min-width: 320px) {
+			text-align: center;
+		}
+		@media (min-width: 768px) {
+			text-align: left;
+		}
+		@media (min-width: 1280px) {
+			h3 {
+				br {
+					display: none;
+				}
+			}
+		}
         .filter-box {
             font-weight: bold;
             font-size: rem(14);
             font-family: $fourth-font;
-
+			padding: 10px 0px;
+			.gender {
+				display: inline-block;
+			}
+			.category {
+				display: inline-block;
+			}
             p {
                 display: inline-block;
                 color: #ababab;
@@ -70,6 +94,7 @@ osg-personal-trainer-experience-bank{
     small{
         @extend .col-12;
         margin-top: rem(20);
+        padding-left: 0;
         font-size: rem(14);
     }
     table{
@@ -123,12 +148,56 @@ osg-personal-trainer-experience-bank{
                 }
             }
         }
+		@media (min-width: 320px) {
+			thead {
+				tr {
+					th {
+						padding: 5px;
+					}
+				}
+			}
+			tbody {
+				tr {
+					td {
+						padding: 5px;
+					}
+				}
+			}
+		}
+		@media (min-width: 768px) {
+			thead {
+				tr {
+					th {
+						padding: 0.875rem;
+					}
+				}
+			}
+			tbody {
+				tr {
+					td {
+						padding: 0.875rem;
+					}
+				}
+			}
+		}
     }
     .review-box{
         border: solid 1px #e2ded3;
         background: #FFF;
         display: block;
         padding: 20px 10px;
+		.owl-theme {
+			.owl-dots {
+				margin-top: -10px;
+				.owl-dot {
+					&.active {
+						span {
+							background: #ffa600;
+						}
+					}
+				}
+			}
+		}
         .review{
             font-size: rem(12);
             display: block;

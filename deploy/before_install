@@ -1,0 +1,2 @@
+rm -rf /var/www/vhosts/osg.fantasylab.io
+mkdir -p /var/www/vhosts/osg.fantasylab.io

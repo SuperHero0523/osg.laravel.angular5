@@ -39,7 +39,9 @@ osg-strength-standards-exercise-table {
                         font-family: $fourth-font;
                         font-size: 18px;
                         text-transform: uppercase;
-
+                        @media (max-width: 480px) {
+                            padding-left: 0;
+                        }
                         &:focus {
                             box-shadow: none;
                         }
@@ -109,7 +111,9 @@ osg-strength-standards-exercise-table {
 
         table.table {
             table-layout: fixed;
-
+			@media (min-width: 320px) {
+				width: 1110px;
+			}
             >thead {
                 >tr {
                     th {
@@ -135,6 +139,9 @@ osg-strength-standards-exercise-table {
                         font-size: rem(14);
                         text-align: center;
                         padding: 0.65rem 0.45rem;
+                        @media (max-width: 480px) {
+                            padding: 5px;
+                        }
 
                         &:first-child {
                             background: #fff6e1;

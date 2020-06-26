@@ -1,6 +1,6 @@
 <h2>Enter your information</h2>
 
-<div class="row mb-4">
+<div class="row" *showItDevice="['mobile']">
     <div class="col-12 col-sm-6 col-md-4">
         <div class="checbox-dropdown">
             <div class="checkbox custom-checkbox">
@@ -33,7 +33,45 @@
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <osg-select label="Height" [(value)]="information.height" [options]="heightOptions"></osg-select>
+            <osg-select label="Height (cm)" [(value)]="information.height" [options]="heightOptions"></osg-select>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4" *showItDevice="['tablet','desktop']">
+    <div class="col-12 col-sm-6 col-md-4">
+        <div class="checbox-dropdown">
+            <div class="checkbox custom-checkbox">
+                <label>
+                    <input type="checkbox" value="">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <osg-select label="Gender" [(value)]="information.gender" [options]="genderOptions" (change)="onGenderChange()"></osg-select>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4">
+        <div class="checbox-dropdown">
+            <div class="checkbox custom-checkbox">
+                <label>
+                    <input type="checkbox" value="">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <osg-select label="Body Weight (kg)" [(value)]="information.bodyWeight" [options]="bodyWeightOptions"></osg-select>
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-4">
+        <div class="checbox-dropdown">
+            <div class="checkbox custom-checkbox">
+                <label>
+                    <input type="checkbox" value="">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <osg-select label="Height (cm)" [(value)]="information.height" [options]="heightOptions"></osg-select>
         </div>
     </div>
 </div>
@@ -47,7 +85,7 @@
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <osg-select label="Waist-Hip Ratio" [(value)]="information.waistHipRatio" [options]="waistToHipRatioOptions"></osg-select>
+            <osg-select label="Waist-Hip Ratio (cm)" [(value)]="information.waistHipRatio" [options]="waistToHipRatioOptions"></osg-select>
         </div>
     </div>
     <div class="col-12 col-sm-6" [ngClass]="(status=='experience')?'col-md-3':'col-md-4'">
@@ -80,7 +118,7 @@
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <osg-select label="Level" [(value)]="information.level" [options]="strengthLevelsOptions"></osg-select>
+            <osg-select label="Level" [(value)]="information.level" [options]="strengthLevelsOptions" [(type)]="type"></osg-select>
         </div>
     </div>
 </div>

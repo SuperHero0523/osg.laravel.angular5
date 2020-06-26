@@ -18,7 +18,26 @@
         }
     }
     figure{
-        display: block;
         margin: 0;
     }
+	@media (min-width: 320px) {
+		figure {
+			&.desktop {
+				display: none;
+			}
+			&.mobile {
+				display: block;
+			}
+		}
+	}
+	@media (min-width: 1280px) {
+		figure {
+			&.desktop {
+				display: block;
+			}
+			&.mobile {
+				display: none;
+			}
+		}
+	}
 }

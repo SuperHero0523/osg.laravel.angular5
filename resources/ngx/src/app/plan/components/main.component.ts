@@ -8,16 +8,17 @@ export class PlanBuilderComponent implements OnInit {
 
   step: PlanBuilderStep;
 
-  //getStartedSections: string[] = ["the workout & calendar builder", "progression builder", "experience bank & reviews", "auto-regulation"];
+  // tslint:disable-next-line:max-line-length
+  // getStartedSections: string[] = ["the workout & calendar builder", "progression builder", "experience bank & reviews", "auto-regulation"];
 
   ngOnInit(): void {
     this.step = PlanBuilderStep.CalendarBuilder;
   }
 
-  get getStartedSections(): string[]{
-    return this.isBuildingCalendar 
-      ? ["the workout & calendar builder", "progression builder", "experience bank & reviews", "auto-regulation"]
-      : ["strength training principles", "program design variables", "progression models and strategies", "save & publish programs"];
+  get getStartedSections(): string[] {
+    return this.isBuildingCalendar
+      ? ['the workout & calendar builder', 'progression builder', 'experience bank & reviews', 'auto-regulation']
+      : ['strength training principles', 'program design variables', 'progression models and strategies', 'save & publish programs'];
   }
 
   get isBuildingCalendar(): boolean {

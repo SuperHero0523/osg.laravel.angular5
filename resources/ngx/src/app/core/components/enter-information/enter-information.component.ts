@@ -18,7 +18,8 @@ export class EnterInformation implements OnInit{
   strengthLevelsOptions: string[];
   heightOptions: string[];
   muscleFiberOptions: string[];
-
+  type: string = 'level';
+  
   onGenderChange(){
     this.bodyWeightOptions = this.getBodyWeightOptions();
     this.waistToHipRatioOptions = this.getWaistToHipRatioOptions();
@@ -68,7 +69,7 @@ export class EnterInformation implements OnInit{
   }
 
   ngOnInit(): void {
-      this.onGenderChange();
+    this.onGenderChange();
   }
 
 }

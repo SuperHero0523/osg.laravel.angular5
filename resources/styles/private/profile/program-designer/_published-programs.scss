@@ -1,4 +1,6 @@
 osg-program-designer-published-programs{
+	display: block;
+	
     .title {
         display: block;
         width: 100%;
@@ -18,7 +20,7 @@ osg-program-designer-published-programs{
                 }
             }
         }
-
+		
         .control-slider {
             display: inline-block;
             vertical-align: top;
@@ -53,7 +55,7 @@ osg-program-designer-published-programs{
         }
 
     }
-
+	
     table{
         margin-top: 20px;
         thead{
@@ -93,4 +95,37 @@ osg-program-designer-published-programs{
             }
         }
     }
+	@media (min-width: 320px) {
+		.title {
+			h3 {
+				font-size: 16px;
+				margin-bottom: 20px;
+			}
+			.item-group {
+				text-align: left;
+				.control-slider {
+					a:nth-of-type(1) {
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+	
+	@media (min-width: 1280px) {
+		.title {
+			h3 {
+				font-size: 1.1rem;
+				margin-bottom: 0px;
+			}
+			.item-group {
+				text-align: right;
+				.control-slider {
+					a:nth-of-type(1) {
+						margin-left: auto;
+					}
+				}
+			}
+		}
+	}
 }

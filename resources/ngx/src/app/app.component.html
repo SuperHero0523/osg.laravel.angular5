@@ -1,3 +1,2 @@
-<osg-navigation></osg-navigation>
-    <router-outlet></router-outlet>
-    <osg-footer></osg-footer>
+<osg-navigation *ngIf="isHeaderFooter"></osg-navigation>
+<router-outlet (activate)="onActivate($event)"></router-outlet>

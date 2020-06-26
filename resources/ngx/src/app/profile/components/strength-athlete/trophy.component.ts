@@ -174,49 +174,55 @@ export class StrengthAthleteTrophyComponent implements OnInit {
             $lastExtra.appendTo($(el).find('.c3-circles'));
           }
         })
-        $(".c3").children(':first-child').children(':nth-child(2)').attr('style', 'transform: translate(50px, 10px);');
+        $(`#${this.performanceGraphId} .c3`).children(':first-child').children(':nth-child(2)').attr('style', 'transform: translate(50px, 10px);');
         var circles = $(".c3-chart-lines > .c3-target-data1 > .c3-circles-data1");
-        circles[2]['childNodes'].forEach((item) => {
-          Object.keys(item['classList']).map((key, index) => {
-            var class_names = Object.values(item['classList']);
-            if (!class_names.includes('pretest') && !class_names.includes('posttest')) {
-              Object.keys(item['attributes']).map((key, index) => {
-                if (item['attributes'][key].value.includes('opacity: 1')) {
-                  var className = class_names[class_names.length-1];
-                  $(".c3-chart-lines > .c3-target-data1 > .c3-circles-data1 > ."+className).attr('style', 'opacity: 0 !important;');
-                }
-              });  
-            }
+        if (typeof circles[2] != 'undefined') {
+          circles[2]['childNodes'].forEach((item) => {
+            Object.keys(item['classList']).map((key, index) => {
+              var class_names = Object.values(item['classList']);
+              if (!class_names.includes('pretest') && !class_names.includes('posttest')) {
+                Object.keys(item['attributes']).map((key, index) => {
+                  if (item['attributes'][key].value.includes('opacity: 1')) {
+                    var className = class_names[class_names.length-1];
+                    $(".c3-chart-lines > .c3-target-data1 > .c3-circles-data1 > ."+className).attr('style', 'opacity: 0 !important;');
+                  }
+                });  
+              }
+            });
           });
-        });
+        }
         var circles = $(".c3-chart-lines > .c3-target-data2 > .c3-circles-data2");
-        circles[2]['childNodes'].forEach((item) => {
-          Object.keys(item['classList']).map((key, index) => {
-            var class_names = Object.values(item['classList']);
-            if (!class_names.includes('pretest') && !class_names.includes('posttest')) {
-              Object.keys(item['attributes']).map((key, index) => {
-                if (item['attributes'][key].value.includes('opacity: 1')) {
-                  var className = class_names[class_names.length-1];
-                  $(".c3-chart-lines > .c3-target-data2 > .c3-circles-data2 > ."+className).attr('style', 'opacity: 0 !important;');
-                }
-              });  
-            }
+        if (typeof circles[2] != 'undefined') {
+          circles[2]['childNodes'].forEach((item) => {
+            Object.keys(item['classList']).map((key, index) => {
+              var class_names = Object.values(item['classList']);
+              if (!class_names.includes('pretest') && !class_names.includes('posttest')) {
+                Object.keys(item['attributes']).map((key, index) => {
+                  if (item['attributes'][key].value.includes('opacity: 1')) {
+                    var className = class_names[class_names.length-1];
+                    $(".c3-chart-lines > .c3-target-data2 > .c3-circles-data2 > ."+className).attr('style', 'opacity: 0 !important;');
+                  }
+                });  
+              }
+            });
           });
-        });
+        }
         var circles = $(".c3-chart-lines > .c3-target-data3 > .c3-circles-data3");
-        circles[2]['childNodes'].forEach((item) => {
-          Object.keys(item['classList']).map((key, index) => {
-            var class_names = Object.values(item['classList']);
-            if (!class_names.includes('pretest') && !class_names.includes('posttest')) {
-              Object.keys(item['attributes']).map((key, index) => {
-                if (item['attributes'][key].value.includes('opacity: 1')) {
-                  var className = class_names[class_names.length-1];
-                  $(".c3-chart-lines > .c3-target-data3 > .c3-circles-data3 > ."+className).attr('style', 'opacity: 0 !important');
-                }
-              });  
-            }
+        if (typeof circles[2] != 'undefined') {
+          circles[2]['childNodes'].forEach((item) => {
+            Object.keys(item['classList']).map((key, index) => {
+              var class_names = Object.values(item['classList']);
+              if (!class_names.includes('pretest') && !class_names.includes('posttest')) {
+                Object.keys(item['attributes']).map((key, index) => {
+                  if (item['attributes'][key].value.includes('opacity: 1')) {
+                    var className = class_names[class_names.length-1];
+                    $(".c3-chart-lines > .c3-target-data3 > .c3-circles-data3 > ."+className).attr('style', 'opacity: 0 !important');
+                  }
+                });  
+              }
+            });
           });
-        });
+        }
       }
     });
     // var descriptions = "<div class='descriptions'>";

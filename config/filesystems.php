@@ -64,6 +64,12 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'profile_logo' => [
+            'driver' => 'local',
+            'root' => public_path('assets/uploads/profile_logo'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
     ],
 
 ];

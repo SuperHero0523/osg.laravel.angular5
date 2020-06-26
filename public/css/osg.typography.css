@@ -30,21 +30,21 @@
   font-family: 'Gotham Book';
   src: url(/fonts/Gotham-Book.eot?#iefix) format("embedded-opentype"), url(/fonts/Gotham-Book.woff) format("woff"), url(/fonts/Gotham-Book.ttf) format("truetype"), url(/fonts/Gotham-Book.svg#Gotham-Book) format("svg");
   font-weight: normal;
-  font-style: normal; 
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'Gotham Medium';
   src: url(/fonts/Gotham-Medium.eot?#iefix) format("embedded-opentype"), url(/fonts/Gotham-Medium.otf) format("opentype"), url(/fonts/Gotham-Medium.woff) format("woff"), url(/fonts/Gotham-Medium.ttf) format("truetype"), url(/fonts/Gotham-Medium.svg#Gotham-Medium) format("svg");
   font-weight: normal;
-  font-style: normal; 
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'Gotham Bold';
   src: url(/fonts/Gotham-Bold.eot?#iefix) format("embedded-opentype"), url(/fonts/Gotham-Bold.otf) format("opentype"), url(/fonts/Gotham-Bold.woff) format("woff"), url(/fonts/Gotham-Bold.ttf) format("truetype"), url(/fonts/Gotham-Bold.svg#Gotham-Bold) format("svg");
   font-weight: bold;
-  font-style: normal; 
+  font-style: normal;
 }
 
 
@@ -134,12 +134,12 @@ body.osg-public .home #secondary-call-to-action .call-to-action .content .button
   font-size: 1.1875rem;
 }
 .description ul li::before {
-  content: "\2022";  
-  color: #ffba00; 
+  content: "\2022";
+  color: #ffba00;
   font-weight: bold;
-  display: inline-block; 
-  width: 18px; 
-  margin-left: -1em; 
+  display: inline-block;
+  width: 18px;
+  margin-left: -1em;
   font-size: 20px;
   margin-top: -5px;
 }
@@ -263,10 +263,6 @@ osg-progression-builder-program-design .table tr:nth-child(odd) td:nth-child(2) 
   border-right: 2px solid #78cd18!important;
 }
 
-body.ngx-osg optimal-strength-gains osg-plan-builder osg-progression-builder osg-progression-builder-program-design .table-program-design tbody tr td
-{
-  font-size: 12px!important;
-}
 
 /* 26-2-2019 */
 
@@ -462,7 +458,7 @@ background: #e3e3e3;
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #adadad; 
+  background: #adadad;
   border-radius: 10px;
 }
 /* scroll */
@@ -490,11 +486,11 @@ background: #e3e3e3;
   padding-top: 30px!important;
 }
 
-  .calendar 
+  .calendar
   {
     overflow-x: scroll;
   }
-  
+
   .wrapper-weeks, .week-days
   {
     width: 1024px;
@@ -536,7 +532,11 @@ body.osg-public .home #secondary-call-to-action{
   margin-top:-76px !important;
 }
 
-
+@media (min-width: 1200px){
+  .container {
+      max-width: 1250px!important;
+  }
+}
 /* .personel_trainer .osg-profile-cover {
   background-image: url(../images/banner.png);
   clip-path: ellipse(100% 60% at 50% 40%);
@@ -605,7 +605,7 @@ font-family: "Square 721 BT Bold Extended";
   margin: auto;
   padding: 150px 0px;
 
-  
+
 }
 
 .personel_trainer .benefit {
@@ -634,7 +634,7 @@ font-family: "Square 721 BT Bold Extended";
 
 .personel_trainer .benefit h4 {
   padding-bottom: 40px;
- 
+
 }
 
 .personel_trainer .benefits h4 {
@@ -650,9 +650,7 @@ font-family: "Square 721 BT Bold Extended";
 
 }
 .personel_trainer  img,.personel_trainer .benefits_follow img{
-  padding-bottom: 15px;
   max-width:100%;
-
 }
 
 .banner_img  img:nth-child(1)
@@ -674,7 +672,7 @@ body
   background: #f5f5f5;
   padding: 150px 0px;
   position: relative;
-  bottom: 170px;
+  margin-top: -155px;
 }
 
 .personel_trainer .about h4 {
@@ -682,7 +680,6 @@ body
 }
 
 .personel_trainer .about_content {
-  width: 534px;
   width: 534px;
   margin-right: auto;
   margin-top: auto;
@@ -743,7 +740,17 @@ body
 
 .personel_trainer .osg-personal-trainer-offers .title {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+}
+@media (min-width: 320px) {
+	.personel_trainer .osg-personal-trainer-offers .title {
+		margin-top: -3px;
+	}
+}
+@media (min-width: 768px) {
+	.personel_trainer .osg-personal-trainer-offers .title {
+		margin-top: 30px;
+	}
 }
 
 .personel_trainer .osg-personal-trainer-offers .title h3,.personel_trainer .client_result h3 {
@@ -758,13 +765,12 @@ body
   margin: auto;
   max-width: 100%;
   color: #615c4c;
-  padding-bottom: 65px;
 }
 
 .personel_trainer .osg-personal-trainer-offers .offers-container {
   display: flex;
   flex-wrap: wrap;
-  
+
 }
 
 .personel_trainer .osg-personal-trainer-offers .offers-container .offer {
@@ -840,9 +846,10 @@ body
   text-align: center;
   padding: 50px 0px;
   padding: 150px 0px;
- background:#f5f5f5;
+  background:#f5f5f5;
   margin-left: auto;
   margin-right: auto;
+  margin-top: -10px;
 }
 
 
@@ -957,7 +964,7 @@ body
 }
 
 .personel_trainer .form-group .form-control {
- 
+
   font-weight: 700;
 }
 
@@ -1500,7 +1507,7 @@ body.osg-public .register,body.osg-public .login{
   opacity: 0.7;
 }
 .personel_trainer .review{
-  padding: 150px 0;   
+  padding: 150px 0;
 }
 .personel_trainer .img-fluid,
 .personel_trainer .post .content .post-content .photos figure img {
@@ -1509,7 +1516,7 @@ body.osg-public .register,body.osg-public .login{
 }
 
 .personel_trainer .review_rating {
-  
+
   margin-right: auto;
   margin-top: auto;
   font-size: 10px;
@@ -1539,6 +1546,31 @@ body.osg-public .register,body.osg-public .login{
   width: 100%;
   background-position: 47% -260%;
   background-repeat: no-repeat;
+}
+@media (min-width: 320px) {
+	.personel_trainer .offer_parent{
+		background-position: 47% 0%;
+	}
+	.personel_trainer .review_rgtcol.desktop{
+		display: none;
+	}
+	.personel_trainer .review_rgtcol.mobile{
+		display: block;
+	}
+
+}
+@media (min-width: 768px) {
+	.personel_trainer .offer_parent{
+		background-position: 47% -260%;
+	}
+}
+@media (min-width: 1024px) {
+	.personel_trainer .review_rgtcol.desktop{
+		display: block;
+	}
+	.personel_trainer .review_rgtcol.mobile{
+		display: none;
+	}
 }
 .personel_trainer .review_rating img {
   padding-right: 5px;
@@ -1622,7 +1654,7 @@ body.osg-public .register,body.osg-public .login{
   .personel_trainer .new_feed_rgtcol {
       margin-left: unset;
   }
-  
+
   .personel_trainer .osg-personal-trainer-offers .offers-container .offer {
       width: 45%;
   }
@@ -1646,23 +1678,20 @@ body.osg-public .register,body.osg-public .login{
   .personel_trainer .review_rating:before{
       left: -24px;
   }
-  
+
   .personel_trainer .review_rgtcol{
-      margin-left:20px;
-  }
-  .personel_trainer .booking_content{
-      margin-left: 20px;
+	 padding: 10px;
   }
   .personel_trainer .booking_content p{
-      text-align: left;
-    
+      text-align: center;
+
   }
- 
+
   .personel_trainer .client_result p{
-      text-align: left;
+      text-align: center;
   }
   .personel_trainer .osg-personal-trainer-offers .title p{
-      text-align: left;
+      text-align: center;
   }
   .personel_trainer .news_feed{
       margin-left: 20px;
@@ -1689,13 +1718,13 @@ body.osg-public .register,body.osg-public .login{
 /*personal Trainer*/
 
 
-/* 
+/*
 --------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------- */
 
 /* Program Designer */
 
-	
+
 .program_designer .container {
   width: 1115px;
   margin:auto;
@@ -1711,7 +1740,7 @@ body.osg-public .register,body.osg-public .login{
 }
 
 
-.program_designer .osg-profile-cover 
+.program_designer .osg-profile-cover
 {
   background-image: url(../images/program_design_banner.png);
   clip-path: ellipse(100% 60% at 50% 40%);
@@ -1793,7 +1822,7 @@ body.osg-public .register,body.osg-public .login{
 }
 
 .program_designer .benefit h4 {
-  padding-bottom: 40px;   
+  padding-bottom: 40px;
 font-size: 24px;
 font-family: "Square 721 BT Bold Extended";
 }
@@ -1843,9 +1872,8 @@ font-family: "Square 721 BT Bold Extended";
 padding-bottom: 100px;
 }
 .program_designer .calendar_build .build_content p,.progress_build_lft p {
-  
+
   color: #615c4c;
-  padding-bottom: 40px;
 }
 
 .program_designer .calendar_build .build_content h3,.progress_build_lft h3 {
@@ -1951,7 +1979,7 @@ padding: 100px 0px 115px 0px;
 .program_designer .program_design table tbody tr:first-child td:nth-child(9),
 .program_designer .program_design table tbody tr:first-child td:nth-child(10) {
   background: #fff0cf;
-  
+
 }
 .program_designer .program_design table tbody tr:first-child td{
   color: #000;
@@ -2328,7 +2356,7 @@ font-weight: bold;
 padding: 0px;
 vertical-align: top;
 border-top: 1px solid #dee2e6;
-  font-family: futura_md_btnormal; 
+  font-family: futura_md_btnormal;
 } */
 
 .program_designer .bnk_exp_table table tbody tr td:first-child{
@@ -2349,9 +2377,6 @@ padding: 0px;
 }
 
 /*form*/
-.starter_log input:focus{
-  background: #fff !important;
-}
 .program_designer .starter_log {
 padding-bottom: 100px;
 }
@@ -2586,9 +2611,20 @@ cursor: pointer;
 }
 
 .program_designer .news_feed {
-  padding: 100px 0px 115px 0px;
+  padding: 0;
+  margin: 0 0 100px 0;
 }
 
+@media (min-width: 320px) {
+ .program_designer .news_feed  {
+	flex-direction: column;
+  }
+}
+@media (min-width: 1024px) {
+ .program_designer .news_feed  {
+	flex-direction: row;
+  }
+}
 .program_designer .news_feed h3 {
   font-weight: bold;
 }
@@ -2992,7 +3028,9 @@ cursor: pointer;
 
 @media (max-width:991px) {
   .program_designer .new_feed_rgtcol {
-      margin-left: unset;
+	margin-left: unset;
+	flex: 1;
+	width: 100%;
   }
 
   .program_designer .osg-personal-trainer-offers .offers-container .offer {
@@ -3007,25 +3045,28 @@ cursor: pointer;
   .program_designer .progress_build_img {
       width: 100%;
   }
-  
+
   .program_designer.program_designer .bnk_exp_table{
       margin-left: unset;
       padding-top: 30px;
   }
   .program_designer .review_chart{
-      display: block;
+	display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-direction: column;
   }
   .program_designer .user_review{
-      margin-bottom: 22px;
-      width: 209px;
-      margin-left: 50px;
+    margin-bottom: 22px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    align-self: center;
+    max-height: 290px;
   }
   .program_designer .calendar_build .build_content p{
-      text-align: left;
-  }
-  .program_designer  .progress_build .progress_build_lft,.review_content p{
-      margin-right: unset;
-      padding-left: 20px;
+      text-align: center;
   }
   .program_designer  .publish_content p{
       text-align: left;
@@ -3033,12 +3074,8 @@ cursor: pointer;
   .program_designer .bank_experience{
       padding-left: 20px;
   }
-  .program_designer .review_content p{
-      padding-left: 20px;
-      text-align: left;
-  }
-  .program_designer  .news_feed{
-      padding-left:20px; 
+  .program_designer .bnk_exp_content h3 {
+	 text-align: center;
   }
   .program_designer .email_form button{
       margin-top: 15px;
@@ -3047,22 +3084,20 @@ cursor: pointer;
       max-width: 100%;
       max-height:100%;
   }
-  
+
   @media (max-width:550px) {
       .program_designer .calendar_build{
           bottom: 240px;
       }
   }
-  
+
 }
 @media (max-width:1199px){
   .bnk_exp_content ,.bnk_exp_table{
     width: 100% !important;
     padding: 30px;
   }
-  .personel_trainer .about_content {
-    margin-left: 20px;
-}
+
 .personel_trainer .review, .personel_trainer .client_result{
   padding:0;
 }
@@ -3102,7 +3137,7 @@ cursor: pointer;
 .trophy-walls1 p
 {
   padding-top: 10px;
-  
+
    font-size: 19px;
    color: #615c4c;
    text-align: center;
@@ -3393,9 +3428,7 @@ cursor: pointer;
 
 .detail-title {
   display: block;
-  padding: 20px 10px;
-  border-top: 1px solid #dadada;
-  border: 1px solid #dadada;
+  padding: 10px;
   border-bottom: 1px solid #dadada;
 }
 
@@ -3409,7 +3442,7 @@ cursor: pointer;
 
 b
 {
-  color: black;   
+  color: black;
 }
 .detail-title p {
   color: #838383;
@@ -3420,9 +3453,8 @@ b
 .graph {
   display: block;
   height: 100%;
-  padding: 15px 10px;
+  padding: 10px;
   border-bottom: 1px solid #dadada;
-  border: 1px solid #dadada;
 }
 
 .graph .gauge-container osg-gauge {
@@ -3442,7 +3474,7 @@ body.ngx-osg optimal-strength-gains osg-gauge svg > path:first-child {
 
 osg-gauge.green svg .animatable {
   stroke: #4fb100;
-}    
+}
 
 osg-gauge.no-circle svg circle {
   display: none;
@@ -3629,7 +3661,7 @@ osg-gauge.blue svg text {
   margin: 0;
 }
 
-.permo-tab 
+.permo-tab
 {
    padding-bottom: 100px;
 }
@@ -3715,20 +3747,6 @@ osg-gauge.blue svg text {
 {
    padding-top: 100px;
    background-color: #f5f5f5;
-}
-
-
-.conventions {
-  display: block;
-  text-align: center;
-}
-
-.conventions p {
-  color: #838383;
-  font-size: 0.875rem;
-  display: inline-block;
-  margin-right: 10px;
-  margin-left: 10px;
 }
 
 .conventions p.test span {
@@ -3848,10 +3866,20 @@ osg-gauge.blue svg text {
        background-size: cover !important;
    background-repeat: no-repeat !important;
 }
-body.osg-public .home #get-started h2,body.osg-public .home #get-started form a,body.osg-public .home #get-started form p{
-  padding-bottom:25px;
-  color:#fff !important;
+
+
+body.osg-public .home #get-started .content-form.home label {
+	color:#000;
 }
+body.osg-public .home #get-started .content-form.home form a, body.osg-public .home #get-started .content-form.home form p {
+	padding-bottom:25px;
+	color:#000 !important;
+}
+body.osg-public .home #get-started h2, body.osg-public .home #get-started form p{
+  padding-bottom:25px;
+  color:#fff;
+}
+
 body.osg-public .home #get-started h2{
   text-align: center;
 }
@@ -3900,7 +3928,13 @@ body.osg-public .register .sign-up-form-wrapper .content-form form .custom-check
   border: solid 2px #e1e1e1;
   background: white;
 }
-
+body.osg-public .home #get-started form .form-group label.error {
+	top: 48px;
+    color: red;
+    font-size: 11px;
+    font-family: "Gotham Bold";
+    left: 0;
+}
 .custom-checkbox .checkmark {
   position: absolute;
   top: 0px;
@@ -3939,10 +3973,52 @@ body.osg-public .register .sign-up-form-wrapper .content-form form .custom-check
    }
 
 .strength-news,.program-news{
-
-     margin: auto;
+	margin: auto;
 }
-   .new_feed_lftcol {
+
+.strength-news.news_feed {
+	padding-bottom: 100px;
+}
+
+.strength-news .news_content {
+	position: absolute;
+    top: 40%;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+@media (min-width: 320px) {
+	.strength-news .mobile {
+		display: block;
+	}
+	.strength-news .desktop {
+		display: none;
+	}
+	.strength-news .news_content {
+		padding: 0;
+		text-align: center;
+		position: unset;
+		padding-top: 100px;
+	}
+}
+@media (min-width: 1024px) {
+	.strength-news .mobile {
+		display: none;
+	}
+	.strength-news .desktop {
+		display: block;
+	}
+	.strength-news .news_content {
+		position: absolute;
+	}
+}
+@media (min-width: 1280px) {
+	.strength-news .news_content {
+		padding-left: 80px;
+		padding-right: 80px;
+	}
+}
+.new_feed_lftcol {
     width: 423px;
     margin-right: auto;
     margin-top: auto;
@@ -4397,6 +4473,7 @@ osg-strength-athlete-trophy .performance-graph .descriptions {
   flex-direction: row;
   margin-bottom: 30px;
   width: 90%;
+      padding-top: 30px;
 }
 
 osg-strength-athlete-trophy .performance-graph .descriptions > div span:first-child {
@@ -4648,7 +4725,7 @@ optimal-strength-gains osg-gauge.green svg text {
 osg-strength-athlete-trophy .current-level .level p {
   font-size: 0.875rem;
   line-height: 1.125rem;
-} 
+}
 
 osg-strength-athlete-trophy-wall p b {
   color: #000;
@@ -4746,7 +4823,8 @@ body
 }
 
 select
-{   background: #FFF url(drop.png) no-repeat 95% center;
+{
+  background: #FFF;
   background-size: auto 50%;
   appearance: none;
   -moz-appearance: none;
@@ -4778,24 +4856,8 @@ osg-strength-athlete-trophy .performance-graph .descriptions > div:last-child {
   width: 25%;
 }
 
-osg-plan-builder {
-  display: block;
-  padding-top: 3.5rem;
-  background: #f5f5f5;
-  padding-left: 50px;
-  padding-right: 50px;
-}
-
 osg-plan-builder osg-calendar-builder {
   display: block;
-}
-
-osg-plan-builder-workout table tbody tr td {
-  border: solid 1px #d8ddd1;
-  font-size: 0.875rem;
-  text-align: center;
-  text-transform: uppercase;
-  vertical-align: middle;
 }
 /* body.ngx-osg optimal-strength-gains osg-plan-builder h1 */
 
@@ -4870,7 +4932,24 @@ body osg-plan-builder .osg-plan-builder1 h1 {
   font: normal normal normal 18px/1 FontAwesome;
 }
 
-
+osg-plan-builder osg-calendar-builder .container-new {
+  height: 815px!important;
+  display: flex!important;
+  flex-direction: column!important;
+  justify-content: center;
+  align-items: center;
+}
+osg-plan-builder osg-calendar-builder .container-new .new-title{
+  font-family: "Gotham Bold";
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+osg-plan-builder osg-calendar-builder .container-new .new-sub-title{
+  font-family: "Gotham Book";
+  font-size: 16px;
+  color: gray;
+}
 osg-plan-builder osg-calendar-builder .container-box {
   background: #FFF;
   position: relative;
@@ -4923,90 +5002,9 @@ osg-plan-builder-workout h3 span {
   display: inline-block;
 }
 
-osg-plan-builder-workout .table-responsive {
-  height: 780px;
-  overflow-x: inherit;
-}
-
 osg-plan-builder-workout table {
   margin-bottom: 0;
-}
-
-osg-plan-builder-workout table thead tr:first-child th {
-  border-top: none;
-}
-
-osg-plan-builder-workout table thead tr:first-child th:nth-child(2) {
-  background: #f0feff;
-}
-
-osg-plan-builder-workout table thead tr:first-child th:nth-child(3) {
-  background: #fff0e8;
-}
-
-osg-plan-builder-workout table thead tr:first-child th:nth-child(4) {
-  background: #fff;
-}
-
-osg-plan-builder-workout table thead tr th {
-  border: solid 1px #d8ddd1;
-  font-weight: bold;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  text-align: center;
-  vertical-align: middle;
-}
-
-osg-plan-builder-workout table thead tr th:nth-child(2) {
-  background: #f0feff;
-}
-
-osg-plan-builder-workout table thead tr th:nth-child(3) {
-  background: #f0feff;
-}
-
-osg-plan-builder-workout table thead tr th:nth-child(4) {
-  background: #fff0e8;
-}
-
-osg-plan-builder-workout table thead tr th:nth-child(5) {
-  background: #fff0e8;
-}
-
-osg-plan-builder-workout table thead tr th {
-  border: solid 1px #d8ddd1;
-
-  font-weight: bold;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  text-align: center;
-  vertical-align: middle;
-}
-
-osg-plan-builder-workout table thead tr th {
-  border: solid 1px #d8ddd1;
-  font-weight: bold;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  text-align: center;
-  vertical-align: middle;
-}
-
-osg-plan-builder-workout table thead tr th {
-  border: solid 1px #d8ddd1;
-  font-weight: bold;
-vertical-align: middle!important;
-  font-size: 11px;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-osg-plan-builder-workout .actions {
-  display: block;
-  padding: 32px 15px 23px;
-  border-left: solid 1px #d8ddd1;
-  border-top: solid 1px #d8ddd1;
-  border-right: solid 1px #d8ddd1;
+  border-bottom: 1px solid #d8ddd1;
 }
 
 osg-plan-builder-workout .actions .btn {
@@ -5063,11 +5061,16 @@ osg-plan-builder-workout .actions .btn img {
 
 .osg-plan-builder-exercises1 .exercises-list .exercise figure {
   border: solid 1px #d8ddd1;
+  cursor: pointer;
   border-bottom: solid 2px #a9a9a9;
   display: block;
   padding: 13px;
   height: calc(100% - 20px);
   margin-left:  14px;
+}
+
+.osg-plan-builder-exercises1 .exercises-list .exercise figure .title .checkbox {
+
 }
 
 .osg-plan-builder-exercises1 .exercises-list .exercise h4 {
@@ -5094,13 +5097,26 @@ osg-plan-builder-calendar h3 {
   font-weight: bold;
 }
 
-.osg-plan-builder-calendar1 .workouts-list {
+osg-plan-builder-calendar .workouts-list {
   padding: 10px 15px 0px;
   border-bottom: solid 1px #d8ddd1;
   border-left: solid 1px #d8ddd1;
   border-right: solid 1px #d8ddd1;
+  height: 133px;
+  overflow: auto;
 }
-
+osg-plan-builder-calendar .workouts-list-drag {
+  padding: 10px 15px 0px;
+  border-bottom: solid 1px #d8ddd1;
+  border-left: solid 1px #d8ddd1;
+  border-right: solid 1px #d8ddd1;
+  height: 133px;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #adadad;
+}
 osg-plan-builder-calendar .workouts-list .workout {
   text-transform: uppercase;
   font-size: 0.875rem;
@@ -5130,24 +5146,6 @@ osg-plan-builder-calendar .workouts-list .workout p {
   margin-left: 10px;
 }
 
-osg-plan-builder-calendar table thead tr th {
-  border: solid 1px #d8ddd1;
-  font-weight: bold;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  text-align: center;
-  vertical-align: middle;
-}
-
-osg-plan-builder-calendar table tbody tr td {
-  border: solid 1px #d8ddd1;
-  font-size: 0.875rem;
-  padding: 0.874rem;
-  text-transform: uppercase;
-  vertical-align: middle;
-  text-align: left;
-}
-
 osg-plan-builder-calendar table tbody tr td span {
   color: #000;
   background: #ffa600;
@@ -5162,6 +5160,7 @@ osg-plan-builder-calendar table tbody tr td span {
 
 osg-plan-builder-workout .add {
   color: #000;
+  cursor: pointer;
 }
 
 osg-plan-builder-workout .add span {
@@ -5181,6 +5180,7 @@ osg-plan-builder-workout .add span {
 osg-plan-builder-workout .remove {
   color: #000;
   margin-left: 15px;
+  cursor: pointer;
 }
 
 osg-plan-builder-workout .remove span {
@@ -5212,15 +5212,7 @@ osg-plan-builder-workout .actions .btn span {
   line-height: 13px;
   color: #000;
 }
-
-osg-plan-builder-calendar .actions {
-  display: block;
-  padding: 10px 15px 10px;
-  border-left: solid 1px #d8ddd1;
-  border-top: solid 2px #d8ddd1;
-  border-right: solid 1px #d8ddd1;
-}
-/* 
+/*
 .table-responsive
 {
    overflow-x: scroll!important;
@@ -5313,16 +5305,6 @@ osg-plan-builder osg-calendar-builder .general-actions .btn.btn-next {
 
 }
 
-osg-plan-builder osg-calendar-builder .general-actions .btn.btn-next:after {
-  display: block;
-  content: "\f105";
-  font: normal normal normal 25px/1 FontAwesome;
-  color: #fff;
-  position: absolute;
-  right: 8px;
-  top: 6px;
-}
-
 .geter
 {
    margin-top:  50px;
@@ -5353,7 +5335,7 @@ osg-get-started .articles-list {
   margin-bottom: 2.5rem;
   height: 100%;
   background: #FFF;
-  display: flex;  
+  display: flex;
 }
 
 osg-get-started .articles-list .article.brand-box {
@@ -5391,6 +5373,10 @@ font-weight:   bold;
   color: #000;
 }
 
+.btn-yellow-gradient:focus{
+  outline:none!important;
+  box-shadow:none!important;
+}
 osg-get-started .articles-list .article {
   background: #FFF;
   border-right: solid 1px #c6c6c6;
@@ -5428,9 +5414,6 @@ osg-get-started .articles-list .article {
   font-size: 40px;
   font-weight: bold;
   font-family: "Square 721 BT Bold Extended";
-}
-.strength_athlete img, .strength_athlete .benefits_follow img {
-  padding-bottom: 15px;
 }
 .strength_athlete .email_form {
   text-align: center;
@@ -5486,9 +5469,6 @@ font-size: 24px;
 }
 
 
-.strength_athlete img, .strength_athlete .benefits_follow img {
-  padding-bottom: 15px;
-}
 .strength_athlete .benefits_follow {
   text-align: center;
   width:310px;
@@ -5597,20 +5577,6 @@ osg-plan-builder-workout
    padding-right: 10px;
 }
 
-
-
-
-osg-plan-builder-workout .table-responsive
-{
-  overflow-y: scroll!important;  
-}
-
-
-.exercises-list .exercise
-{
-  flex: 0 0 50%;
-  max-width: 50%;
-}
 }
 
 
@@ -5635,16 +5601,12 @@ osg-plan-builder-workout .table-responsive
 
 osg-strength-athlete-trophy .current-level .level
 {
-   border-left: none;  
-}
-.conventions
-{
-   display: inline-block!important;
+   border-left: none;
 }
 
 .no-gutters
 {
-   display:  inline-block!important;  
+   display:  inline-block!important;
 }
 .calendar .days .day
 {
@@ -5655,13 +5617,13 @@ osg-strength-athlete-trophy .current-level .level
   max-width: 100%;
   width: 100%;
 }
-osg-get-started.secondary .articles-list .article:not(:first-child) 
+osg-get-started.secondary .articles-list .article:not(:first-child)
 {
   padding-bottom: 60px;
   flex: 0 0 100%;
   max-width: 100%;
   border-right: none;
-  display: block; 
+  display: block;
 }
 
 osg-get-started .articles-list {
@@ -5671,7 +5633,7 @@ osg-get-started .articles-list {
 
 osg-get-started .articles-list .article.brand-box figure
 {
-   height: auto;  
+   height: auto;
 }
 
 osg-get-started .articles-list .article .btn
@@ -5707,12 +5669,12 @@ osg-plan-builder-calendar
 {
    padding-left:  10px;
    padding-right:  10px;
-   overflow-x: scroll; 
+   overflow-x: scroll;
 }
 
 osg-plan-builder-workout .actions .btn
 {
-   float: left;   
+   float: left;
 }
 
 osg-plan-builder-workout .actions .btn.btn-gray {
@@ -5730,7 +5692,7 @@ osg-plan-builder-workout .actions .btn.btn-gray {
 
 .osg-plan-builder-exercises1 .exercises-list
 {
-   height: 419px!important;  
+   height: 419px!important;
 }
 .osg-plan-builder-exercises1 .exercises-list h3{
   text-transform: uppercase;
@@ -5754,7 +5716,7 @@ osg-strength-athlete-trophy {
    margin-top: 3235px;
 }
 
-/* 
+/*
 .trophy-walls .row
 {
    overflow-x: scroll;
@@ -5770,7 +5732,7 @@ osg-strength-athlete-trophy {
    padding-top: 30px;
 }
 }
-/* 
+/*
 .trophy-walls .row
 {
    overflow-x: scroll;
@@ -5792,7 +5754,7 @@ max-width: 100%;
   bottom: 200px;
 }
 .timeline_content,.trophy_content{
-  padding-bottom: 50px; 
+  padding-bottom: 50px;
 }
 .custom-checkbox label {
   padding-left: 35px;
@@ -5830,7 +5792,7 @@ osg-plan-builder-workout
 
 .osg-plan-builder-exercises1 .exercises-list
 {
-   height: auto;  
+   height: auto;
 }
 }
 
@@ -5838,6 +5800,7 @@ osg-plan-builder-workout
 {
 osg-plan-builder osg-calendar-builder osg-plan-builder-exercises .exercises-list .exercise figure {
   padding: 20px 24px;
+  cursor: pointer;
 }
 
 osg-plan-builder h1
@@ -5858,25 +5821,8 @@ osg-plan-builder-calendar
   font-family: "square721_btbold";
 }
 
-osg-plan-builder-workout input
-{
-  width: 70px!important;
-      height: 33px;
-  border-radius: 17px!important;
-}
-
 osg-plan-builder-workout select
-{
-  background: #b5e61d;
-  width: 100px!important;
-height: 33px;       
-  border-radius: 17px!important;
-}
-
-
-
-osg-plan-builder-workout select
-{   background: #FFF url(droper.png) no-repeat 95% center!important;
+{   background: #FFF;
   background-size: auto 50%;
   appearance: none;
   -moz-appearance: none;
@@ -5884,21 +5830,6 @@ osg-plan-builder-workout select
   -webkit-appearance: none;
 }
 
-osg-plan-builder-workout table tbody tr td:nth-child(3) {
-  background: #f0feff;
-}
-
-osg-plan-builder-workout table tbody tr td:nth-child(2) {
-  background: #f0feff;
-}
-
-osg-plan-builder-workout table tbody tr td:nth-child(4) {
-  background: #fff0e8;
-}
-
-osg-plan-builder-workout table tbody tr td:nth-child(5) {
-  background: #fff0e8;
-}
 /* Strength Athlete */
 
 
@@ -5914,9 +5845,11 @@ osg-plan-builder-workout table tbody tr td:nth-child(5) {
   max-width:100%;
   }
   @media (max-width: 1024px){
-
-    .program_designer .new_feed_lftcol,.program_designer .progress_build .progress_build_lft{
-      padding: 0px 20px !important;
+    .program_designer .new_feed_lftcol {
+		flex: 1;
+		padding: 0 !important;
+		width: 100%;
+		text-align: center;
     }
     .program_designer .benefit p{
       padding: 10px;
@@ -5926,43 +5859,46 @@ osg-plan-builder-workout table tbody tr td:nth-child(5) {
       }
   }
   @media (max-width: 991px){
-  
+
   .personel_trainer .about {
       padding:75px 0;
   }
-  
+
   .personel_trainer .client_result p ,.personel_trainer .booking_content p{
       padding: 0;
   }
-  
+
   .personel_trainer .get_started h2,.program_designer .get_started h2{
   font-size:30px;
   }
-  
+
   .program_designer .publish_program,.program_designer .reviews,.program_designer .program_design,.program_designer .training_program
-  ,.program_designer .training_program,.program_designer .news_feed,.program_designer .bank_experience,
-  body.osg-public .home #get-started {
-    
+  ,.program_designer .training_program,.program_designer .bank_experience {
       padding: 50px 0px;
       position: relative;
-      bottom:200px;
+      bottom:100px;
   }
-  
+
+  body.osg-public .home #get-started {
+	  padding: 50px 0px;
+	  bottom:200px;
+  }
+
   .program_designer .bank_experience{
       padding-top: 40px;
   }
-  
+
   .program_designer .progress_build {
       padding-bottom: 50px;
       position: relative;
       bottom:200px;
   }
-  
+
   .program_designer .benefit_fdbck, .program_designer .benefit_strength, .program_designer .benefit_build{
-  padding-right:0px;
-  padding:30px;
+	  padding-right:0px;
+	  padding:30px;
   }
-  
+
   .program_designer .bnk_exp_content{
   width:100%;
   padding:30px;
@@ -5970,7 +5906,7 @@ osg-plan-builder-workout table tbody tr td:nth-child(5) {
   /* .program_designer .bank_experience{
     padding-block-end: 0px;
   } */
-  .program_designer .benefit_strength{
+  .program_designer .benefit_fdbck, .program_designer .benefit_strength, .program_designer .benefit_build{
     margin: auto;
   }
   .personel_trainer img{
@@ -5978,12 +5914,18 @@ osg-plan-builder-workout table tbody tr td:nth-child(5) {
   }
   .personel_trainer.home h3 {
     font-size: 1.5rem;
+	text-align: center;
 }
 .personel_trainer.home p,.program_designer.home p {
   font-size: 0.9375rem;
+  text-align: center;
+}
+.program_designer .calendar_build .build_content h3, .progress_build_lft h3 {
+	text-align: center;
 }
 .personel_trainer .review,.personel_trainer .client_result{
   padding:0;
+  padding-top: 20px;
 }
 .personel_trainer .booking {
   padding: 50px 0;
@@ -6018,11 +5960,11 @@ osg-plan-builder-workout table tbody tr td:nth-child(5) {
   padding-bottom: 15px;
 }
 body.osg-public .home #main-call-to-action .content-cta form.get-started .form-control {
-  width: 220px;
-  font-size: 12px !important;
+  width: 100%;
+  font-size: 16px !important;
 }
 body.osg-public .home #main-call-to-action .content-cta form.get-started .btn{
-  width: 150px;
+  width: 100%;
   font-size: 16px !important;
   padding-left: 28px !important;
   font-family: "Futura BT";
@@ -6096,11 +6038,6 @@ body.osg-public .home #secondary-call-to-action .call-to-action > img
   height: 700px;
 }
 
-
-osg-plan-builder-workout .table-responsive
-{
-  overflow: scroll!important;
-}
 }
 
 
@@ -6120,7 +6057,7 @@ body.ngx-osg optimal-strength-gains osg-plan-builder osg-progression-builder osg
   {
     background: white;
   }
- 
+
   .footer-cell
   {
     background: white;
@@ -6131,7 +6068,7 @@ body.ngx-osg optimal-strength-gains osg-plan-builder osg-progression-builder osg
     background: transparent!important;
   }
 
-  /* 
+  /*
 
   body.ngx-osg optimal-strength-gains osg-plan-builder osg-progression-builder osg-progression-builder-training-program .training-program-wrapper .thead {
    {
@@ -6139,16 +6076,10 @@ body.ngx-osg optimal-strength-gains osg-plan-builder osg-progression-builder osg
    }
      */
 
-  osg-calendar-builder .table-responsive
-  {
-    overflow-x: hidden!important;
-  }
-  
-
-  osg-plan-builder-workout
+   osg-plan-builder-workout
   {
     z-index: 999;
-  }  
+  }
 
   .day tbody tr td select
   {
@@ -6168,88 +6099,6 @@ body.ngx-osg optimal-strength-gains osg-plan-builder osg-progression-builder osg
     height: 804px;
   }
 
-  body.ngx-osg optimal-strength-gains osg-plan-builder osg-calendar-builder osg-plan-builder-workout .table-responsive
-  {
-    height: 655px!important;
-  }
-
-  body.ngx-osg optimal-strength-gains osg-plan-builder osg-calendar-builder osg-plan-builder-calendar .table-responsive
-  {
-    height: 440px!important;
-  }
-  osg-plan-builder-workout tbody tr select
-  {
-    width: 130px!important;
-  }
-
-  osg-plan-builder-workout thead
-  {
-    position: absolute;
-    width: 100%;
-    z-index: 9999;
-    background: white;
-  }
-
-  osg-plan-builder-workout .table-responsive input, select
-  {
-    width: 55px!important;
-  }
-  
-  osg-plan-builder-workout .table-responsive tbody tr:nth-child(1)
-    {
-    height: 108px;
-  }
-
-  osg-plan-builder-workout .table-responsive tr:nth-child(2) td:nth-child(1)
-  {
-    width: 88px!important;
-  }
-
-  osg-plan-builder-workout .table-responsive tr:nth-child(2) td:nth-child(2)
-  {
-    width: 55px!important;
-  }
-  
-  osg-plan-builder-workout .table-responsive tr:nth-child(2) td:nth-child(3)
-  {
-    width: 63px;
-  }
-
-  osg-plan-builder-workout .table-responsive tbody tr td:nth-child(4)
-  {
-    width: 90px;
-  }
-  
-  osg-plan-builder-workout .table-responsive tr:nth-child(2) td:nth-child(5)
-  {
-    width: 82px;
-  }
-  
-  osg-plan-builder-workout .table-responsive tr:nth-child(2) td:nth-child(6)
-  {
-    width: 112px;
-  }
-
-  osg-plan-builder-workout .table-responsive tr:nth-child(2) td:nth-child(7)
-  {
-    width: 113px;
-  }
-  
-
-
-  osg-plan-builder-workout .table-responsive thead tr:nth-child(2) th:nth-child(6)
-  {
-    width:139px;
-  }
-  
-  /* osg-plan-builder-workout .table-responsive tr:nth-child(2) td:nth-child(4)
-  {
-    width: 65px;
-  } */
-
-
-
-
   osg-plan-builder-workout .table-responsive tr:nth-child(2) td:nth-child(5) {
     width: 82px;
 }
@@ -6262,116 +6111,24 @@ osg-plan-builder-workout .table-responsive th:nth-child(1)
   osg-plan-builder-calendar td {
     width: 13.25%!important;
 }
-  osg-plan-builder osg-calendar-builder osg-plan-builder-exercises .exercises-list .exercise {
-    height: 165px!important;
-}
-
-body.ngx-osg optimal-strength-gains osg-plan-builder osg-calendar-builder osg-plan-builder-exercises .exercises-list .exercise figure
-{
-  padding: 30px!important;
-}
 
 body.ngx-osg optimal-strength-gains osg-plan-builder osg-calendar-builder osg-plan-builder-exercises .exercises-list .exercise h4
 {
   padding-top: 5px;
 }
 
-body.ngx-osg optimal-strength-gains osg-plan-builder osg-calendar-builder osg-plan-builder-exercises .exercises-list .exercise
-{
-  height: 170px;
-}
 }
 
 osg-plan-builder-workout .table td{
   padding: 4px!important;
 }
 
-osg-plan-builder-workout .table td input{
-  width: 100%!important;
-}
-
-body.ngx-osg optimal-strength-gains osg-plan-builder osg-calendar-builder osg-plan-builder-exercises .exercises-list .exercise
-{
-  height: 133px;
-}
-
-body.ngx-osg optimal-strength-gains osg-plan-builder osg-calendar-builder osg-plan-builder-exercises .exercises-list
-{
-  height: 300px!important;
-}
-
-osg-plan-builder-workout .table th{
-  font-size: 14px!important;
-}
-
-osg-plan-builder-workout .table tr:nth-child(2) th{
-  font-size: 12px!important;
-  padding-left: 15px!important;
-  padding-right: 15px!important;
-}
-
-osg-plan-builder-workout .table td{
-  font-size: 12px!important;
-}
-
-osg-plan-builder-workout .table td input, select{
-  font-size: 12px!important;
-  height: 27px!important;
-  text-align: center;
-  width: 43px;
-}
-
-osg-plan-builder-workout select
-{
-  width: 76px!important;
-}
-
-osg-plan-builder-workout select
-{
-padding: 5px 12px!important;
-}
-
-osg-plan-builder-workout .table
-{
-  width: 100%!important;
-}
-
-osg-plan-builder-calendar thead
-{
-position: absolute;
-background: white;
-width: 100%;
-}
-
-
-osg-plan-builder-calendar .table-responsive
-{
-  overflow-y: scroll;
-}
-
 osg-plan-builder-calendar th {
   width: 13.2%;
 }
 
-osg-plan-builder-calendar tr:nth-child(1)
-{
-  height: 35px;
-}
 osg-plan-builder-calendar td {
   width: 12.93%;
-}
-
-body.ngx-osg optimal-strength-gains osg-plan-builder osg-calendar-builder osg-plan-builder-workout .table-responsive
-{
-  height: 655px!important;
-}
-
-osg-plan-builder-workout .table tr td:nth-child(7) input{
-  width:100%!important;
-}
-
-osg-plan-builder-workout .table tr td:nth-child(8) input{
-  width:100%!important;
 }
 
 /* osg-plan-builder-workout .table th, .table tr:nth-child(even) td
@@ -6379,22 +6136,12 @@ osg-plan-builder-workout .table tr td:nth-child(8) input{
   font-weight: bold!important;
 } */
 
-body.ngx-osg optimal-strength-gains osg-plan-builder osg-calendar-builder osg-plan-builder-calendar .table-responsive
-{
-  height: 440px!important;
-}
-
 /* osg-plan-builder-calendar table tr:nth-child(6)
 {
-  
-  border-bottom: 3px solid #E3E3E3;
-  
-} */
 
-osg-plan-builder-calendar table th
-{
-  padding: 0.45rem!important;
-}
+  border-bottom: 3px solid #E3E3E3;
+
+} */
 
 osg-plan-builder-calendar table td
 {
@@ -6504,7 +6251,7 @@ width: 100%;
   padding-bottom: 100px;
 }
 
-body.osg-public .home #get-started .with-stars 
+body.osg-public .home #get-started .with-stars
 {
   color: #000!important;
 }
@@ -6575,7 +6322,7 @@ body.ngx-osg optimal-strength-gains osg-plan-builder osg-progression-builder osg
 
   @font-face {
     font-family: 'futura_md_btmedium';
-    src:url('../about-fonts/fonts/futura_medium.ttf') format('ttf'), 
+    src:url('../about-fonts/fonts/futura_medium.ttf') format('ttf'),
 	url('../about-fonts/fonts/futura_medium-webfont.woff2') format('woff2'),
          url('../about-fonts/fonts/futura_medium-webfont.woff') format('woff');
 
@@ -6583,7 +6330,7 @@ body.ngx-osg optimal-strength-gains osg-plan-builder osg-progression-builder osg
 
 @font-face {
     font-family: 'futura_md_btnormal';
-    src:url('../about-fonts/fonts/futura_book_font-webfont.ttf') format('ttf'), 
+    src:url('../about-fonts/fonts/futura_book_font-webfont.ttf') format('ttf'),
     url('../about-fonts/fonts/futura_book_font-webfont.woff2') format('woff2'),
          url('../about-fonts/fonts/futura_book_font-webfont.woff') format('woff');
 
@@ -6594,15 +6341,29 @@ body
 	background: #ffffff;
 }
 
-.topgetstart
-{
+.topgetstart {
     background: white;
     margin-top: 105px;
     z-index: 9999;
 	box-shadow: 0px 0px 25px #eae5e5;
+	position: fixed!important;
+    top: -5px;
+    z-index: 999;
 }
 
-.topgetstart li 
+@media (min-width: 320px) {
+	.topgetstart {
+		display: none;
+	}
+}
+
+@media (min-width: 768px) {
+	.topgetstart {
+		display: block;
+	}
+}
+
+.topgetstart li
 {
 	    font-family: 'Gotham Bold';
     list-style-type: none;
@@ -6652,7 +6413,7 @@ body
 {
   background: #ffa500 !important;
   color: white!important;
-} 
+}
 
 .topgetstart ul
 {
@@ -6691,7 +6452,7 @@ body
 
 .tophead p
 {
-  color: #ffa500;	
+  color: #ffa500;
   font-size: 20px;
       font-family: "Gotham Medium";
 }
@@ -6700,7 +6461,7 @@ body
 {
     font-size: 34px;
     font-weight: bold;
-          font-family: "Gotham Bold"; 	
+          font-family: "Gotham Bold";
 }
 
 
@@ -6720,7 +6481,7 @@ background: #f5f5f5;
 	padding-bottom: 150px;
 }
 
-.starter123 li 
+.starter123 li
 {
 	    font-family: 'Gotham Bold';
     list-style-type: none;
@@ -6783,27 +6544,25 @@ background: #f5f5f5;
 	color: #000;
     font-size: 33px;
     font-weight: bold;
-          font-family: "Gotham Bold"; 	
+          font-family: "Gotham Bold";
 }
 
 
 .starter123 p
 {
-  color: #ffa500;	
+  color: #ffa500;
   font-size: 16px;
    font-family: "Gotham Book";
-      margin-bottom: 0;
-      margin-top: 55px;
 }
 
 
 .starter123 h5
-{	
+{
 	color: #3c3c3c;
   font-size: 16px;
   line-height: 1.5;
    font-family: "Gotham Book";
-  
+
 }
 
 .secstarter123
@@ -6811,7 +6570,7 @@ background: #f5f5f5;
 background: white;
 }
 
-.secstarter123 li 
+.secstarter123 li
 {
 	    font-family: 'futura_md_btmedium';
     list-style-type: none;
@@ -6880,27 +6639,25 @@ background: white;
 	color: #000;
     font-size: 33px;
     font-weight: bold;
-          font-family: "Gotham Bold"; 	
+          font-family: "Gotham Bold";
 }
 
 
 .secstarter123 p
 {
-  color: #ffa500;	
+  color: #ffa500;
   font-size: 16px;
-   font-family: "Gotham Medium";
-      margin-bottom: 0;
-      margin-top: 55px;
+  font-family: "Gotham Medium";
 }
 
 
 .secstarter123 h5
-{	
+{
 		color: #3c3c3c;
   font-size: 16px;
-  line-height: 1.5;
+	line-height: 1.5;
    font-family: "Gotham Book";
-  
+
 }
 
 
@@ -6910,7 +6667,7 @@ background: white;
 background: #f5f5f5;
 }
 
-.thirdstarter123 li 
+.thirdstarter123 li
 {
 	    font-family: 'futura_md_btmedium';
     list-style-type: none;
@@ -6978,29 +6735,65 @@ background: #f5f5f5;
 	color: #000;
     font-size: 33px;
     font-weight: bold;
-          font-family: "Gotham Bold"; 	
+          font-family: "Gotham Bold";
 }
 
 
 .thirdstarter123 p
 {
-  color: #ffa500;	
+  color: #ffa500;
   font-size: 16px;
    font-family: "Gotham Medium";
       margin-bottom: 0;
-      margin-top: 55px;
 }
 
-
 .thirdstarter123 h5
-{	
+{
 		color: #3c3c3c;
   font-size: 16px;
    font-family: "Gotham Book";
    line-height: 1.5;
-  
+
 }
 
+@media (min-width: 320px) {
+	.starter123 p {
+		margin-top: 0;
+	}
+	.starter123 h5 {
+		margin-bottom: 100px;
+	}
+	.secstarter123 p {
+		margin-top: 0;
+	}
+	.secstarter123 h5 {
+		margin-bottom: 100px;
+	}
+	.thirdstarter123 p {
+		margin-top: 0;
+	}
+	.thirdstarter123 h5 {
+		margin-bottom: 100px;
+	}
+}
+@media (min-width: 1024px) {
+
+	.starter123 h5 {
+		margin-bottom: 0px;
+	}
+	.secstarter123 p {
+		margin-top: 65px;
+	}
+	.secstarter123 h5 {
+		margin-bottom: 0px;
+	}
+	.thirdstarter123 p {
+		margin-top: 65px;
+	}
+	.thirdstarter123 h5 {
+		margin-bottom: 0px;
+	}
+}
 .benefitscont
 {
 	padding-top: 80px;
@@ -7040,23 +6833,23 @@ border-radius: 100px;
   color: #3c3c3c;
 }
 
-.getstartedcont
+.get-started-content
 {
 		padding-top: 80px;
 	padding-bottom: 80px;
 	background: #f5f5f5;
 }
 
-.getstartedcont h4
+.get-started-content h4
 {
-	color: #ffa500; 
+	color: #ffa500;
   font-size: 20px;
   font-family: "Gotham Medium";
 }
 
-.getstartedcont h3
+.get-started-content h3
 {
-	color: #000000; 
+	color: #000000;
 	font-size: 34px;
 	font-family: "Gotham Bold";
 }
@@ -7066,45 +6859,47 @@ border-radius: 100px;
 	padding-top: 60px;
 }
 
-.getstartgrid .imgcontents
-{
-	padding-left: 0px!important;
-	padding-right: 0px!important;
-}
-
-.getstartgrid .imgcontbg
+.getstartgrid .img-content
 {
 	background: white;
-		    border: 1px solid #fbeded;
+	border: 1px solid #fbeded;
 }
 
-.getstartgrid .imgcontbg:hover
+.getstartgrid .img-content img
 {
-	    box-shadow: 0px 0px 55px #ded7d7;
-	    cursor: pointer;
-
+	width: 100%;
 }
-
-.getstartgrid .col-lg-1
+.getstartgrid .img-content:hover
 {
-    max-width: 6.333333%!important;
+	box-shadow: 0px 0px 55px #ded7d7;
+	cursor: pointer;
 }
 
-.getstartgrid .imgcontbg h2
+.getstartgrid .img-content h2
 {
 	font-size: 20px;
 	font-family: "Gotham Bold";
-padding: 15px;
-padding-bottom: 0px;
+	padding: 15px;
+	padding-bottom: 0px;
 }
 
-.getstartgrid .imgcontbg p
+.getstartgrid .img-content p
 {
 	font-size: 16px;
-  padding: 20px;
+	padding: 20px 20px 0px 20px;
     position: relative;
 }
 
+.getstartgrid .btn-group {
+	padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.getstartgrid .btn-group .learn {
+	padding-top: 25px;
+    color: #000;
+	font-size: 14px;
+}
 .getstartgrid button
 {
     background: linear-gradient(to bottom, #50b100 0%, #3f8d00 100%);
@@ -7118,17 +6913,6 @@ padding-bottom: 0px;
     margin-top: 15px;
      border: none;
      display: inherit;
-}
-
-.getstartgrid .learnbut
-{
-    text-decoration: none;
-    color: #000000;
-    padding-left: 20px;
-    font-size: 14px;
-        position: absolute;
-    top: 213px;
-    right: 22px;
 }
 
 a:hover
@@ -7155,45 +6939,70 @@ a:hover
 	padding-left: 0px!important;
 }
 
-.imgcontbg img
-{
-	width: 100%;
-}
-
 .abouthead
 {
-	    background-image: url(../images/aboutbanner.png);
+	background-image: url(../images/aboutbanner.png);
     background-size: cover;
-background-size: 100% 80%;
-        background-repeat: no-repeat;
-            background-position: 0px -60px;
+	background-size: 100% 80%;
+	background-repeat: no-repeat;
+	background-position: 0px -60px;
 }
 
-
-.featureshead
-{
-	    background-image: url(../images/featurebanner.png);
-    background-size: 100%;
-
-        background-repeat: no-repeat;
-        background-position: 40px 45px!important;
+.featureshead {
+	background-position: 40px 160px!important;
 }
 
+@media (min-width: 320px) {
+	.featureshead {
+		padding-top: 80px;
+	}
+}
+@media (min-width: 768px) {
+	.featureshead {
+		background-image: url(../images/featurebanner.png);
+		background-size: 100%;
+		background-repeat: no-repeat;
+	}
+}
 
-.about-mission
-{
-	padding-top: 360px;
+.mobile .about-mission {
+	padding-top: 20px;
+	padding-bottom: 30px;
+	padding-left: 15px !important;
+    text-align: center;
+	background: #fff;
+}
+body.osg-public .tophead .mobile .btn {
+	width: 100%;
+}
+body.osg-public .learn-more .sticky-btn {
+	position: fixed;
+    bottom: 0;
+    z-index: 1029;
+	width: 100%;
+}
+body.osg-public .learn-more .btn a{
+	background: linear-gradient(to bottom, #50b100 0%, #3f8d00 100%);
+    font-size: 0.8rem;
+    font-family: "Gotham Bold";
+    color: white;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    width: 100%;
+    display: block;
+    text-transform: uppercase;
+}
+
+.about-mission {
+	padding-top: 300px;
 	padding-bottom: 230px;
 }
 
 .storybg
 {
 	background: white;
-}
-.storycont
-{
-	padding-top: 100px;
-	padding-bottom: 150px;
 }
 
 .teamcont
@@ -7206,7 +7015,7 @@ background-size: 100% 80%;
 	font-weight: bold;
 	color: white;
 	line-height: 1.5;
-	font-size: 26px;
+	font-size: 24px;
 	      font-family: "Gotham Bold";
 }
 
@@ -7301,22 +7110,23 @@ background-size: 100% 80%;
 
 .whatsolve p
 {
-  color: #ffa500;	
+  color: #ffa500;
   font-size: 20px;
       font-family: "Gotham Medium";
 }
 
 .storycont p
 {
-  color: #ffa500;	
+  color: #ffa500;
   font-size: 20px;
-      font-family: "Gotham Medium";
+  font-family: "Gotham Medium";
+  margin-top: 30px;
 }
 
 
 .teamcont p
 {
-  color: #ffa500;	
+  color: #ffa500;
   font-size: 20px;
       font-family: "Gotham Medium";
 }
@@ -7349,10 +7159,6 @@ background-size: 100% 80%;
 .autotop
 {
 padding-bottom: 150px;
-}
-.experience
-{
-background: white;
 }
 
 .pdesign
@@ -7423,14 +7229,28 @@ background: white;
     flex: 0 0 22.666667%!important;
     max-width: 19.666667%!important;
 }
-
-@media only screen and (min-width: 768px)
-{
-
-.mobilechange11
-{
-  display: none!important;
+@media only screen and (min-width: 320px) {
+	body.osg-public .tophead .mobile {
+		display: block;
+		margin-top: 30px;
+	}
+	body.osg-public .tophead .mobile h2 {
+		font-size: 24px;
+	}
+	body.osg-public .tophead .desktop {
+		display: none;
+	}
 }
+@media only screen and (min-width: 768px) {
+	body.osg-public .tophead .mobile h2 {
+		font-size: 34px;
+	}
+	body.osg-public .tophead .mobile {
+		display: none;
+	}
+	body.osg-public .tophead .desktop {
+	  display: block;
+	}
 }
 
 @media only screen and (min-width: 1920px)
@@ -7485,7 +7305,7 @@ body .experience-bank
 
   .featuretop
   {
-  
+
   background-position: -50px -50px;
   }
   .autotop .feature-strength
@@ -7519,39 +7339,92 @@ body .experience-bank
 	}
 }
 
-
-@media only screen and (max-width: 767px)
-{
-  
-	.abouthead
-	{
-		background-size: cover;
+@media (min-width: 320px) {
+	.tophead .lefthead {
+		padding-top: 110px;
+		padding-bottom: 20px;
+	}
+	.benefitcontent {
+		text-align: center;
+	}
+	.starter123 .col-lg-1.desktop {
+		display: none;
+	}
+	.starter123 .col-lg-1.mobile {
+		display: block;
+	}
+	.secstarter123 .col-lg-1.desktop {
+		display: none;
+	}
+	.secstarter123 .col-lg-1.mobile {
+		display: block;
+	}
+	.thirdstarter123 .col-lg-1.desktop {
+		display: none;
+	}
+	.thirdstarter123 .col-lg-1.mobile {
+		display: block;
+	}
+	.starter123.featuretop .mobilechange11.desktop {
+		display: none;
+	}
+	.starter123.featuretop .mobilechange11.mobile {
+		display: flex;
+	}
+	.starter123.autotop .mobilechange11.desktop {
+		display: none;
+	}
+	.starter123.autotop .mobilechange11.mobile {
+		display: flex;
+	}
+	body.osg-public .learn-more .sticky-btn {
+		display: block;
+	}
+	.storycont.experience-bank {
+		text-align: center;
+	}
+	.getstartgrid .img-content {
+		margin-bottom: 20px;
+	}
+	.get-started-content .text-box {
+		text-align: center;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.abouthead {
+		background: #fff;
 	}
 
-.storybg img
-{
-	padding-top: 0px;
-}
+	.storybg img {
+		padding-top: 0px;
+	}
 
-	.teampersons .col-lg-3
-	{
+	.storycont {
+		text-align: center;
+	}
+	.ourteam {
+		text-align: center;
+	}
+	.teampersons .col-lg-3 {
 		margin-top: 50px;
 	}
 
-	.getstartedcont {
-    padding-left: 45px!important;
-    padding-right: 45px!important;
-}
-
-.teamcont
-{
-	padding-left: 25px!important;
-}
+	.get-started-content {
+		padding-left: 45px!important;
+		padding-right: 45px!important;
+	}
+	.get-started-content .starter-text {
+		text-align: center;
+	}
+	.teamcont
+	{
+		padding-left: 25px!important;
+	}
 	.what-sec .col-lg-3
 	{
 		margin-top: 30px;
 	}
-	.righthead 
+	.righthead
 	{
 		display: none;
 	}
@@ -7560,12 +7433,12 @@ body .experience-bank
 		text-align: center;
 	}
 
-		.thirdstarter123 .col-lg-5
+	.thirdstarter123 .col-lg-5
 	{
 		text-align: center;
 	}
 
-		.starter123 .col-lg-5
+	.starter123 .col-lg-5
 	{
 		text-align: center;
 	}
@@ -7575,63 +7448,109 @@ body .experience-bank
 		text-align: center;
 	}
 
-		.starter123 .col-lg-1
+	.starter123 .col-lg-1
 	{
 		text-align: center;
 	}
 
-		.thirdstarter123 .col-lg-1
+	.thirdstarter123 .col-lg-1
 	{
 		text-align: center;
 	}
 
-			.thirdstarter123 .col-lg-1 img
+	.thirdstarter123 .col-lg-1 img
 	{
 		width: auto!important;
 	}
 
-				.secstarter123 .col-lg-1 img
+	.secstarter123 .col-lg-1 img
 	{
 		width: auto!important;
 	}
 
-				.starter123 .col-lg-1 img
+	.starter123 .col-lg-1 img
 	{
 		width: auto!important;
 	}
 
 	.benefitcontent {
-    padding-left: 10px;
-}
+		padding-left: 10px;
+	}
 
-.no_left {
-    padding-left: 20px!important;
-}
+	.no_left {
+		padding-left: 20px!important;
+	}
 
-.getstartgrid .imgcontents {
-    padding-left: 20px!important;
-    padding-right: 20px!important;
-    padding-top: 25px;
-}
+	.getstartgrid .imgcontents {
+		padding-left: 20px!important;
+		padding-right: 20px!important;
+		padding-top: 25px;
+	}
 
-.lefthead
-{
-	padding-top: 200px;
-	    padding-bottom: 100px;
-}
+	.lefthead {
+		padding-top: 200px;
+		padding-bottom: 100px;
+		text-align: center;
+	}
+	.mobnumbg1 {
+		text-align: center;
+	}
+	.topgetstart li
+	{
+		padding-bottom: 10px;
+	}
 
-.topgetstart li
-{
-	padding-bottom: 10px;
+	.topgetstart button
+	{
+		margin-top: 0px;
+		margin-bottom: 10px;
+	}
 }
-
-.topgetstart button
-{
-	margin-top: 0px;
-	margin-bottom: 10px;
+@media (min-width: 768px) {
+	.starter123 .col-lg-1.desktop {
+		display: block;
+	}
+	.starter123 .col-lg-1.mobile {
+		display: none;
+	}
+	.secstarter123 .col-lg-1.desktop {
+		display: block;
+	}
+	.secstarter123 .col-lg-1.mobile {
+		display: none;
+	}
+	.thirdstarter123 .col-lg-1.desktop {
+		display: block;
+	}
+	.thirdstarter123 .col-lg-1.mobile {
+		display: none;
+	}
+	.starter123.featuretop .mobilechange11.desktop {
+		display: flex;
+	}
+	.starter123.featuretop .mobilechange11.mobile {
+		display: none;
+	}
+	.starter123.autotop .mobilechange11.desktop {
+		display: flex;
+	}
+	.starter123.autotop .mobilechange11.mobile {
+		display: none;
+	}
+	body.osg-public .learn-more .sticky-btn {
+		display: none;
+	}
+	.storycont.experience-bank {
+		text-align: left;
+		margin-top: 50px;
+	}
+	.getstartgrid .img-content {
+		margin-bottom: 0;
+	}
+	.get-started-content .text-box {
+		text-align: left;
+	}
 }
-}
-
 
 
    /* ----------------------------------------------------------------------- */
@@ -7639,17 +7558,36 @@ body .experience-bank
  /* ----------------------------------------------------------------------- */
 
 
+.howtop {
+	z-index: -9999;
+}
+.howtop .mobile-img img {
+	width: 100%;
+}
+@media (min-width: 320px) {
+	.howtop {
+		background: #fff;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	.howtop .mobile-img {
+		display: block;
+	}
+}
 
- .howtop
-{
-    background: url(../images/bg1.png), #f5f5f5;
-    background-size: 100% 100%;
-    width: 100%!important;
-    z-index: -9999;
-    background-repeat: no-repeat;
-        background-position: 0px -110px;
-    padding-top: 170px;
-    padding-bottom: 290px;
+@media (min-width: 768px) {
+	.howtop {
+		background: url(../images/bg1.png), #f5f5f5;
+		background-size: 100% 100%;
+		width: 100%!important;
+		background-repeat: no-repeat;
+		background-position: 0px -110px;
+		padding-top: 330px;
+		padding-bottom: 290px;
+	}
+	.howtop .mobile-img {
+		display: none;
+	}
 }
 
 .howstart
@@ -7670,7 +7608,7 @@ body .experience-bank
 
 .benefitcontent .col-lg-3
 {
-margin-top: 30px;
+	margin-top: 30px;
 }
 
 .storycont {
@@ -7690,13 +7628,6 @@ margin-top: 30px;
 .about-mission
 {
   padding-left: 150px!important;
-}
-
-.topgetstart
-{
-    position: fixed!important;
-    top: -5px;
-    z-index: 999;
 }
 
 @media only screen and (min-width: 768px)
@@ -7763,12 +7694,15 @@ padding-right: 185px!important;
 } */
 
 
-.featuretop, .experience, .autotop, .pdesign, .getstartedcont, .whatsolve, .ourteam, .secstarter123, .starter123, .thirdstarter123, .benefitscont
+.featuretop, .autotop, .pdesign, .get-started-content, .whatsolve, .ourteam, .secstarter123, .starter123, .thirdstarter123, .benefitscont
 {
-      padding-left: 250px!important;
+  padding-left: 250px!important;
   padding-right: 220px!important;
 }
 
+.get-started-content .offset-lg-2 {
+	margin-left: 13.666667%;
+}
 .storybg
 {
       padding-left: 220px!important;
@@ -7807,18 +7741,11 @@ html {
   margin-top: 0px!important;
 }
 
-.timeline-table .table td
-{
-  padding: 0.75rem 0.55rem!important;
-}
-
 .table-top-program
 {
   width: auto!important;
 }
-body.ngx-osg optimal-strength-gains osg-plan-builder osg-calendar-builder osg-plan-builder-workout table tbody tr td{
-  position: relative;
-}
+
 .add.fa-add-tbl {
   color: #000;
   background: #4fb100;
@@ -7827,14 +7754,14 @@ body.ngx-osg optimal-strength-gains osg-plan-builder osg-calendar-builder osg-pl
   height: 20px;
   border-radius: 100px;
   text-align: center;
-  line-height: 20px;
+  line-height: 18px;
   font-family: "Square 721 BT Bold Extended";
   font-size: 1.125rem;
   position: absolute;
   bottom: -10px;
   right: -11px;
   z-index: 8;
-  
+
 }
 
 .remove.fa-rmv-tbl{
@@ -7845,13 +7772,13 @@ body.ngx-osg optimal-strength-gains osg-plan-builder osg-calendar-builder osg-pl
   height: 20px;
   border-radius: 100px;
   text-align: center;
-  line-height: 20px;
+  line-height: 18px;
   font-family: "Square 721 BT Bold Extended";
   font-size: 1.125rem;
   position: absolute;
   bottom: -10px;
   z-index: 8;
-  right: -61px;
+  right: -41px;
 }
 
 /* jam */

@@ -7,6 +7,11 @@ use App\Services\UserService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Http\Request;
+use App\Mail\UserRegister;
 
 class RegisterController extends Controller
 {
@@ -54,7 +59,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6|confirmed'
         ]);
     }
 
@@ -64,8 +69,21 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
-        return $this->service->register($data);
+    protected function register(Request $request) {
+        $data = $request->all();
+        $rules = array(
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        );
+        $validator = Validator::make($data, $rules);
+        if ($validator->fails()) {
+            return Redirect::back()->withErrors($validator);
+        } else {
+            $user = $this->service->register($data);
+            $link = URL::route('account-activate', $user->api_token);
+            Mail::to($data['email'])->send(new UserRegister($data['name'], $link));
+            return Redirect::to('/email/verify');
+        }
     }
 }

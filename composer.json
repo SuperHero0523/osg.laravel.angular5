@@ -10,7 +10,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
-        "nesbot/carbon": "^1.26.3",
+        "nesbot/carbon": "^2.50.0",
         "nztim/mailchimp": "^3.11"
     },
     "require-dev": {

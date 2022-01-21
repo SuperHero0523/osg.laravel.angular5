@@ -11,7 +11,7 @@ export default function () {
     ];
 
     var initHeader = function () {
-        $(window).scroll(function () {
+        $(window).on('scroll', function () {
             if ($(this).scrollTop() > 1) {
                 $('header nav').addClass("sticky");
             } else {
@@ -21,7 +21,7 @@ export default function () {
     }
 
     var anchorAnimate = function (){
-        $('a.anchor').click(function(){
+        $('a.anchor').on('click', function(){
             $('html, body').animate({
                 scrollTop: $( $(this).attr('href') ).offset().top
             }, 500);

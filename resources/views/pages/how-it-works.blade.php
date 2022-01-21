@@ -21,21 +21,26 @@
       </div>
    </div>
    <div class="container-fluid tophead howtop">
-      <div class="row">
-         <div class="col-12 col-lg-4 offset-lg-2 lefthead">
-            <p>HOW IT WORKS</p>
-            <h2>Each of the three profile types and the four features work together symbiotically, where they enhance each other through data analysis.
-            </h2>
-         </div>
-         <div class="col-12 mobile-img">
-            <img src="/images/how-it-works-mobile.png">
+      <div class="row no-gutters">
+         <div class="howtop-content">
+            <div class="lefthead">
+               <p>HOW IT WORKS</p>
+               <h2>Each of the three profile types and the four features work together symbiotically, where they enhance each other through data analysis.
+               </h2>
+            </div>
+            <div class="desktop-img">
+               <img src="/images/bannerright.png">
+            </div>
+            <div class="mobile-img">
+               <img src="/images/how-it-works-mobile.png">
+            </div>
          </div>
       </div>
    </div>
    <div class="container-fluid starter123 top_start howstart"  id="strengthdiv">
       <div class="row">
          <div class="col-lg-1 mt-4 mb-4 numbe1 mobile">
-            <img src="images/hownum1.png" class="img-fluid roundimg">
+            <img src="images/hownum1.png" class="img-fluid numimg">
          </div>
          <div class="col-lg-5" align="right">
             <img src="images/how1.png" class="img-fluid roundimg">
@@ -60,7 +65,6 @@
          <div class="col-lg-1">
          </div>
          <div class="col-lg-4 mobnumbg1">
-            <p>STRENGTH ATHLETE</p>
             <h2>Start training</h2>
             <h5>Start the training program and track each session on your smart phone. Your workload will automatically adjust on a set-to-set basis, depending on your current fatigue level.</h5>
          </div>
@@ -76,22 +80,24 @@
          <div class="col-lg-1">
          </div>
          <div class="col-lg-4 mobnumbg1">
-            <p>STRENGTH ATHLETE</p>
             <h2>Complete the program</h2>
             <h5>Complete the program and get your results analyzed, by comparing your results with the Strength standards and the Experience banks. Learn which program design best suits you.
             </h5>
          </div>
       </div>
+      <div class="d-flex justify-content-center">
+         <a class="btn btn-yellow-gradient py-3 px-4 mr-0 text-uppercase" href="{{ url('strength-athlete') }}">Learn More</a>
+      </div>
    </div>
    <div class="container-fluid secstarter123 top_start" id="programdiv">
       <div class="row">
-         <div class="col-lg-1 pl-0 pr-0 mt-4 mb-4 numbe1 mobile">
+         <div class="col-lg-1 mt-4 mb-4 numbe1 mobile">
             <img src="images/hownum2.png" class="numimg">
          </div>
          <div class="col-lg-5" align="right">
             <img src="images/how3.png" class="img-fluid roundimg">
          </div>
-         <div class="col-lg-1 pl-0 pr-0 mt-4 numbe1 desktop">
+         <div class="col-lg-1 mt-4 numbe1 desktop">
             <img src="images/hownum2.png" class="numimg">
          </div>
          <div class="col-lg-4 mobnumbg1">
@@ -111,7 +117,6 @@
          <div class="col-lg-1">
          </div>
          <div class="col-lg-4 mobnumbg1">
-            <p>PROGRAM DESIGNER</p>
             <h2>Get feedback</h2>
             <h5>Get objective feedback on how well different Strength athletes respond to your program. Get subjective feedback from Strength athletes such as reviews and comments in your newsfeed.</h5>
          </div>
@@ -127,10 +132,12 @@
          <div class="col-lg-1">
          </div>
          <div class="col-lg-4 mobnumbg1">
-            <p>PROGRAM DESIGNER</p>
             <h2>Learn and Improve</h2>
             <h5>Learn how your theoretical program works in practice, and use your gained insights and knowledge to build even better programs. Use our Learn more section to master the fundamental strength training principles.</h5>
          </div>
+      </div>
+      <div class="d-flex justify-content-center">
+         <a class="btn btn-yellow-gradient py-3 px-4 mr-0 text-uppercase" href="{{ url('program-designer') }}">Learn More</a>
       </div>
    </div>
    <div class="container-fluid thirdstarter123 top_start" id="personaldiv">
@@ -161,7 +168,6 @@
          <div class="col-lg-1">
          </div>
          <div class="col-lg-4 mobnumbg1">
-            <p>PERSONAL TRAINER</p>
             <h2>Faciliate your bookings</h2>
             <h5>Display where you work, your background and specialities, your offers and when you are available so that strength athletes can  book one-to-one sessions in your calendar.</h5>
          </div>
@@ -177,10 +183,12 @@
          <div class="col-lg-1">
          </div>
          <div class="col-lg-4 mobnumbg1">
-            <p>PERSONAL TRAINER</p>
             <h2>My clients results</h2>
             <h5>My clients results will tell the truth regards to the results your clients are getting. Use this to your advantage when it comes to learning, improving end even as an effective marketing tool.  </h5>
          </div>
+      </div>
+      <div class="d-flex justify-content-center">
+         <a class="btn btn-yellow-gradient py-3 px-4 mr-0 text-uppercase" href="{{ url('personal-trainer') }}">Learn More</a>
       </div>
    </div>
    <div class="container-fluid benefitscont">
@@ -219,13 +227,13 @@
    </div>
    <div class="container-fluid get-started-content">
       <div class="row">
-         <div class="col-lg-6 offset-lg-2 no_left">
+         <div class="col-lg-6 offset-lg-2">
             <h4>GET STARTED</h4>
             <h3>Create your profile today and start achieving your fitness goals.</h3>
          </div>
       </div>
       <div class="row getstartgrid">
-         <div class="col-lg-3 offset-lg-2 no_left">
+         <div class="col-lg-3 offset-lg-2">
             <div class="img-content">
                <img src="images/howpro1.png" class="img-fluid">
                <h2>The Strength Athlete</h2>

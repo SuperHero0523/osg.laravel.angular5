@@ -67,7 +67,7 @@
             <div class="col-12">
                 <div class="actions text-center">
                     <a class="btn btn-green-gradient py-3 px-3 mr-3" href="{{route('register')}}">get started</a>
-                    <a class="btn btn-yellow-gradient py-3 px-3 mr-3">learn more</a>
+                    <a class="btn btn-yellow-gradient py-3 px-3 mr-3" href="{{route('features')}}">learn more</a>
                 </div>
             </div>
         </div>

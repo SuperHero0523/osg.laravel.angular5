@@ -60,7 +60,7 @@ export class StrengthAthleteModalComponent extends SimpleModalComponent<Model, n
 
   showDetail(date: string, status: string) {
     this.close();
-    this.router.navigate(['/workout-detail', date, status]); 
+    this.router.navigate(['/workout-detail', date, status]);
   }
 
 }

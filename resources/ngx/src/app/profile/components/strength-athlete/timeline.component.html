@@ -3,10 +3,10 @@
     <div class="col-6 col-sm-6">
       <h3>TIMELINE</h3>
     </div>
-    <div class="col-6 col-sm-6">
+    <div class="col-6 col-sm-6" *ngIf="!spin_hidden">
       <div class="control-slider text-right">
-        <a href="" class="btn-control prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-        <a href="" class="btn-control next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        <a (click)="moveLeft()" class="btn-control prev" [attr.disabled]="left_spin_disable"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        <a (click)="moveRight()" class="btn-control next" [attr.disabled]="right_spin_disable"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
       </div>
     </div>
   </div>
@@ -14,119 +14,81 @@
 
 <div class="timeline-table">
   <div class="table-responsive">
-    <table class="table">
+    <table class="table" *ngIf="month_list.length > 0">
       <thead>
         <tr>
           <th colspan="1" rowspan="2"></th>
-          <th colspan="4"></th>
-          <th colspan="13">2018</th>
+          <th *ngFor="let year of year_keys" [attr.colspan]="years[year]">{{year}}</th>
         </tr>
         <tr>
-          <th colspan="2">Sept.</th>
-          <th colspan="2">Oct.</th>
-          <th colspan="2">NOV.</th>
-          <th colspan="2">Des.</th>
-          <th>Jan.</th>
-          <th>FEB.</th>
-          <th>MAR.</th>
-          <th>APR.</th>
-          <th>MAY.</th>
-          <th>JUN.</th>
-          <th>JUL.</th>
-          <th>AUG.</th>
-          <th>SEPT.</th>
+          <th *ngFor="let month of month_list" [attr.colspan]="month.days" [ngStyle]="{'column-width': month.days * 10 + 'px'}">{{month.name.substring(5)}}</th>
         </tr>
       </thead>
       <tbody>
         <tr class="program">
           <td>PROGRAM</td>
-          <td colspan="3">Base lifts</td>
-          <td colspan="4"><span class="pause"></span></td>
-          <td colspan="3">Starting Strength</td>
-          <td colspan="2">Ladder Strength</td>
-          <td colspan="1">Power Building</td>
-          <td colspan="2">GVT</td>
-          <td colspan="2">5x5</td>
+          <td *ngFor="let program of showing_list" [attr.colspan]="program.days" [ngStyle]="{'column-width': program.days * 10 + 'px'}">
+            <span class='pause' *ngIf="program.full_pause"></span>
+            <div *ngIf="!program.space">{{program.program_name}}</div>
+          </td>
         </tr>
         <tr>
           <td>Period</td>
-          <td colspan="3">10.09.17 - 06.10.17 </td>
-          <td colspan="4"><span class="pause"></span></td>
-          <td colspan="3">15.12.17 - 28.07.18 </td>
-          <td colspan="2">01.03.18 - 30.04.18 </td>
-          <td colspan="1">01.05.18 - 31.05.18 </td>
-          <td colspan="2">01.06.18 - 31.07.18 </td>
-          <td colspan="2">01.08.18 - 16.09.18 </td>
+          <td *ngFor="let program of showing_list" [attr.colspan]="program.days" [ngStyle]="{'column-width': program.days * 10 + 'px'}">
+            <span class='pause' *ngIf="program.full_pause"></span>
+            <div *ngIf="!program.space">{{program.period}}</div>
+          </td>
         </tr>
         <tr>
           <td>Category</td>
-          <td colspan="3">Power </td>
-          <td colspan="4"><span class="pause"></span></td>
-          <td colspan="3">Strength </td>
-          <td colspan="2">Strength</td>
-          <td colspan="1">Strength/Hypertrophy </td>
-          <td colspan="2">Hypertrophy </td>
-          <td colspan="2">Strength </td>
+          <td *ngFor="let program of showing_list" [attr.colspan]="program.days" [ngStyle]="{'column-width': program.days * 10 + 'px'}">
+            <span class='pause' *ngIf="program.full_pause"></span>
+            <div *ngIf="!program.space">{{program.category}}</div>
+          </td>
         </tr>
         <tr>
           <td>BW change (kg)</td>
-          <td colspan="3">+0,5 </td>
-          <td colspan="4"><span class="pause"></span></td>
-          <td colspan="3">+0,3 </td>
-          <td colspan="2">+0,1</td>
-          <td colspan="1">-0,2 </td>
-          <td colspan="2">-0,1 </td>
-          <td colspan="2">+0,2 </td>
+          <td *ngFor="let program of showing_list" [attr.colspan]="program.days" [ngStyle]="{'column-width': program.days * 10 + 'px'}">
+            <span class='pause' *ngIf="program.full_pause"></span>
+            <div *ngIf="!program.space">{{program.bw_change}}</div>
+          </td>
         </tr>
         <tr>
           <td>W-H-R change</td>
-          <td colspan="3">Unchanged </td>
-          <td colspan="4"><span class="pause"></span></td>
-          <td colspan="3">Unchanged </td>
-          <td colspan="2">Increased</td>
-          <td colspan="1">Decreased </td>
-          <td colspan="2">Unchanged </td>
-          <td colspan="2">Unchanged </td>
+          <td *ngFor="let program of showing_list" [attr.colspan]="program.days" [ngStyle]="{'column-width': program.days * 10 + 'px'}">
+            <span class='pause' *ngIf="program.full_pause"></span>
+            <div *ngIf="!program.space">{{program.whr_change}}</div>
+          </td>
         </tr>
         <tr>
           <td>Sleep level</td>
-          <td colspan="3"><span class="good"></span></td>
-          <td colspan="4"><span class="pause"></span></td>
-          <td colspan="3"><span class="good"></span></td>
-          <td colspan="2"><span class="ok"></span></td>
-          <td colspan="1"><span class="need-improvement"></span></td>
-          <td colspan="2"><span class="ok"></span></td>
-          <td colspan="2"><span class="need-improvement"></span></td>
+          <td *ngFor="let program of showing_list" [attr.colspan]="program.days" [ngStyle]="{'column-width': program.days * 10 + 'px'}">
+            <span class='pause' *ngIf="program.full_pause"></span>
+            <span [class]="program.sleep_level" *ngIf="!program.space"></span>
+          </td>
         </tr>
         <tr>
           <td>Stress level</td>
-          <td colspan="3"><span class="good"></span></td>
-          <td colspan="4"><span class="pause"></span></td>
-          <td colspan="3"><span class="good"></span></td>
-          <td colspan="2"><span class="ok"></span></td>
-          <td colspan="1"><span class="good"></span></td>
-          <td colspan="2"><span class="ok"></span></td>
-          <td colspan="2"><span class="good"></span></td>
+          <td *ngFor="let program of showing_list" [attr.colspan]="program.days" [ngStyle]="{'column-width': program.days * 10 + 'px'}">
+            <span class='pause' *ngIf="program.full_pause"></span>
+            <span [class]="program.stress_level" *ngIf="!program.space"></span>
+          </td>
         </tr>
         <tr>
           <td>Energy level</td>
-          <td colspan="3"><span class="ok"></span></td>
-          <td colspan="4"><span class="pause"></span></td>
-          <td colspan="3"><span class="need-improvement"></span></td>
-          <td colspan="2"><span class="ok"></span></td>
-          <td colspan="1"><span class="good"></span></td>
-          <td colspan="2"><span class="good"></span></td>
-          <td colspan="2"><span class="good"></span></td>
+          <td *ngFor="let program of showing_list" [attr.colspan]="program.days" [ngStyle]="{'column-width': program.days * 10 + 'px'}">
+            <span class='pause' *ngIf="program.full_pause"></span>
+            <span [class]="program.energy_level" *ngIf="!program.space"></span>
+          </td>
         </tr>
         <tr>
+          <ng-container *ngIf="!from_other_profile">
             <td></td>
-            <td colspan="3"><a href=""><span>+</span>Add PT</a></td>
-            <td colspan="4"><a href=""><span>+</span>Add PT</a></td>
-            <td colspan="3"><a href=""><span>+</span>Add PT</a></td>
-            <td colspan="2"><a class="added" href=""><span>-</span>PT Nohman</a></td>
-            <td colspan="1"><a href=""><span>+</span>Add PT</a></td>
-            <td colspan="2"><a href=""><span>+</span>Add PT</a></td>
-            <td colspan="2"><a href=""><span>+</span>Add PT</a></td>
+            <td *ngFor="let program of showing_list" [attr.colspan]="program.days" [ngStyle]="{'column-width': program.days * 10 + 'px'}">
+              <a (click)="addPT(program.calendar_id)" *ngIf="!program.space && program.trainer_name == null"><span>+</span>Add PT</a>
+              <a (click)="removePT(program.calendar_id)" *ngIf="!program.space && program.trainer_name != null"><span>-</span>{{program.trainer_name}}</a>
+            </td>
+          </ng-container>
         </tr>
       </tbody>
     </table>
@@ -143,7 +105,7 @@
       <p class="need-improvement">
           <span></span> Need improvement
       </p>
-      <p class="add-trainer">
+      <p class="add-trainer" *ngIf="!from_other_profile">
           <span>+</span> Add your personal trainer
       </p>
     </div>

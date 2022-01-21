@@ -8,47 +8,28 @@
         </div>
     </div>
     <div class="card-body collapse in show" id="card-summary">
-        <div class="text-group">
-            <label for="" class="group-title">chest:</label>
-            <div class="group-value">
-                <p>total target volume load*<span>1000</span></p>
-            </div>
-            <div class="group-value">
-                <p>total performed volume load* <span>1100</span></p>
-            </div>
-            <div class="group-value difference_plus">
-                <p>difference <span>+100</span></p>
-            </div>
-        </div>
+        <ng-container *ngFor="let item of summary.load_data.bodypartLoadDatas">
+          <div  class="text-group">
+              <label for="" class="group-title">{{item.bodypart}}:</label>
+              <div class="group-value">
+                  <p>total target volume load*<span>{{item.target}}</span></p>
+              </div>
+              <div class="group-value">
+                  <p>total performed volume load* <span>{{item.performed}}</span></p>
+              </div>
+              <div [class]="'group-value ' + (item.diff < 0 ? 'difference_minus' : 'difference_plus')">
+                  <p>difference <span>{{item.diff == 0 ? 0 : item.diff < 0 ? item.diff : '+' + item.diff}}</span></p>
+              </div>
+          </div>
+        </ng-container>
 
-        <div class="text-group">
-            <label for="" class="group-title">shoulders:</label>
-            <div class="group-value">
-                <p>total target volume load*<span>880</span></p>
-            </div>
-            <div class="group-value">
-                <p>total performed volume load* <span>900</span></p>
-            </div>
-            <div class="group-value difference_plus">
-                <p>difference <span>+10</span></p>
-            </div>
-        </div>
-
-        <div class="text-group">
-            <label for="" class="group-title">Triceps:</label>
-            <div class="group-value">
-                <p>total target volume load*<span>880</span></p>
-            </div>
-            <div class="group-value">
-                <p>total performed volume load* <span>900</span></p>
-            </div>
-            <div class="group-value difference_minus">
-                <p>difference <span>-20</span></p>
-            </div>
-        </div>
-        
         <div class="text-group boder-none">
-            <div class="group-title"><p><span>Total:</span><span class="total_amount">+90</span></p></div>
+            <div class="group-title">
+              <p>
+                <span>Total:</span>
+                <span [class]="'total_amount ' + (summary.load_data.totalDiff < 0 ? 'minus' : 'plus') ">{{summary.load_data.totalDiff == 0 ? 0 : summary.load_data.totalDiff < 0 ? summary.load_data.totalDiff : '+' + summary.load_data.totalDiff}}</span>
+              </p>
+            </div>
             <div class="group-value">
                 <p>*(volumeload: set * reps * load)</p>
             </div>
@@ -66,7 +47,7 @@
         </div>
     </div>
     <div class="card-body collapse in show" id="card-sleep">
-        <osg-numberic-slider-purple></osg-numberic-slider-purple>
+        <osg-numberic-slider-purple [value]="summary.sleep_level" (change)="onChangeSleepLevel($event)"></osg-numberic-slider-purple>
     </div>
 </div>
 
@@ -80,7 +61,7 @@
         </div>
     </div>
     <div class="card-body collapse in show" id="card-energy">
-        <osg-numberic-slider-orange></osg-numberic-slider-orange>
+        <osg-numberic-slider-orange [value]="summary.energy_level" (change)="onChangeEnergyLevel($event)"></osg-numberic-slider-orange>
     </div>
 </div>
 
@@ -94,7 +75,7 @@
         </div>
     </div>
     <div class="card-body collapse in show" id="card-stress">
-        <osg-numberic-slider-red></osg-numberic-slider-red>
+        <osg-numberic-slider-red [value]="summary.stress_level" (change)="onChangeStressLevel($event)"></osg-numberic-slider-red>
     </div>
 </div>
 
@@ -110,33 +91,17 @@
     <div class="card-body injure-mode collapse in show" id="card-injury">
         <p>injuries?</p>
         <div class="btn-status">
-            <a class="btn" [ngClass]="active?'active':''" (click)="InjureSelect()">yes</a>
-            <a class="btn" [ngClass]="!active?'active':''" (click)="InjureDeselect()">no</a>
+            <a class="btn" [ngClass]="isAllInjurySelect() ? 'active' : ''" (click)="injureSelect()">yes</a>
+            <a class="btn" [ngClass]="isAllInjuryDeselect() ? 'active': ''" (click)="injureDeselect()">no</a>
         </div>
         <div class="injure-group">
             <p>which muscle group(s)</p>
-            <div class="injure-detail">
+            <div *ngFor="let injury of summary.injuries; let i=index" class="injure-detail">
                 <div class="text">
-                    chest
+                    {{injury.bodypart}}
                 </div>
                 <div class="slider">
-                    <ui-switch [(ngModel)]="chest" size="small" (change)="onChangeChest($event)"></ui-switch>
-                </div>
-            </div>
-            <div class="injure-detail">
-                <div class="text">
-                    shoulders
-                </div>
-                <div class="slider">
-                    <ui-switch [(ngModel)]="shoulders" size="small" (change)="onChangeShoulders($event)"></ui-switch>
-                </div>
-            </div>
-            <div class="injure-detail">
-                <div class="text">
-                    triceps
-                </div>
-                <div class="slider">
-                    <ui-switch [(ngModel)]="triceps" size="small" (change)="onChangeTriceps($event)"></ui-switch>
+                    <ui-switch [(ngModel)]="injury.active" size="small"></ui-switch>
                 </div>
             </div>
         </div>
@@ -154,9 +119,8 @@
     </div>
     <div class="card-body collapse in show" id="card-note">
         <p>NOTES</p>
-        <textarea placeholder="Write your notes here...."></textarea>
+        <textarea placeholder="Write your notes here...." [(ngModel)]="summary.notes"></textarea>
     </div>
 </div>
 
-<button class="btn-finish" (click)="FinishWorkout()">Finish Workout</button>
-    
+<button class="btn-finish" (click)="alreadyCompleted ? goBack() : finishWorkout()">{{alreadyCompleted ? 'Back' : 'Finish Workout'}}</button>

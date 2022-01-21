@@ -1,6 +1,6 @@
 osg-program-designer-published-programs{
 	display: block;
-	
+
     .title {
         display: block;
         width: 100%;
@@ -20,7 +20,7 @@ osg-program-designer-published-programs{
                 }
             }
         }
-		
+
         .control-slider {
             display: inline-block;
             vertical-align: top;
@@ -55,7 +55,7 @@ osg-program-designer-published-programs{
         }
 
     }
-	
+
     table{
         margin-top: 20px;
         thead{
@@ -91,6 +91,16 @@ osg-program-designer-published-programs{
                         font-weight: bold;
                         font-size: rem(14)
                     }
+                    .del-button-div {
+                        display: flex;
+                        width: 100% !important;
+                        justify-content: center;
+                        .btn-delete {
+                            background: linear-gradient(to bottom, #fe7d35 0%, #ce7d35 100%);
+                            color: #FFF !important;
+                            font-family: "Gotham Bold";
+                        }
+                    }
                 }
             }
         }
@@ -111,7 +121,7 @@ osg-program-designer-published-programs{
 			}
 		}
 	}
-	
+
 	@media (min-width: 1280px) {
 		.title {
 			h3 {

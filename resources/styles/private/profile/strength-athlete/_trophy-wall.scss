@@ -31,12 +31,12 @@ osg-strength-athlete-trophy-wall {
         margin-bottom: 30px;
         border: 1px solid #dadada;
 		overflow-x: auto;
-		
+
 		.trophy-wall {
 			width: 1211px;
 			display: flex;
 			flex-wrap: wrap;
-	
+
 			.strenght-level {
 				display: block;
 				border-right: 1px #dadada solid;
@@ -75,30 +75,35 @@ osg-strength-athlete-trophy-wall {
 					}
 				}
 			}
-			
+
 			.performance-graph {
 				display: block;
 				height: 100%;
 				padding-top: 30px;
 				padding-left: 20px;
 				padding-right: 20px;
-				
+
 				.triple-trophy {
-					position: absolute;
+                    float: right;
+                    margin-right: 70px;
 					@media (min-width: 320px) {
-						right: 143px;
-						top: -20px;
+						margin-right: 70px;
+						margin-top: -20px;
 					}
 					@media (min-width: 768px) {
-						top: 10px;
+						margin-top: 10px;
 					}
 					@media (min-width: 1920px) {
-						top: 0px;
+						margin-top: 0px;
 					}
 					.trophy{
 						width: 25px;
 					}
 				}
+                .graphs {
+                    display: flex;
+                    height: 300px;
+                }
 				.c3 svg {
 					font: 12px "Gotham Book";
 					color: #838383;
@@ -136,11 +141,12 @@ osg-strength-athlete-trophy-wall {
 					}
 				}
 				.descriptions{
+                    height: 63px;
 					position: relative;
+                    display: flex;
 					padding-top: 0;
 					> div{
 						width: fit-content;
-						position: absolute;
 						text-align: center;
 						span{
 							display: block;
@@ -151,24 +157,10 @@ osg-strength-athlete-trophy-wall {
 								font-family: $fourth-font;
 							}
 						}
-						&:first-child{					
-							left: 70px;
+						&:first-child{
+							margin-left: 50px;
 							@media (min-width: 1920px) {
-								left: 65px;
-							}
-						}
-
-						&:nth-child(2){
-							left: 230px;
-							@media (min-width: 1920px) {
-								left: 230px;
-							}
-						}
-
-						&:last-child{
-							left: 400px;
-							@media (min-width: 1920px) {
-								left: 405px;
+								margin-left: 50px;
 							}
 						}
 					}
@@ -263,6 +255,29 @@ osg-strength-athlete-trophy-wall {
 						}
 					}
 				}
+                .scrolldiv {
+                    height: 7px;
+                    margin-top: 10px;
+                    display: flex;
+                    justify-content: center;
+                    padding-right: 17px;
+                    .scrollmenu {
+                        width: 450px;
+                        border-radius: 50px;
+                        background-color: white;
+                        overflow: auto;
+                        white-space: nowrap;
+                        .hiddenItem {
+                            display: inline-block;
+                            color: white;
+                            text-align: center;
+                            padding: 14px;
+                            text-decoration: none;
+                            width: 150px;
+                            background: #F00;
+                        }
+                    }
+                }
 
 
 				svg{
@@ -282,14 +297,14 @@ osg-strength-athlete-trophy-wall {
 					}
 				}
 			}
-			
+
 			.total-percentage {
 				display: block;
 				border-left: 1px #dadada solid;
 				height: 485px;
 				padding-top: 30px;
 				width: 310px;
-				
+
 				.title{
 					padding: 0px 15px;
 				}
@@ -393,7 +408,7 @@ osg-strength-athlete-trophy-wall {
 				.performance-graph {
 					padding: 20px 10px 0px 10px;
 					.descriptions {
-						height: 20px;
+                        display: flex;
 					}
 					.conventions {
 						margin-top: 25px;
@@ -402,6 +417,29 @@ osg-strength-athlete-trophy-wall {
 							margin-top: 57px;
 						}
 					}
+                    .scrolldiv {
+                        height: 7px;
+                        margin-top: 10px;
+                        display: flex;
+                        justify-content: center;
+                        padding-right: 17px;
+                        .scrollmenu {
+                            width: 450px;
+                            border-radius: 50px;
+                            background-color: white;
+                            overflow: auto;
+                            white-space: nowrap;
+                            .hiddenItem {
+                                display: inline-block;
+                                color: white;
+                                text-align: center;
+                                padding: 14px;
+                                text-decoration: none;
+                                width: 150px;
+                                background: #F00;
+                            }
+                        }
+                    }
 				}
 				.total-percentage {
 					height: 475px;
@@ -445,12 +483,35 @@ osg-strength-athlete-trophy-wall {
 				.performance-graph {
 					padding: 30px 10px 0px 10px;
 					.descriptions {
-						height: 50px;
+                        display: flex;
 					}
 					.conventions {
 						margin-top: 50px;
 						margin-bottom: 10px;
 					}
+                    .scrolldiv {
+                        height: 7px;
+                        margin-top: 10px;
+                        display: flex;
+                        justify-content: center;
+                        padding-right: 17px;
+                        .scrollmenu {
+                            width: 450px;
+                            border-radius: 50px;
+                            background-color: white;
+                            overflow: auto;
+                            white-space: nowrap;
+                            .hiddenItem {
+                                display: inline-block;
+                                color: white;
+                                text-align: center;
+                                padding: 14px;
+                                text-decoration: none;
+                                width: 150px;
+                                background: #F00;
+                            }
+                        }
+                    }
 				}
 				.total-percentage {
 					height: 485px;

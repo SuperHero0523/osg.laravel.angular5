@@ -41,22 +41,23 @@ class LoginController extends Controller
     }
 
     public function login(Request $request) {
-        $rules = array('email' => 'required|email', 'password' => 'required|alphaNum');
+        $rules = array('email' => 'required|email', 'password' => 'required');
 
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
             return Redirect::to('/login')->withErrors($validator)->withInput(Input::except('password'));
         } else {
             // create our user data for the authentication
-            $available_emails = ["nohman@janjua.net", "admin@fantasylab.io", "devtool@fantasylab.io", "andreas,stensrud@gmail.com", "nohman@fantasylab.io"];
+            // $available_emails = ["nohman@janjua.net", "admin@fantasylab.io", "devtool@fantasylab.io", "andreas,stensrud@gmail.com", "nohman@fantasylab.io", "chrome@test.com"];
             $userdata = array(
                 'password'  => $request->password,
                 'email'     => $request->email
             );
-            if (in_array($request->email, $available_emails) && Auth::attempt($userdata,true)) {
+            //if (in_array($request->email, $available_emails) && Auth::attempt($userdata,true)) {
+            if (Auth::attempt($userdata,true)) {
                 return redirect('/');
             } else {
-                return Redirect::back()->with('alert-success', 'Enter Correct Email and Password');
+                return Redirect::back()->with('alert-error', 'Enter Correct Email and Password');
             }
         }
     }

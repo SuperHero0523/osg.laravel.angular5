@@ -14,3 +14,4 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', 'Api\ApiController@getUserProfile');
+Route::middleware('auth:api')->get('/user/{id}', 'Api\ApiController@getUserProfile');

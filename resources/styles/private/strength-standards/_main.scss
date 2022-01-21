@@ -4,8 +4,8 @@ osg-strength-standards {
     width: 100%;
     padding-top: 170px;
     padding-bottom: 20px;
-    .main-title{
-        text-transform: uppercase;
+    .main-title {
+        display: flex;
         font-family: $primary-font;
 		.img-section {
 			@media (min-width: 320px) {
@@ -14,14 +14,30 @@ osg-strength-standards {
 			@media (min-width: 768px) {
 				display: block;
 			}
+            img {
+                float: left;
+                margin-right: 12px;
+            }
 		}
-        h1{
-            margin: 0;
-            font-size: 2rem;
-        }
-        span{
-            color: #838383;
-            font-size: 1.6rem;
+        .title-section {
+            h1 {
+                text-transform: uppercase;
+                margin: 0;
+                font-size: 2rem;
+            }
+            span {
+                text-transform: uppercase;
+                color: #838383;
+                font-size: 1.6rem;
+            }
+            p {
+                color: #838383;
+                font-size: 20px;
+                font-weight: 400;
+                text-transform: none;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                margin-top: 20px;
+            }
         }
     }
     @import "exercise-table";

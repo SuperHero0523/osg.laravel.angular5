@@ -12,11 +12,11 @@ osg-program-designer-experience-reviews {
 			width: 100%;
 			margin-top: 20px;
 			margin-bottom: 20px;
-			
+
 			h3 {
 				@include section-title;
 				width: 100%;
-				
+
 				&:after{
 					content: "";
 					background: #b7b7b7;
@@ -49,37 +49,42 @@ osg-program-designer-experience-reviews {
 			}
 		}
 		.rating{
-			font-size: 10px;
-			color: #b7b7b7;
-			display: block;
-			margin-bottom: 5px;
-			text-align: center;
-			&:before{
-				content:"";
-				display: block;
-				background: #bebebe;
-				width: 50%;
-				height: 1px;
-				margin: 15px auto;
-			}
-			span{
-				color: #b7b7b7;
-				&.excellent{
-					color: #4b870a;
-				}
-				&.good{
-					color: $dark-green;
-				}
-				&.middle{
-					color: $orange;
-				}
-			}
-			p{
-				display: inline-block;
-				margin-right: 5px;
-				margin-bottom: 0;
-			}
-		}
+            font-size: 10px;
+            color: #b7b7b7;
+            align-items: center;
+            justify-content: flex-start;
+            display: flex;
+            margin-bottom: 5px;
+            text-align: center;
+            span{
+                color: #b7b7b7;
+                cursor: pointer;
+                font-size: 14px;
+                &.excellent{
+                    color: #4b870a;
+                }
+                &.good{
+                    color: $dark-green;
+                }
+                &.middle{
+                    color: $orange;
+                }
+                &.worse{
+                    color: #ff4700;
+                }
+                &.worst{
+                    color: #980000;
+                }
+            }
+            p{
+                display: inline-block;
+                margin-left: 5px;
+                margin-bottom: 0;
+                font-weight: bold;
+                font-size: 1rem;
+                color: black;
+            }
+        }
 		&.desktop {
 			.review-table {
 				display: flex;
@@ -94,7 +99,7 @@ osg-program-designer-experience-reviews {
 					@media (min-width: 1366px) {
 						flex-basis: 0;
 						flex-grow: 1;
-						max-width: 100%;
+						max-width: 20%;
 						margin-right: 15px;
 					}
 					.review{
@@ -110,7 +115,14 @@ osg-program-designer-experience-reviews {
 						}
 						p{
 							color: $text-gray;
-							font-size: rem(14);
+                            font-size: rem(14);
+                            &.body{
+                                display: -webkit-box;
+                                overflow : hidden;
+                                text-overflow: ellipsis;
+                                -webkit-line-clamp: 3;
+                                -webkit-box-orient: vertical;
+                            }
 							&.name{
 								color: $light-blue;
 								margin-bottom: 5px;

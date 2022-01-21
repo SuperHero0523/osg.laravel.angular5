@@ -1,0 +1,42 @@
+osg-reviews,
+osg-reviews-page {
+    display: block;
+    padding-top: 120px;
+
+    .review-page-title{
+        padding-left: 205px;
+        font-family: $primary-font;;
+
+        span{
+            padding-left: 10px;
+            color: #0880e6;
+        }
+    }
+
+    .review-page-container{
+        display: flex;
+        flex-direction: row;
+
+        @media (max-width: 1920px) {
+            padding-left: 150px;
+            padding-right: 150px;
+        }
+
+        @media (max-width: 1024px) {
+            padding-left: 100px;
+            padding-right: 150px;
+        }
+
+        @media (max-width: 768px) {
+            padding-left: 50px;
+            padding-right: 100px;
+        }
+
+        .review-container{
+            flex: 2;
+            height: 100%;
+        }
+    }
+
+
+}

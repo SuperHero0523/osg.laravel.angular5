@@ -77,16 +77,16 @@
          </div>
          <div class="offers-container">
             <div class="offer">
-               <div><img src="../images/screenshots/offers_img1.png" alt=""></div>
+               <img src="../images/screenshots/offers_img1.png" alt="" />
             </div>
             <div class="offer">
-               <div><img src="../images/screenshots/offers_img2.png" alt=""></div>
+               <img src="../images/screenshots/offers_img2.png" alt="" />
             </div>
             <div class="offer">
-               <div><img src="../images/screenshots/offers_img3.png" alt=""></div>
+               <img src="../images/screenshots/offers_img3.png" alt="" />
             </div>
             <div class="offer">
-               <div><img src="../images/screenshots/offers_img4.png" alt=""></div>
+               <img src="../images/screenshots/offers_img4.png" alt="" />
             </div>
          </div>
       </div>
@@ -167,7 +167,8 @@
          <div class="row justify-content-center">
              <div class="col-12 col-sm-10 col-md-10 col-lg-8 py-5 py-md-0">
                  <h2 class="black">
-                     <small>REACH YOUR FITNESS GOALS</small>LET’S GET STARTED
+                     SIGN UP
+                     <small>Our web app is under development. Sign up now, and we will inform you once we are live.</small>
                  </h2>
                  @include('shared.registration-form')
              </div>

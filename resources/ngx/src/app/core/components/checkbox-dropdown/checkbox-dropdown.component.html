@@ -1,0 +1,16 @@
+
+<label class="dropdown-label">{{label}}</label>
+<button class="btn dropdown-toggle btn-block" type="button" style="display: flex;" (click)="toggle()">
+  <p style="margin-right: 15px; width: 100%; overflow: hidden;">{{value}}</p>
+  <img src="/images/information-ikon.png" placement="left" [ngbPopover]="popContent" *ngIf="type == 'level'" (click)="popup()"/>
+</button>
+
+<div class="dropdown-menu" [ngClass]="{'show': open}" aria-labelledby="dropdownMenuButton1">
+  <a data-toggle="check-all" class="dropdown-item" (click)="selectAll()">
+    Check All
+  </a>
+  <a *ngFor="let key of keys" class="dropdown-item" (click)="select(key)">
+    <input type="checkbox" name="dropdown-group" [checked]="selection[key]" (click)="select(key)"/>
+    {{options[key]}}
+  </a>
+</div>

@@ -1,6 +1,6 @@
 osg-personal-trainer-offers {
     display: block;
-	
+
     .title {
         display: block;
         margin-bottom: 10px;
@@ -12,7 +12,7 @@ osg-personal-trainer-offers {
 
     .offers-container {
         @extend .row;
-		
+
 		owl-carousel-o {
 			width: 100%;
 			.owl-theme {
@@ -28,7 +28,7 @@ osg-personal-trainer-offers {
 				}
 			}
 		}
-			
+
         .offer {
             @extend .col-lg-3;
             @extend .col-sm-6;
@@ -43,15 +43,29 @@ osg-personal-trainer-offers {
                 height: 100%;
 
                 header {
+                    .offer-edit-button-div {
+                        position: absolute;
+                        width: 20px;
+                        right: 20px;
+                    }
                     display: block;
                     background: $black;
                     clip-path: ellipse(100% 60% at 65% 40%);
                     -webkit-clip-path: ellipse(100% 60% at 65% 40%);
-                    figure{
+                    figure {
                         display: block;
                         margin: 0 auto;
                         width: 60px;
                         padding: 70px 0px;
+                        .offer-image-edit-button-div {
+                            position: absolute;
+                            width: 20px;
+                            right: 33%;
+                            top: 10%;
+                        }
+                        .editing:hover {
+                            cursor: pointer;
+                        }
                     }
                 }
 
@@ -87,6 +101,24 @@ osg-personal-trainer-offers {
                     }
                     span{
                         color: $text-gray;
+                    }
+                }
+
+                input {
+                    @include placeholderColor($text-gray);
+                    background: #f5f5f5;
+                    border-radius: 5px;
+                    border: solid 1px #c6c6c6;
+                    display: block;
+                    outline: none;
+                    position: relative;
+                    z-index: 1;
+                    width: 100%;
+                    font-size: rem(15);
+                    padding: 5px 20px 5px 10px;
+                    transition: all 0.2s linear;
+                    &:focus {
+                        box-shadow: 0px 0px 3px 0px #7b7b7b;
                     }
                 }
             }

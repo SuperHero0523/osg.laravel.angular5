@@ -49,7 +49,7 @@
     <div class="wrapper-btn text-center text-md-right mt-3">
         <input id="submit-button" type="submit" value="CONTINUE" class="btn btn-green-gradient btn-block px-5 py-3 signup-submit" disabled>
     </div>
-    <div class="no-sign-up text-center mt-3">
+    <!-- <div class="no-sign-up text-center mt-3">
         <p>Already have an account? <a href="{{ route('login') }}">Login to your account.</a></p>
-    </div>
+    </div> -->
 </form>

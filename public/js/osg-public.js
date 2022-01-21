@@ -46,48 +46,85 @@ Controllers.SignUp = function () {
 
     var Continue = function (event) {
         event.preventDefault();
-        if($("#step1-form").valid()) {
-            switch ($("#role").val()) {
-                case "0":
-                    $("#personal-form").attr('style', 'display: block;');
-                    $(".step_title").html("You have selected a <span>Personal Trainer</span> profile.");
-                    $(".sign-up-benefits-wrapper").addClass('personal');
-                    break;
-                case "1":
-                    $("#program-form").attr('style', 'display: block;');
-                    $(".step_title").html("You have selected a <span>Program Designer</span> profile.");
-                    $(".sign-up-benefits-wrapper").addClass('program');
-                    break;
-                case "2":
-                    $("#strength-form").attr('style', 'display: block;');
-                    $(".step_title").html("You have selected a <span>Strength Athlete</span> profile.");
-                    $(".sign-up-benefits-wrapper").addClass('strength');
-                    break;
-            }
-            $(".step_round").html('Step 2 of 2');
-            $(".image-upload").attr('style', 'display: flex;');
-            $("#step1-form").attr('style', 'display: none;');
+            
+        // check if password has at least 8 characters.
+        let password = $('#password').val();
+        if (password.length < 8) {
+            $('#password-validate').show();
+            return;
+        }
+
+        // check if email already exists
+        if ($("#step1-form").valid()) {
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: 'already-email',
+                data: {
+                    email: $('#email').val()
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (already) {
+                    console.log('>>> already-email response: ', already);
+                    if (already) {
+                        $('#email-validate').show();
+
+                    } else {
+                        switch ($("#role").val()) {
+                            case "0":
+                                $("#personal-form").attr('style', 'display: block;');
+                                $(".step_title").html("You have selected a <span>Personal Trainer</span> profile.");
+                                $(".sign-up-benefits-wrapper").addClass('personal');
+                                break;
+                            case "1":
+                                $("#program-form").attr('style', 'display: block;');
+                                $(".step_title").html("You have selected a <span>Program Designer</span> profile.");
+                                $(".sign-up-benefits-wrapper").addClass('program');
+                                break;
+                            case "2":
+                                $("#strength-form").attr('style', 'display: block;');
+                                $(".step_title").html("You have selected a <span>Strength Athlete</span> profile.");
+                                $(".sign-up-benefits-wrapper").addClass('strength');
+                                break;
+                        }
+                        $(".step_round").html('Step 2 of 2');
+                        $(".image-upload").attr('style', 'display: flex;');
+                        $("#step1-form").attr('style', 'display: none;');
+                    }
+                }
+            });
         }
     };
 
-    $("#question_muscle").click(function (e) {
+    $("#question_muscle").on('click', function (e) {
         e.preventDefault();
         if ($(this).prop('popShown') == undefined) {
             $(this).prop('popShown', true).popover('show');
         }
     });
 
-    $("#question_role").click(function (e) {
+    $("#question_role").on('click', function (e) {
         e.preventDefault();
         if ($(this).prop('popShown') == undefined) {
             $(this).prop('popShown', true).popover('show');
         }
+    });
+
+    $('#email').on('change', function() {
+        $('#email-validate').hide();
+    });
+
+    $('#password').on('change', function() {
+        console.log('>>> password change');
+        $('#password-validate').hide();
     });
 
     $('#avatarInput').on('change',function(){
         var formdata = new FormData();
         formdata.append('file', this.files[0]);
-        
+
         $.ajax({
           type: 'post',
           dataType: 'json',
@@ -107,7 +144,7 @@ Controllers.SignUp = function () {
 
     var Register = function (event) {
         event.preventDefault();
-     
+
         switch ($("#role").val()) {
             case "0":
                 if($("#personal-form").valid()) {
@@ -237,35 +274,46 @@ Controllers.SignUp = function () {
     };
 
     var init = function () {
-        $("#submit-button").click(Continue);
-        $(".register-button").click(Register);
-        $("#per_birth").datepicker({
+        $('#email-validate').hide();
+        $('#password-validate').hide();
+        $("#submit-button").on('click', Continue);
+        $(".register-button").on('click', Register);
+        $perDatepicker = $("#per_birth").datepicker({
             showOtherMonths: true,
             selectOtherMonths: true,
-            format: 'mm/dd/yyyy',
-            changeMonth: false,
-            changeYear: false,
-            yearRange: '-110:-18'
+            format: 'dd/mm/yyyy',
+            changeMonth: true,
+            changeYear: true,
+            // maxDate: function() {
+            //   var date_str = moment().year()-15 + "-12-31";
+            //   return moment(date_str).toDate();
+            // },
         });
-        $("#pro_birth").datepicker({
+        $proDatepicker = $("#pro_birth").datepicker({
             showOtherMonths: true,
             selectOtherMonths: true,
-            format: 'mm/dd/yyyy',
-            changeMonth: false,
-            changeYear: false,
-            yearRange: '-110:-18'
+            format: 'dd/mm/yyyy',
+            changeMonth: true,
+            changeYear: true,
+            // maxDate: function() {
+            //   var date_str = moment().year()-15 + "-12-31";
+            //   return moment(date_str).toDate();
+            // }
         });
-        $("#str_birth").datepicker({
+        $strDatepicker = $("#str_birth").datepicker({
             showOtherMonths: true,
             selectOtherMonths: true,
-            format: 'mm/dd/yyyy',
-            changeMonth: false,
-            changeYear: false,
-            yearRange: '-110:-18'
+            format: 'dd/mm/yyyy',
+            changeMonth: true,
+            changeYear: true,
+            // maxDate: function() {
+            //   var date_str = moment().year()-15 + "-12-31";
+            //   return moment(date_str).toDate();
+            // }
         });
 
         var request_url = window.location.href;
-        var length = request_url.split('/').length; 
+        var length = request_url.split('/').length;
         if (length > 4) {
             autoContinue();
         }
@@ -276,8 +324,8 @@ Controllers.SignUp = function () {
 Controllers.SignupStep = function() {
     var Continue = function(event) {
         event.preventDefault();
-        if($("#signup-step1-form").valid()) {
-            $("#signup-step1-form").submit();
+        if ($("#signup-step1-form").valid()) {
+            $("#signup-step1-form").on('submit');
         }
     };
     $('#agreement-checkbox').on('change', () => {
@@ -285,7 +333,7 @@ Controllers.SignupStep = function() {
         $('.signup-submit').prop('disabled', !val);
     });
     var init = function() {
-        $(".signup-submit").click(Continue);
+        $(".signup-submit").on('click', Continue);
         $("#signup-step1-form").validate({
             errorClass: 'is-invalid',
             errorElement: 'span',

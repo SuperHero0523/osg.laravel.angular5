@@ -10,7 +10,6 @@ osg-workout-detail {
 		.status-tab {
 			position: relative;
 			&.chest {
-				background: url(/images/bench-press.jpg) 50% 100%;
 				background-size: cover;
 				width: 100%;
 				height: 350px;
@@ -112,9 +111,8 @@ osg-workout-detail {
 			padding: 15px 15px 0px 15px;
 			.status-tab {
 				&.chest {
-					background: url(/images/bench-press.jpg) 50% 50%;
 					background-size: cover;
-					height: 175px;	
+					height: 175px;
 				}
 				.date-time {
 					padding: 5px 10px 0px 10px;
@@ -145,14 +143,14 @@ osg-workout-detail {
 					}
 					.action {
 						width: 120px;
-						.button { 
+						.button {
 							padding: 15px;
 							svg {
 								height: 25px;
 								top: 4px;
 								left: 9px;
 							}
-							&.refresh { 
+							&.refresh {
 								padding: 15px;
 								svg {
 									height: 15px;
@@ -169,7 +167,7 @@ osg-workout-detail {
 			padding: 10px 15px 0px 15px;
 			.status-tab {
 				&.chest {
-					height: 160px;	
+					height: 160px;
 				}
 				.date-time {
 					.time-block {
@@ -178,7 +176,7 @@ osg-workout-detail {
 						margin-top: 5px;
 						img {
 							width: 20px;
-							height: 20px;
+							height:	 20px;
 						}
 					}
 				}
@@ -216,6 +214,10 @@ osg-workout-detail {
 	}
 	.container {
 		box-shadow: 0px 0px 15px 0px rgba(61, 47, 12, 0.15);
+        // .item {
+        //     white-space: nowrap;
+        //     overflow: hidden;
+        // }
 		.card {
 			font-family: $third-font;
 			display: flex;
@@ -230,6 +232,7 @@ osg-workout-detail {
 					padding-bottom: 5px;
 					border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 					.item {
+			            overflow: visible !important;
 						width: 120px;
 						text-align: left;
 						&.multi-line {
@@ -276,6 +279,8 @@ osg-workout-detail {
 					text-align: center;
 					font-size: 11px;
 					position: relative;
+                    white-space: nowrap;
+                    overflow: hidden;
 					&.multi-line {
 						.btn {
 							top: 12px;
@@ -324,22 +329,6 @@ osg-workout-detail {
 				&.event {
 					padding: 10px;
 				}
-				.item-title {
-					line-height: 25px;
-				}
-				.item-group {
-					.item {
-						line-height: 20px;
-						width: 78px;
-						padding-left: 5px;
-						padding-right: 5px;
-						input {
-							width: 100%;
-							height: 18px;
-							text-align: center;
-						}
-					}
-				}
 				.side-nav {
 					.item-group {
 						.item {
@@ -360,6 +349,24 @@ osg-workout-detail {
 						}
 					}
 				}
+				.item-title {
+					line-height: 25px;
+				}
+				.item-group {
+					.item {
+						line-height: 20px;
+						width: 78px;
+						padding-left: 5px;
+						padding-right: 5px;
+                        white-space: nowrap;
+                        overflow: hidden;
+						input {
+							width: 100%;
+							height: 18px;
+							text-align: center;
+						}
+					}
+				}
 				.form-buttons {
 					height: 80px;
 					.single-button {
@@ -371,21 +378,6 @@ osg-workout-detail {
 				}
 			}
 			@media (min-width: 360px) {
-				.item-title {
-					line-height: 35px;
-				}
-				.item-group {
-					.item {
-						line-height: 30px;
-						width: 97px;
-						.btn {
-							top: 0px;
-						}
-						input {
-							height: 21px;
-						}
-					}
-				}
 				.side-nav {
 					.item-group {
 						.item {
@@ -401,18 +393,37 @@ osg-workout-detail {
 						}
 					}
 				}
-			}
-			@media (min-width: 375px) {
+				.item-title {
+					line-height: 35px;
+				}
 				.item-group {
 					.item {
-						width: 105px;
+						line-height: 30px;
+						width: 97px;
+                        white-space: nowrap;
+                        overflow: hidden;
+						.btn {
+							top: 0px;
+						}
+						input {
+							height: 21px;
+						}
 					}
 				}
+			}
+			@media (min-width: 375px) {
 				.side-nav {
 					.item-group {
 						.item {
 							width: 130px;
 						}
+					}
+				}
+				.item-group {
+					.item {
+						width: 105px;
+                        white-space: nowrap;
+                        overflow: hidden;
 					}
 				}
 			}
@@ -434,6 +445,8 @@ osg-workout-detail {
 				.item-group {
 					.item {
 						width: 85px;
+                        white-space: nowrap;
+                        overflow: hidden;
 					}
 				}
 			}

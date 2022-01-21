@@ -6,7 +6,7 @@ import { Options } from 'ng5-slider';
   templateUrl: './performance-slider.component.html'
 })
 export class StrengthAthletePerformanceSliderComponent implements OnInit{
-  
+
   @Input() title: string='';
   @Input() value: number;
   @Input() color: string='';
@@ -30,7 +30,8 @@ export class StrengthAthletePerformanceSliderComponent implements OnInit{
     ]
   };
   ngOnInit(): void {
-    
+    console.log(">>> performance-slider component init")
+
   }
 
   increase() {

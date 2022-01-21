@@ -42,18 +42,25 @@
             }
         }
 
-        form.get-started {
-            .form-control {
-                @include placeholderColor(#000);
-                height: auto;
-                font-size: rem(16);
-                border: none;
-            }
-
-            .btn {
-                font-family: $fourth-font;
-            }
-        }
+        .button-group {
+			display: flex;
+			justify-content: center;
+			a:first-child {
+				margin-right: 15px;
+			}
+			@include media-breakpoint-down(md) {
+				flex-direction: row;
+			}
+			@include media-breakpoint-down(sm) {
+				flex-direction: column;
+				a:first-child {
+					margin-right: 0px;
+				}
+				a:last-child {
+					margin-top: 15px;
+				}
+			}
+		}
     }
 
 

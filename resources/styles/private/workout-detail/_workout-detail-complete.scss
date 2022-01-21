@@ -66,12 +66,17 @@ osg-workout-detail-complete {
 						color: #90cf41;
 						float: right;
 					}
-				}				
+				}
 				.group-title {
 					color: #000;
 					.total_amount {
-						color: #90cf41;
-						float: right;
+                        &.plus {
+                            color: #90cf41;
+                        }
+                        &.minus {
+							color: #f10909;
+                        }
+                        float: right;
 					}
 				}
 				.group-value {
@@ -88,17 +93,17 @@ osg-workout-detail-complete {
 					}
 					&.difference_plus {
 						p {
-							color: #90cf41; 
+							color: #90cf41;
 							span {
-								color: #90cf41; 
+								color: #90cf41;
 							}
 						}
 					}
 					&.difference_minus {
 						p {
-							color: #f10909; 
+							color: #f10909;
 							span {
-								color: #f10909; 
+								color: #f10909;
 							}
 						}
 					}

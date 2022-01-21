@@ -1,0 +1,300 @@
+osg-program-designs {
+    display: block;
+    background: #f5f5f5;
+    width: 100%;
+    padding-top: 170px;
+    padding-bottom: 20px;
+    .main-title{
+        display: flex;
+        font-family: $primary-font;
+		.img-section {
+			@media (min-width: 320px) {
+				display: inline-block;
+			}
+			@media (min-width: 768px) {
+				display: block;
+			}
+            img {
+                float: left;
+                margin-right: 12px;
+            }
+		}
+        .title-section {
+            h1 {
+                text-transform: uppercase;
+                margin: 0;
+                font-size: 2rem;
+            }
+            span {
+                text-transform: uppercase;
+                color: #838383;
+                font-size: 1.6rem;
+            }
+            p {
+                color: #838383;
+                font-size: 20px;
+                font-weight: 400;
+                text-transform: none;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                margin-top: 20px;
+            }
+        }
+    }
+    .circle-parent {
+        display: flex;
+        justify-content: end;
+        .circle {
+            width: 10px;
+            height: 10px;
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 25px;
+            background: white;
+
+            margin-top: 7px;
+        }
+    }
+
+    .search-condition {
+        display: block;
+        background: #000;
+        margin-top: 50px;
+        border-top: 5px solid $yellow;
+        padding: 40px 50px;
+        margin-bottom: 40px;
+        h2 {
+            color: #FFF;
+            text-transform: uppercase;
+            font-family: $primary-font;
+            font-size: 1.1rem;
+            margin: 0px 0px 50px 0px;
+        }
+        .etch {
+            margin-left: -50px;
+            margin-right: -50px;
+            border-bottom: solid 1px #393939;
+            margin-bottom: 40px;
+            margin-top: -20px;
+        }
+        p {
+            color: white;
+        }
+        .description {
+            margin-top: -10px;
+        }
+        .checbox-dropdown{
+            margin-right: 53px;
+            .custom-checkbox{
+                display: inline-block;
+                width: 10%;
+                margin-top: 9px;
+                .checkmark{
+                    background: #000;
+                    border-color: #7d7d7d;
+                }
+                label input:checked ~ .checkmark{
+                    border-color: $green;
+                }
+            }
+            .dropdown{
+                display: flex;
+                width: 100%;
+            }
+        }
+        .dropdown{
+            .btn{
+                font-size: 0.8rem;
+                &:focus{
+                    box-shadow: none;
+                }
+                &:hover,
+                &:focus{
+                    border-color: #252525 !important;
+                    &:before{
+                        background: #000 !important;
+                    }
+                    &:after{
+                        color: #7d7d7d !important;
+                    }
+                }
+            }
+            &.with-label{
+                .btn{
+                    padding-top: 15px;
+                }
+            }
+            &.show{
+                .btn{
+                    background: #323232 !important;
+                }
+            }
+            label{
+                display: block;
+                color: #c4c4c4;
+                font-weight: normal;
+                font-size: 10px;
+                position: absolute;
+                top: 5px;
+                left: 15px;
+                pointer-events: none;
+                margin-bottom: 0px;
+            }
+            &.black-dropdown{
+                .btn{
+                    text-align: left;
+                    border: solid 1px #252525;
+                    color: #ffffff;
+                    border-radius: 0px;
+                    height: 44px;
+                    background: #252525;
+                    margin-bottom: 10px;
+                    img {
+                        position: absolute;
+                        right: 45px;
+                        top: 13px;
+                    }
+                }
+                .dropdown-toggle{
+                    &:before{
+                        display: block;
+                        content: "";
+                        background: #000;
+                        width: 1px;
+                        height: 100%;
+                        position: absolute;
+                        top: 0px;
+                        right: 35px;
+                        pointer-events: none;
+                    }
+                    &:after{
+                        float: right;
+                        margin-top: 5px;
+                        color: #7d7d7d;
+                    }
+                }
+                .dropdown-menu{
+                    width: 100%;
+                    border-radius: 0px;
+                    background: #252525;
+                    color: #8c8c8c;
+                    padding: 0px;
+                    margin: 1px 0px 0px;
+                    max-height: 500px;
+                    overflow-y: auto;
+                    a {
+                        color: #8c8c8c;
+                        border-bottom: 1px solid #393939;
+                        padding: 10px;
+                        font-size: rem(16);
+                        overflow: hidden;
+                        &:hover{
+                            background: #323232;
+                            color: #c4c4c4;
+                        }
+                    }
+                }
+            }
+        }
+        .left-panel-check-label {
+            position: absolute;
+            right: 60px;
+        }
+        .right-panel-check-label {
+            position: absolute;
+            right: 20px;
+        }
+
+        .actions{
+            align-items: center !important;
+            justify-content: space-between !important;
+            height: 40px;
+            .btn{
+                font-size: rem(14);
+                font-weight: bold;
+                font-family: $fourth-font;
+            }
+            .results{
+                display: block;
+                h4{
+                    display: inline-block;
+                    color: #FFF;
+                    font-family: $primary-font;
+                    font-size: rem(10);
+                    text-transform: uppercase;
+                    margin: 0px 10px 0px 0px;
+                }
+                p{
+                    display: inline-block;
+                    color: #838383;
+                    font-size: 0.8rem;
+                    margin-bottom: 0;
+                    span{
+                        cursor: pointer;
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+    }
+    .recommended-panel {
+        text-transform: uppercase;
+        font-family: $primary-font;
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        span {
+            color: #838383;
+            font-size: 1.6rem;
+        }
+
+    }
+    .program {
+        margin-top: 20px;
+        .program-name {
+            font-size: 1.2rem;
+            color: #0AA4E5;
+        }
+        .average {
+            font-size: 1rem;
+        }
+    }
+
+    .rating {
+        font-size: 10px;
+        color: #b7b7b7;
+        align-items: center;
+        justify-content: flex-start;
+        display: inline-block;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        text-align: center;
+        span {
+            color: #b7b7b7;
+            cursor: pointer;
+            &.excellent{
+                color: #4b870a;
+            }
+            &.good{
+                color: $dark-green;
+            }
+            &.middle{
+                color: $orange;
+            }
+            &.worse{
+                color: #ff4700;
+            }
+            &.worst{
+                color: #980000;
+            }
+        }
+        p{
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 0;
+            font-weight: bold;
+            font-size: 1rem;
+            color: black;
+        }
+    }
+}

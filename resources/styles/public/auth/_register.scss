@@ -290,8 +290,8 @@
 							background-size: auto 50%;
 						}
 						&#per_birth, &#pro_birth, &#str_birth {
-							background: #FFF url(/images/calendar-field.png) no-repeat 95% center;
-							background-size: auto 50%;
+							height: 51px;
+							background: transparent;
 						}
 						&#str_height {
 							background: #FFF url(/images/cm-ikon.png) no-repeat 95% center;
@@ -336,6 +336,10 @@
 							top: 13px;
 							font-size: 1rem;
 						}
+					}
+					i.gj-icon {
+						right: 10px;
+						top: 15px;
 					}
                 }
 

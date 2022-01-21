@@ -1,12 +1,12 @@
 <div class="detail-title text-center">
-    <h4>{{title}}</h4>
+    <h4>{{comparison == undefined ? '' : comparison.exercise_name}}</h4>
     <p>You responded better than:</p>
 </div>
 <div class="row no-gutters text-center">
     <div class="col-6 col-sm-6 px-0">
         <div class="graph">
             <div class="gauge-container">
-                <osg-gauge css="green no-circle" [value]="33"></osg-gauge>
+                <osg-gauge css="green no-circle" [value]="comparison == undefined ? '' : comparison.level_ratio"></osg-gauge>
             </div>
             <p>of male lifters<br> at your <br><b>strength level</b></p>
         </div>
@@ -14,7 +14,7 @@
     <div class="col-6 col-sm-6 px-0">
         <div class="graph">
             <div class="gauge-container">
-                <osg-gauge css="orange no-circle" [value]="33"></osg-gauge>
+                <osg-gauge css="orange no-circle" [value]="comparison == undefined ? '' : comparison.height_ratio"></osg-gauge>
             </div>
             <p>of male lifters<br> with your <br><b>height</b></p>
         </div>
@@ -22,7 +22,7 @@
     <div class="col-6 col-sm-6 px-0">
         <div class="graph">
             <div class="gauge-container">
-                <osg-gauge css="red no-circle" [value]="33"></osg-gauge>
+                <osg-gauge css="red no-circle" [value]="comparison == undefined ? '' : comparison.age_ratio"></osg-gauge>
             </div>
             <p>of male lifters<br> with your <br><b>age</b></p>
         </div>
@@ -30,7 +30,7 @@
     <div class="col-6 col-sm-6 px-0">
         <div class="graph">
             <div class="gauge-container">
-                <osg-gauge css="blue no-circle" [value]="33"></osg-gauge>
+                <osg-gauge css="blue no-circle" [value]="comparison == undefined ? '' : comparison.weight_ratio"></osg-gauge>
             </div>
             <p>of male lifters<br> with your <br><b>body weight</b></p>
         </div>
@@ -38,7 +38,7 @@
     <div class="col-6 col-sm-6 px-0">
         <div class="graph">
             <div class="gauge-container">
-                <osg-gauge css="red no-circle" [value]="33"></osg-gauge>
+                <osg-gauge css="red no-circle" [value]="comparison == undefined ? '' : comparison.level_ratio"></osg-gauge>
             </div>
             <p>of male lifters<br> with your <br><b>waist-hip ratio</b></p>
         </div>
@@ -46,7 +46,7 @@
     <div class="col-6 col-sm-6 px-0">
         <div class="graph">
             <div class="gauge-container">
-                <osg-gauge css="red no-circle" [value]="33"></osg-gauge>
+                <osg-gauge css="red no-circle" [value]="comparison == undefined ? '' : comparison.muscle_type_ratio"></osg-gauge>
             </div>
             <p>of male lifters<br> at your <br><b>muscle fiber type</b></p>
         </div>
@@ -56,7 +56,7 @@
     <div class="row">
         <div class="col-6 col-sm-4">
             <div class="gauge-container">
-                <osg-gauge css="blue no-circle" [value]="33"></osg-gauge>
+                <osg-gauge css="blue no-circle" [value]="comparison == undefined ? '' : comparison.combined_ratio"></osg-gauge>
             </div>
         </div>
         <div class="col-6 col-sm-8">

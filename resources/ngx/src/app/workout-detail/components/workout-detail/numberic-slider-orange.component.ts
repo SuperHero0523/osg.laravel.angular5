@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Options } from 'ng5-slider';
 
 @Component({
@@ -6,9 +6,10 @@ import { Options } from 'ng5-slider';
   templateUrl: './numberic-slider-orange.component.html'
 })
 export class NumbericSliderOrangeComponent implements OnInit{
-  
-  @Input() status: string;    
-  value: number = 7;
+
+  @Input() value: number;
+  @Output() change: EventEmitter<number> = new EventEmitter();
+
   options: Options = {
     showTicksValues: true,
     floor: 0,
@@ -27,20 +28,26 @@ export class NumbericSliderOrangeComponent implements OnInit{
       {value: 10, legend: 'Excellent'},
     ]
   };
-  
+
   ngOnInit(): void {
-    
+
   }
 
-  increase() {
-    if (this.value < 11) {
-      this.value ++;
+  increaseValue() {
+    let value = this.value;
+    if (value < 10) {
+      this.change.emit(++value);
     }
   }
 
-  decrease() {
-    if (this.value > 0) {
-      this.value --;
+  decreaseValue() {
+    let value = this.value;
+    if (value < 10) {
+      this.change.emit(--value);
     }
+  }
+
+  changeValue(value) {
+    this.change.emit(value);
   }
 }

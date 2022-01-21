@@ -48,13 +48,13 @@ osg-progression-builder-training-program {
         position: relative;
         left: -70px;
         display: block;
-        width: 3000px;
+        width: fit-content;
         border-top: solid 1px #dbdbdb;
         border-left: solid 1px #dbdbdb;
         background: #FFF;
         transition: all 0.3s linear;
 		overflow-x: auto;
-		
+
 		@media (min-width: 320px) {
 			left: 0px;
 		}
@@ -66,7 +66,7 @@ osg-progression-builder-training-program {
 				display: flex! important;
 			}
 		}
-		
+
         .week{
             width: 214px;
             position: relative;
@@ -89,7 +89,7 @@ osg-progression-builder-training-program {
             font-family: $primary-font;
             font-size: rem(14);
             text-transform: uppercase;
-			width: 2956px;
+			width: fit-content;
             .week{
                 padding-top: 15px;
                 padding-bottom: 15px;
@@ -100,7 +100,7 @@ osg-progression-builder-training-program {
             }
         }
         .tbody{
-			width: 2956px;
+			width: fit-content;
             .week{
                 text-align: center;
                 display: flex;
@@ -213,6 +213,7 @@ osg-progression-builder-training-program {
                     bottom: -10px;
                     z-index: 8;
                     right: -74px;
+                    cursor: pointer;
                 }
                 a.add{
                     color: #000;
@@ -229,6 +230,7 @@ osg-progression-builder-training-program {
                     bottom: -10px;
                     right: -11px;
                     z-index: 8;
+                    cursor: pointer;
                 }
                 table{
                     table-layout: fixed ;
@@ -296,7 +298,7 @@ osg-progression-builder-training-program {
                     tfoot{
                         background: #1c93d0;
                         tr{
-                            
+
                             td{
                                 font-size: 0.8rem;
                                 color: #000;
@@ -333,9 +335,9 @@ osg-progression-builder-training-program {
             }
         }
         .tfooter{
-			width: 2956px;
+			width: fit-content;
             .footer-cell{
-                width: 100%;
+                width: 100% !important;
                 position: relative;
                 min-height: 1px;
                 padding-right: 15px;

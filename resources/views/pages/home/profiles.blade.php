@@ -17,7 +17,6 @@
                             <li>Calendar & Training Log</li>
                             <li>Timeline</li>
                         </ul>
-                        <div class="text-center"><a href="{{route('register', ['strengthAthlete'])}}" class="btn btn-green-gradient py-3 px-4 mr-0 mr-md-4">sign up</a></div>
                     </div>
                 </div>
             </div>
@@ -33,7 +32,6 @@
                             <li>Program Publisher</li>
                             <li>Experience Bank</li>
                         </ul>
-                        <div class="text-center"><a href="{{route('register', ['programDesigner'])}}" class="btn btn-green-gradient py-3 px-4 mr-0 mr-md-4">sign up</a></div>
                     </div>
                 </div>
             </div>
@@ -48,10 +46,12 @@
                             <li>Booking</li>
                             <li>Experience Bank & Reviews</li>
                         </ul>
-                        <div class="text-center"><a href="{{route('register', ['personalTrainer'])}}" class="btn btn-green-gradient py-3 px-4 mr-0 mr-md-4">sign up</a></div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-yellow-gradient py-3 px-4 mr-0" href="{{ url('how-it-works') }}">Learn More</a>
         </div>
     </div>
 

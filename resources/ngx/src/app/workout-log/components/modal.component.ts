@@ -4,9 +4,11 @@ import { SimpleModalComponent } from 'ngx-simple-modal';
 
 export interface Model {
   date: string;
+  standDate: string;
   status: string;
   detail: string;
   type: string;
+  plan: number;
 }
 
 @Component({
@@ -26,8 +28,8 @@ export interface Model {
           <svg *ngIf="status !='completed'"><circle cx="5" cy="5" r="1" stroke="#a0a0a0" stroke-width="3" /></svg>
           {{status}}
         </p>
-        <button *ngIf="status != 'upcoming'" type="button" class="btn" (click)="showDetail(date, status)"><img src="assets/images/icons/eye.png"></button>
-        <button *ngIf="status == 'upcoming'" type="button" class="btn upcoming" (click)="showDetail(date, status)">start</button>
+        <button *ngIf="status != 'upcoming'" type="button" class="btn" (click)="showDetail()"><img src="assets/images/icons/eye.png"></button>
+        <button *ngIf="status == 'upcoming'" type="button" class="btn upcoming" (click)="showDetail()">start</button>
       </div>
     </div>
   `,
@@ -52,17 +54,18 @@ export interface Model {
 })
 export class ModalComponent extends SimpleModalComponent<Model, null> implements Model {
   date: string;
+  standDate: string;
   status: string;
   detail: string;
   type: string;
+  plan: number;
 
   constructor(private router: Router) {
     super();
   }
 
-  showDetail(date: string, status: string) {
+  showDetail() {
     this.close();
-    this.router.navigate(['/workout-detail', date, status]); 
+    this.router.navigate(['/workout-detail', this.plan, this.standDate, this.status]);
   }
-
 }

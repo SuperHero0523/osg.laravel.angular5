@@ -26,10 +26,10 @@
                 </ul>
                 <ul class="nav-session">
                     <li>
-                        <a class="white-text" href="{{route('login')}}">Login</a>
+                        <a class="white-text" href="{{route('login-page')}}">Login</a>
                     </li>
                     <li>
-                        <a class="btn btn-green-gradient px-4" href="{{route('register')}}">Sign up</a>
+                        <a class="btn btn-green-gradient px-4" href="{{route('register-page')}}">Sign up</a>
                     </li>
                 </ul>
             </div>

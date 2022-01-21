@@ -8,7 +8,7 @@ export class ApplicationService {
     private baseUrl: string = '/api';
     private applicationUser: Object;
     private apiToken: HTMLMetaElement;
-    constructor(private readonly http: HttpClient, private readonly meta: Meta) { 
+    constructor(private readonly http: HttpClient, private readonly meta: Meta) {
         this.apiToken = this.meta.getTag('name=api-token');
     }
 
@@ -26,17 +26,24 @@ export class ApplicationService {
         };
     }
 
-    get authenticatedUser(): Observable<Object>{
+    getAuthenticatedUser(refresh = false): Observable<Object>{
         let observable;
-        if(this.applicationUser){
+        if (!refresh && this.applicationUser) {
             observable = new Observable<Object>((observer) => {
                 observer.next(this.applicationUser);
                 observer.complete();
             });
-        }else{
+        } else {
             observable = this.http.get(`${this.baseUrl}/user`);
             observable.subscribe(u => this.applicationUser = u);
         }
         return observable;
     }
+
+    getUserProfile(userId): Observable<Object>{
+      let observable;
+      observable = this.http.get(`${this.baseUrl}/user/${userId}`);
+      observable.subscribe(u => this.applicationUser = u);
+      return observable;
+  }
 }

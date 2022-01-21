@@ -1,4 +1,4 @@
-osg-progression-builder-program-design {
+osg-program-design {
     display: block;
     margin-top: 20px;
     margin-bottom: 30px;
@@ -58,7 +58,7 @@ osg-progression-builder-program-design {
 					font-weight: 300;
                     padding: 0.55rem;
                     color: #000;
-					
+
                     &.red {
                         background: #fff0e8 !important;
                     }
@@ -70,31 +70,34 @@ osg-progression-builder-program-design {
                     &.blue {
                         background: #f0feff !important;
                     }
-					
+
 					&.border-bottom {
 						border-bottom: 2px solid #78cd18 !important;
 					}
                 }
 
-                &:nth-child(odd) {
-                    td {
-                        &:first-child{
-                            background: #fff0cf;
-                        }
-                        &:first-child,
-                        &:nth-child(2) {
-                            color: #000;
-                        }
 
-                        &:last-child{
-                            border-right: 2px solid #78cd18;
-                        }
+                td {
+                    &:first-child{
+                        background: #fff0cf;
+                    }
+
+                    &:nth-child(2) {
+                        border-right: 2px solid #78cd18;
+                    }
+
+                    &:last-child{
+                        border-right: 2px solid #78cd18;
                     }
                 }
 
                 &:last-child {
                     td {
                         border-bottom: 2px solid #78cd18;
+                        &:first-child,
+                        &:nth-child(2){
+                            border-bottom: 1px solid #dadada;
+                        }
                     }
                 }
             }

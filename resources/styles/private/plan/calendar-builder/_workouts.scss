@@ -98,7 +98,7 @@ osg-plan-builder-workout {
 						}
 					}
 				}
-                td{
+                td {
                     border: solid 1px #d8ddd1;
                     font-family: $fourth-font;
                     font-size: rem(14);
@@ -169,6 +169,38 @@ osg-plan-builder-workout {
                     &:nth-child(8) {
                         input {
                             width: 70px;
+                        }
+                    }
+                    div {
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 5px;
+                        margin-bottom: 5px;
+                        a.remove{
+                            color: #000;
+                            background: $red;
+                            display: block;
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 100px;
+                            text-align: center;
+                            line-height: 20px;
+                            font-family: $primary-font;
+                            font-size: rem(18);
+                            cursor: pointer;
+                        }
+                        a.add{
+                            color: #000;
+                            background: $green;
+                            display: block;
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 100px;
+                            text-align: center;
+                            line-height: 20px;
+                            font-family: $primary-font;
+                            font-size: rem(18);
+                            cursor: pointer;
                         }
                     }
                 }

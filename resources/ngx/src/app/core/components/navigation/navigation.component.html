@@ -8,23 +8,35 @@
             <a (click)="link('/profile')" class="profile"><img class="img-fluid ml-lg-2 ml-xl-1" src="assets/images/icons/icon-account.svg"></a>
             <a class="profile" data-toggle="collapse" data-target="#searchContent" aria-controls="searchContent" aria-expanded="false" aria-label="Toggle navigation"><img class="d-block mx-auto img-fluid" src="assets/images/icons/icon-search.svg"></a>
             <div class="collapse navbar-collapse mobile" id="searchContent" *showItDevice="['mobile']">
-                <label class="search-field"><input type="text" placeholder="Search"></label>
+                <label class="search-field">
+                  <input type="text" placeholder="Search Here" (keyup)='search($event)' (click)='searchboxClicked($event);' [(ngModel)]='searchText' >
+                </label>
+                <div id='searchResult' *ngIf="isSearch" style="background: wheat;">
+                  <h3>Users</h3>
+                  <div *ngFor="let result of searchUserResult" class="searchResultRow">
+                    <a (click)="profileView(result.id)">{{result.name}}</a>
+                  </div>
+                  <h3>Programs</h3>
+                  <div *ngFor="let result of searchProgramResult" class="searchResultRow">
+                    <a (click)="profileView(result.user, result.name)">{{result.name}}</a>
+                  </div>
+                </div>
             </div>
-            <button [ngClass]="isCollapsed?'navbar-toggler change':'navbar-toggler'" type="button" (click)="toggle()">
+            <!-- <button [ngClass]="isCollapsed?'navbar-toggler change':'navbar-toggler'" type="button" (click)="toggle()">
                 <span class="bar1"></span>
                 <span class="bar2"></span>
                 <span class="bar3"></span>
-            </button>
+            </button> -->
         </div>
         <div class="collapse navbar-collapse mobile" id="navbarSupportedContent" [ngStyle]="{display: isCollapsed?'block':'none'}" *showItDevice="['mobile']">
             <ul class="navbar-nav mr-auto left-menu">
                 <li *ngIf="isProgramDesigner" class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" data-toggle="collapse" (click)="link('/calendar-builder')">
+                    <a class="nav-link" data-toggle="collapse" (click)="link('/calendar-builder')" >
                         <img src="assets/images/icons/icon-plan.svg">
                         Calendar Builder
                     </a>
                 </li>
-                
+
                 <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" data-toggle="collapse" (click)="link('/experience-bank')">
                         <img src="/assets/images/icons/icon-house.svg">
@@ -38,7 +50,7 @@
                         Strength Standards
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li *ngIf="isStrengthAthlete" class="nav-item" routerLinkActive="active">
                     <a class="nav-link" data-toggle="collapse" (click)="link('/program-designs')">
                         <img src="/assets/images/icons/icon-gear.svg">
                         Program Designs
@@ -70,10 +82,24 @@
                 <input type="hidden" name="_token" value="{{csrf}}" />
             </form>
         </div>
+
+        <!------------------------------------------------tablet, desktop -------------------------->
         <div class="collapse navbar-collapse" *showItDevice="['tablet','desktop']">
             <ul class="navbar-nav mr-auto search-menu left-menu">
                 <li class="nav-item">
-                    <label><input type="text" placeholder="Search"></label>
+                  <label>
+                    <input type="text" placeholder="Search Here" (keyup)='search($event)' (click)='searchboxClicked($event);' [(ngModel)]='searchText' >
+                  </label>
+                  <div id='searchResult' *ngIf="isSearch">
+                    <h3>Users</h3>
+                    <div *ngFor="let result of searchUserResult" class="searchResultRow">
+                      <a (click)="profileView(result.id)">{{result.name}}</a>
+                    </div>
+                    <h3>Programs</h3>
+                    <div *ngFor="let result of searchProgramResult" class="searchResultRow">
+                      <a (click)="profileView(result.user, result.name)">{{result.name}}</a>
+                    </div>
+                  </div>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto left-menu">
@@ -83,7 +109,7 @@
                         Calendar Builder
                     </a>
                 </li>
-                
+
                 <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" (click)="link('/experience-bank')">
                         <img src="/assets/images/icons/icon-house.svg">
@@ -97,7 +123,7 @@
                         Strength Standards
                     </a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li *ngIf="isStrengthAthlete" class="nav-item" routerLinkActive="active">
                     <a class="nav-link" (click)="link('/program-designs')">
                         <img src="/assets/images/icons/icon-gear.svg">
                         Program Designs
@@ -120,7 +146,17 @@
             </ul>
             <ul class="navbar-nav align-items-center right-menu">
                 <li class="nav item notification" routerLinkActive="active">
-                    <a (click)="link('/notifications')" class="nav-link notification"><img class="d-block mx-auto img-fluid" src="assets/images/icons/icon-notifications.svg"></a>
+                    <a (click)="notification()" class="nav-link notification">
+                      <img [ngClass]="{'alarm': notifications.length > 0}" class="d-block mx-auto img-fluid" src="assets/images/icons/icon-notifications.svg" >
+                    </a>
+                    <div class="notification-box" *ngIf="isNotification">
+                      <li *ngIf="notifications.length == 0">
+                          no notification
+                      </li>
+                      <li *ngFor="let item of notifications;">
+                          <p (click)="notifyLink(item.id, item.type)">{{item.content}}</p>
+                      </li>
+                    </div>
                 </li>
                 <li class="nav item profile" routerLinkActive="active">
                     <a (click)="profile()" class="nav-link"><img class="img-fluid ml-3 ml-lg-2 ml-xl-1" src="assets/images/icons/icon-account.svg">{{fullName}}</a>

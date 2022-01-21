@@ -1,4 +1,4 @@
-osg-progression-builder-progressive-overload-graph{
+osg-progressive-overload-graph{
     h2{
 
     }
@@ -11,13 +11,13 @@ osg-progression-builder-progressive-overload-graph{
         margin-top: 20px;
         margin-bottom: 30px;
 		overflow-x: auto;
-		
+
 		.c3 svg {
 			font: 12px "Gotham Book";
 			color: #838383;
 		}
 		.c3 {
-			width: 1080px;
+			// width: 1080px;
 			line {
 				stroke: #128cf3;
 				stroke-width: 1;
@@ -48,7 +48,7 @@ osg-progression-builder-progressive-overload-graph{
             flex-direction: row;
 			margin-top: 30px;
 			margin-left: 18px;
-			width: 1080px;
+			// width: 1080px;
 			.article_type {
 				position: absolute;
 				width: 50px;
@@ -82,7 +82,7 @@ osg-progression-builder-progressive-overload-graph{
                         }
                     }
                 }
-                
+
             }
         }
         .conventions {
@@ -90,7 +90,7 @@ osg-progression-builder-progressive-overload-graph{
             text-align: center;
             padding-top: 20px;
             padding-bottom: 20px;
-			width: 1080px;
+			// width: 1080px;
             .dropdown {
                 display: inline-block;
                 margin-right: 10px;
@@ -169,7 +169,7 @@ osg-progression-builder-progressive-overload-graph{
                     font-size: rem(14);
                     margin: 0px;
                 }
-    
+
                 a {
                     display: inline-block;
                     width: 31px;
@@ -183,7 +183,7 @@ osg-progression-builder-progressive-overload-graph{
                     margin-left: 10px;
                 }
             }
-    
+
             p {
                 color: #000;
                 font-size: rem(12);
@@ -197,19 +197,19 @@ osg-progression-builder-progressive-overload-graph{
                     height: 3px;
                     margin-right: 10px;
                 }
-    
+
                 &.volume {
-                    span {
-                        border-top: solid 3px #ff0000;
-                    }
-                }
-    
-                &.intensity {
                     span {
                         border-top: solid 3px $light-blue;
                     }
                 }
-    
+
+                &.intensity {
+                    span {
+                        border-top: solid 3px $red;
+                    }
+                }
+
                 &.volume-load {
                     span {
                         border-top: solid 3px $green;
@@ -219,9 +219,10 @@ osg-progression-builder-progressive-overload-graph{
                     span {
                         height: 10px;
                         background: $green;
+                        border-radius: 10px;
                     }
                 }
-    
+
             }
         }
     }

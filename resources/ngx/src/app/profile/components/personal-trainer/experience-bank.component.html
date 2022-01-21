@@ -11,10 +11,9 @@
                 <p>GENDER:</p>
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">MEN</button>
+                    aria-haspopup="true" aria-expanded="false">{{selGender.name}}</button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Men</a>
-                    <a class="dropdown-item" href="#">Women</a>
+                    <a class="dropdown-item" *ngFor="let gender of genderList" (click)="onChangeGender(gender)">{{gender.name}}</a>
                     </div>
                 </div>
             </div>
@@ -22,12 +21,9 @@
                 <p>Category:</p>
                 <div class="dropdown">
                     <button class="btn dropdown-toggle text-red" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">HYPERTROPHY</button>
+                    aria-haspopup="true" aria-expanded="false">{{selCategory.name}}</button>
                     <div class="dropdown-menu dropdown-menu-right text-right dropdown-black" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item text-blue" href="#">Strength</a>
-                    <a class="dropdown-item text-red" href="#">HYPERTROPHY</a>
-                    <a class="dropdown-item text-orange" href="#">Muscular endurance</a>
-                    <a class="dropdown-item text-green" href="#">Power</a>
+                      <a class="dropdown-item text-blue" *ngFor="let category of categoryList" (click)="onChangeCategory(category)">{{category.name}}</a>
                     </div>
                 </div>
             </div>
@@ -36,103 +32,83 @@
     </div>
 
     <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>BODY WEIGHT</th>
-                    <th>UNTRAINED</th>
-                    <th>NOVICE</th>
-                    <th>INTERMEDIATE</th>
-                    <th>ADVANCED</th>
-                    <th>ELITE</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>50-59</td>
-                    <td>8,21</td>
-                    <td>8,01</td>
-                    <td>7,98</td>
-                    <td>7,10</td>
-                    <td>6,21</td>
-                </tr>
-                <tr>
-                    <td>60-69</td>
-                    <td>9,11</td>
-                    <td>9,25</td>
-                    <td>8,12</td>
-                    <td>6,89</td>
-                    <td>5,43</td>
-                </tr>
-                <tr>
-                    <td>70-79</td>
-                    <td>7,65</td>
-                    <td>7,66</td>
-                    <td>6,48</td>
-                    <td>5,21</td>
-                    <td>3,21</td>
-                </tr>
-                <tr>
-                    <td>80-89</td>
-                    <td>6,54</td>
-                    <td>6,68</td>
-                    <td>7,21</td>
-                    <td>5,12</td>
-                    <td>4,47</td>
-                </tr>
-                <tr>
-                    <td>90-99</td>
-                    <td>4,41</td>
-                    <td>5,54</td>
-                    <td>6,81</td>
-                    <td>3,41</td>
-                    <td>2,21</td>
-                </tr>
-                <tr>
-                    <td>100-109</td>
-                    <td>6,87</td>
-                    <td>5,54</td>
-                    <td>4,83</td>
-                    <td>2,19</td>
-                    <td>1,12</td>
-                </tr>
-                <tr>
-                    <td>110-119</td>
-                    <td>8,57</td>
-                    <td>7,23</td>
-                    <td>6,57</td>
-                    <td>4,12</td>
-                    <td>3,49</td>
-                </tr>
-                <tr>
-                    <td>120+</td>
-                    <td>7,21</td>
-                    <td>3,21</td>
-                    <td>3,43</td>
-                    <td>5,43</td>
-                    <td>6,64</td>
-                </tr>
-                <tr>
-                    <td><b>STRENGTH ATHLETES:</b></td>
-                    <td>12</td>
-                    <td>5</td>
-                    <td>9</td>
-                    <td>5</td>
-                    <td>4</td>
-                </tr>
-                <tr>
-                    <td><b>PROGRAMS:</b></td>
-                    <td><span>Ladder Strength<br> 5x5 <br> Giant Gains</span></td>
-                    <td><span>GVT <br> Starting Strength</span></td>
-                    <td><span>Myo Reps <br> Pyramid Strength <br> Westside Barbell</span></td>
-                    <td><span>5x5 <br>Pre-Exhaust <br>Height Strength</span></td>
-                    <td><span>Base Lifts <br>Powerbuilding <br> GVT </span></td>
-                </tr>
-            </tbody>
-        </table>
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>BODY WEIGHT (KG)</th>
+                  <th>UNTRAINED</th>
+                  <th>Novice</th>
+                  <th>Intermediate</th>
+                  <th>Advanced</th>
+                  <th>Elite</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let row of expBankData.data" class="green-hover">
+                  <td>{{row.weight_max == 200 ? row.weight_min + "+" : row.weight_min + "-" + row.weight_max}}</td>
+                  <td>{{row.untrained}}</td>
+                  <td>{{row.novice}}</td>
+                  <td>{{row.intermediate}}</td>
+                  <td>{{row.advanced}}</td>
+                  <td>{{row.elite}}</td>
+              </tr>
+              <tr>
+                <td><b>STRENGTH ATHLETES:</b></td>
+                <td>{{ expBankData.athletes.untrained != "0" ? expBankData.athletes.untrained : '' }}</td>
+                <td>{{ expBankData.athletes.novice != "0" ? expBankData.athletes.novice : '' }}</td>
+                <td>{{ expBankData.athletes.intermediate != "0" ? expBankData.athletes.intermediate : '' }}</td>
+                <td>{{ expBankData.athletes.advanced != "0" ? expBankData.athletes.advanced : '' }}</td>
+                <td>{{ expBankData.athletes.elite != "0" ? expBankData.athletes.elite : '' }}</td>
+              </tr>
+              <tr>
+                <td><b>PROGRAMS:</b></td>
+                <td class="program-names">
+                  <ng-container *ngIf="expBankData.programs.untrained.length > 0">
+                    {{expBankData.programs.untrained[0]}}
+                    <ng-container *ngFor="let item of expBankData.programs.untrained | slice : 1; let i = index">
+                      <br/>{{item}}
+                    </ng-container>
+                  </ng-container>
+                </td>
+                <td class="program-names">
+                  <ng-container *ngIf="expBankData.programs.novice.length > 0">
+                    {{expBankData.programs.novice[0]}}
+                    <ng-container *ngFor="let item of expBankData.programs.novice | slice : 1; let i = index">
+                      <br/>{{item}}
+                    </ng-container>
+                  </ng-container>
+                </td>
+                <td class="program-names">
+                  <ng-container *ngIf="expBankData.programs.intermediate.length > 0">
+                    {{expBankData.programs.intermediate[0]}}
+                    <ng-container *ngFor="let item of expBankData.programs.intermediate | slice : 1; let i = index">
+                      <br/>{{item}}
+                    </ng-container>
+                  </ng-container>
+                </td>
+                <td class="program-names">
+                  <ng-container *ngIf="expBankData.programs.advanced.length > 0">
+                    {{expBankData.programs.advanced[0]}}
+                    <ng-container *ngFor="let item of expBankData.programs.advanced | slice : 1; let i = index">
+                      <br/>{{item}}
+                    </ng-container>
+                  </ng-container>
+                </td>
+                <td class="program-names">
+                  <ng-container *ngIf="expBankData.programs.elite.length > 0">
+                    {{expBankData.programs.elite[0]}}
+                    <ng-container *ngFor="let item of expBankData.programs.elite | slice : 1; let i = index">
+                      <br/>{{item}}
+                    </ng-container>
+                  </ng-container>
+                </td>
+              </tr>
+          </tbody>
+      </table>
     </div>
     <small>* The numbers in the table shows percentage increase (results) from all completed programs where the personal trainer has assisted the strength athlete. The number in each cell shows the median for a particular level and weight class. The median is the middle value when al the strength athletes percentage increase are listed in numerical order from the lowest to the highest results</small>
   </div>
+
   <div class="col-12 col-sm-12 col-md-12 col-lg-3">
     <h3 class="my-3">REVIEWS: 50</h3>
     <div class="review-box" *showItDevice="['tablet','desktop']">
@@ -279,7 +255,7 @@
             </ng-container>
         </owl-carousel-o>
     </div>
-    
+
     <h3 class="mt-4 mb-2">AVERAGE</h3>
     <div class="average-box">
         <div class="average">

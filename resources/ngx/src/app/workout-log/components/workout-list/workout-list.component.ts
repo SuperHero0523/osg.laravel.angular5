@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
   templateUrl: './workout-list.component.html'
 })
 export class WorkoutListComponent implements OnInit{
-  
-  @Input() 
+
+  @Input()
   date1: string = 'Monday, May 6';
   date2: string = 'Wednsday, May 8';
   date3: string = 'Friday, May 10';
@@ -26,7 +26,7 @@ export class WorkoutListComponent implements OnInit{
     } else if (status == 'upcoming') {
       console.log(status);
     } else {
-      this.router.navigate(['/workout-detail', date, status]); 
+      this.router.navigate(['/workout-detail', date, status]);
     }
   }
 

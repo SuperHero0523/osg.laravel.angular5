@@ -1,13 +1,13 @@
 <div class="stepper-group">
     <div class="stepper">
-        <button class="decrease" (click)="decrease()"><span>-</span></button>
+        <button class="decrease" (click)="decreaseValue()"><span>-</span></button>
     </div>
 
     <div class="slider">
-        <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+        <ng5-slider [value]="value" [options]="options" (valueChange)="changeValue($event)"></ng5-slider>
     </div>
 
     <div class="stepper">
-        <button class="increase" (click)="increase()"><span>+</span></button>
+        <button class="increase" (click)="increaseValue()"><span>+</span></button>
     </div>
 </div>

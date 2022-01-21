@@ -1,0 +1,251 @@
+<div class="container">
+  <div class="main-title">
+    <div class="img-section">
+        <img src="images/icons/program-designs.png" alt="program-designs"/>
+    </div>
+    <div class="title-section">
+      <h1>PROGRAM DESIGNS</h1>
+      <p>Find your next program based on your desired program design. After completing programs, the Program designs reveals how much (volume) and often (frequency) you should train, with what intensity (load and RTF), with which exercises and more.</p>
+    </div>
+  </div>
+
+  <div class="search-condition">
+    <h2>search program designs</h2>
+    <div class="etch"></div>
+    <div class="row mb-4" *showItDevice="['tablet','desktop']">
+      <!-- category -->
+      <div class="col-6" style="padding-left: 20px;">
+        <p>Category: </p>
+        <div class="row" *ngFor="let key of categoryList">
+          <div class="col-2 circle-parent">
+            <div class="circle"></div>
+          </div>
+          <div class="col-7">
+            <p>{{categoryOptions[key]}}:</p>
+          </div>
+          <div class="col-3 checkbox custom-checkbox">
+            <label class="left-panel-check-label">
+                <input type="checkbox" [(ngModel)]="categoryChecked[key]">
+                <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- training split -->
+        <div class="checbox-dropdown">
+          <osg-select label="Training split (sessions per body part per week)" [(value)]="split" [options]="splitValues"></osg-select>
+        </div>
+
+        <!-- workouts per week -->
+        <div class="checbox-dropdown">
+            <osg-select label="Workouts per week" [(value)]="workoutsPerWeek" [options]="workoutsPerWeekValues"></osg-select>
+        </div>
+
+        <!-- length of programs(weeks) -->
+        <div class="checbox-dropdown">
+          <osg-select label="Length of programs (week)" [(value)]="weeks" [options]="lengthOfProgramValues"></osg-select>
+        </div>
+
+
+        <!-- Test exercises -->
+        <p>Test exercise (calculate 1RM, level and %-increase) </p>
+
+        <!-- Body part -->
+        <div class="checbox-dropdown">
+          <osg-select label="Body parts" [(value)]="bodyPart" [options]="bodyParts" (valueChange)="onChangeBodyPart()"></osg-select>
+        </div>
+
+        <!-- Test exercises -->
+        <div class="checbox-dropdown">
+          <osg-select label="Test exercise" [(value)]="testExercise" [options]="testExNames"></osg-select>
+        </div>
+      </div>
+
+      <div class="col-6" style="padding-left: 50px;">
+        <!-- type of exercise -->
+        <p>Type of exercise: </p>
+        <div class="row" *ngFor="let key of exerciseTypeList">
+          <div class="col-2 circle-parent">
+            <div class="circle"></div>
+          </div>
+          <div class="col-7">
+            <p>{{exerciseTypeOptions[key]}}:</p>
+          </div>
+          <div class="col-3 checkbox custom-checkbox">
+            <label class="right-panel-check-label">
+              <input type="checkbox" [(ngModel)]="exerciseTypeChecked[key]">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- calculation model -->
+        <p>Progression Model:</p>
+        <div class="row" *ngFor="let key of progressionModelList">
+          <div class="col-2 circle-parent">
+            <div class="circle"></div>
+          </div>
+          <div class="col-7">
+            <p>{{progressionModelOptions[key]}}:</p>
+            <p class="description">{{progressionModelDescOptions[key]}}</p>
+          </div>
+          <div class="col-3 checkbox custom-checkbox">
+            <label class="right-panel-check-label">
+              <input type="checkbox" [(ngModel)]="progressionModelChecked[key]">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+     </div>
+
+    <!------------------------------------------------------------------ MOBILE VERSION  ------------------------------------------------------------------>
+    <div class="row mb-4" *showItDevice="['mobile']">
+      <!-- category -->
+      <div class="col-12">
+        <p>Category: </p>
+        <div class="row" *ngFor="let key of categoryList">
+          <div class="col-2 circle-parent">
+            <div class="circle"></div>
+          </div>
+          <div class="col-7">
+            <p>{{categoryOptions[key]}}:</p>
+          </div>
+          <div class="col-3 checkbox custom-checkbox">
+            <label>
+                <input type="checkbox" [(ngModel)]="categoryChecked[key]">
+                <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- training split -->
+      <div class="col-12">
+          <div class="checbox-dropdown">
+              <osg-select label="Training split (sessions per body part per week)" [(value)]="split" [options]="splitValues"></osg-select>
+          </div>
+      </div>
+
+      <!-- workouts per week -->
+      <div class="col-12">
+          <div class="checbox-dropdown">
+              <osg-select label="Workouts per week" [(value)]="workoutsPerWeek" [options]="workoutsPerWeekValues"></osg-select>
+          </div>
+      </div>
+
+      <!-- length of programs(weeks) -->
+      <div class="col-12">
+          <div class="checbox-dropdown">
+              <osg-select label="Length of programs (week)" [(value)]="weeks" [options]="lengthOfProgramValues"></osg-select>
+          </div>
+      </div>
+
+      <!-- Test exercises -->
+      <div class="col-12" style="margin-top: 20px">
+        <p>Test exercise (calculate 1RM, level and %-increase) </p>
+      </div>
+
+      <!-- Body part -->
+      <div class="col-12">
+        <div class="checbox-dropdown">
+          <osg-select label="Body parts" [(value)]="bodyPart" [options]="bodyParts" (valueChange)="onChangeBodyPart()"></osg-select>
+        </div>
+      </div>
+
+      <!-- Test exercises -->
+      <div class="col-12">
+        <div class="checbox-dropdown">
+          <osg-select label="Test exercise" [(value)]="testExercise" [options]="testExNames" (valueChange)="onChangeExercise()"></osg-select>
+        </div>
+      </div>
+
+      <!-- type of exercise -->
+      <div class="col-12" style="margin-top: 20px">
+        <p>Type of exercise: </p>
+        <div class="row" *ngFor="let key of exerciseTypeList">
+          <div class="col-2 circle-parent">
+            <div class="circle"></div>
+          </div>
+          <div class="col-7">
+            <p>{{exerciseTypeOptions[key]}}:</p>
+          </div>
+          <div class="col-3 checkbox custom-checkbox">
+            <label>
+              <input type="checkbox" [(ngModel)]="exerciseTypeChecked[key]">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- calculation model -->
+      <div class="col-12" style="margin-top: 10px">
+        <p>Progression Model:</p>
+        <div class="row" *ngFor="let key of progressionModelList">
+          <div class="col-2 circle-parent">
+            <div class="circle"></div>
+          </div>
+          <div class="col-7">
+            <p>{{progressionModelOptions[key]}}:</p>
+            <p class="description">{{progressionModelDescOptions[key]}}</p>
+          </div>
+          <div class="col-3 checkbox custom-checkbox">
+            <label>
+              <input type="checkbox" [(ngModel)]="progressionModelChecked[key]">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="etch" style="margin-top: 30px"></div>
+
+    <div class="actions">
+        <div class="col-12 col-lg-8" *showItDevice="['tablet','desktop']"></div>
+        <div class="col-12 col-lg-3 mt-2 mt-lg-0 text-center text-lg-right" style="padding: 0px; float: right">
+            <a (click)="onSearch()" class="btn btn-yellow-gradient py-2 btn-block">Find programs</a>
+        </div>
+    </div>
+  </div>
+
+  <div class="recommended-panel">
+    <h4>Recommended programs:</h4>
+
+    <div *ngFor="let program of recommendedPrograms" class="program">
+      <div class="program-name">
+        <label (click)="gotoProgram(program)">{{program.name}}</label>
+      </div>
+      <ng-container *ngFor="let review of program.reviews">
+        <osg-review [review]="review"></osg-review>
+      </ng-container>
+      <div class="average">
+        <label>{{program.reviews.length > 0 ? "Average:" : "No Reviews"}} </label>
+        <div class="rating " *ngIf="program.reviews.length > 0">
+          <p>{{program.average + '.0'}}</p>
+          <span class="fa-stack" [class]="program.average >= 1 ? 'fa-stack ' + rate_value[program.average] : 'fa-stack'">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+          </span>
+          <span class="fa-stack" [class]="program.average >= 2 ? 'fa-stack ' + rate_value[program.average] : 'fa-stack'">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+          </span>
+          <span class="fa-stack" [class]="program.average >= 3 ? 'fa-stack ' + rate_value[program.average] : 'fa-stack'">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+          </span>
+          <span class="fa-stack" [class]="program.average >= 4 ? 'fa-stack ' + rate_value[program.average] : 'fa-stack'">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+          </span>
+          <span class="fa-stack" [class]="program.average >= 5 ? 'fa-stack ' + rate_value[program.average] : 'fa-stack'">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

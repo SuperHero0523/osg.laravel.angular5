@@ -22,7 +22,7 @@
         <div class="col-6 col-sm-auto mb-5 mb-md-0">
         <h3>For Users</h3>
           <ul>
-            <li><a href="{{ url('login')}}">Login</a></li>
+            <!-- <li><a href="{{ url('login')}}">Login</a></li> -->
             <li><a href="{{ url('register')}}">Get Started</a></li>
             <li><a href="#">FAQ</a></li>
             <li><a href="#">Help Center</a></li>

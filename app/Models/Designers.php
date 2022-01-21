@@ -8,18 +8,18 @@ class Designers extends Model
 {
           /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'designers';
 
     /**
      * The primary key for the model.
-     * 
+     *
      * @var string
      */
     protected $primaryKey = 'id';
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -29,12 +29,21 @@ class Designers extends Model
         'user_id', 'gender', 'birth', 'education', 'special', 'experience', 'country', 'postal_code', 'place', 'description', 'avatar'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $appends = ['name', 'email', 'phone', 'role'];
+
+    public function getNameAttribute(){
+        return User::find($this->user_id)->name;
+    }
+
+    public function getEmailAttribute(){
+        return User::find($this->user_id)->email;
+    }
+
+    public function getPhoneAttribute(){
+        return User::find($this->user_id)->phone;
+    }
+
+    public function getRoleAttribute(){
+        return User::find($this->user_id)->role;
+    }
 }

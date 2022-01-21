@@ -15,8 +15,9 @@ export class GaugeComponent {
         if (cssClass)
             this.cssClass = cssClass;
     }
+
     ngAfterViewInit() {
-        setTimeout(() => this.path.nativeElement.style = `stroke-dasharray: ${this.value}px 100px`, 100);
+        setInterval(() => this.path.nativeElement.style = `stroke-dasharray: ${this.value}px 100px`, 100);
     }
 
 }

@@ -8,6 +8,7 @@ export class WorkoutDetailProgressComponent implements OnInit{
   @Output() valueChange = new EventEmitter();
   @Input() reps: number;
   @Input() rtf: number;
+  @Input() isCountingDown: any;
 
   ngOnInit(): void {}
 

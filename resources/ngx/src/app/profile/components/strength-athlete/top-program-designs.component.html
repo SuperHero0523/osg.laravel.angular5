@@ -7,23 +7,25 @@
         <div class="sort-box">
             <p>LEVEL:</p>
             <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">NOVICE</button>
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{selLevel}}</button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Untrained</a>
-                    <a class="dropdown-item" href="#">Novice</a>
-                    <a class="dropdown-item" href="#">Intermediate</a>
-                    <a class="dropdown-item" href="#">Advanced</a>
-                    <a class="dropdown-item" href="#">Elite</a>
+                    <a class="dropdown-item" (click)="onChangeLevel('All')">All</a>
+                    <a class="dropdown-item" (click)="onChangeLevel('Untrained')">Untrained</a>
+                    <a class="dropdown-item" (click)="onChangeLevel('Novice')">Novice</a>
+                    <a class="dropdown-item" (click)="onChangeLevel('Intermediate')">Intermediate</a>
+                    <a class="dropdown-item" (click)="onChangeLevel('Advanced')">Advanced</a>
+                    <a class="dropdown-item" (click)="onChangeLevel('Elite')">Elite</a>
                 </div>
             </div>
             <p>Category:</p>
             <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Power</button>
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{selCategory}}</button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item text-blue" href="#">Strength</a>
-                    <a class="dropdown-item text-red" href="#">Hypertrophy</a>
-                    <a class="dropdown-item text-orange" href="#">Muscular endurance</a>
-                    <a class="dropdown-item text-green" href="#">Power</a>
+                    <a class="dropdown-item" (click)="onChangeCategory('All')">All</a>
+                    <a class="dropdown-item" (click)="onChangeCategory('Strength')">Strength</a>
+                    <a class="dropdown-item" (click)="onChangeCategory('Hypertrophy')">Hypertrophy</a>
+                    <a class="dropdown-item" (click)="onChangeCategory('Muscular')">Muscular</a>
+                    <a class="dropdown-item" (click)="onChangeCategory('Power')">Power</a>
                 </div>
             </div>
         </div>
@@ -37,39 +39,71 @@
             <thead>
                 <tr>
                     <th colspan="3"></th>
-                    <th colspan="10">PROGRAM DESIGN</th>
+                    <th colspan="9">PROGRAM DESIGN</th>
                     <th colspan="2"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td rowspan="2">Muscle<br> Group</td>
+                    <td rowspan="2" [ngStyle]="{'borderLeft': '2px solid #dadada'}">Body Part</td>
                     <td rowspan="2">Best Training<br> Program</td>
                     <td rowspan="2">Level<br> (pretest)</td>
-                    <td rowspan="2">Type of<br>exercise<br>level 1</td>
-                    <td rowspan="2">Type of<br>exercise<br>level 2</td>
+                    <td rowspan="2" [ngStyle]="isEmptyPrograms ? {'borderLeft': '2px solid #78cd18', 'borderBottom': '2px solid #78cd18'} : {'borderLeft': '2px solid #78cd18'}">Type of<br>exercise</td>
                     <td colspan="2" class="blue">Volume</td>
                     <td colspan="2" class="orange">Intensity</td>
-                    <td rowspan="2" class="green">Frequency<br>(muscle gr.<br>pr. week)</td>
-                    <td rowspan="2">Progression<br>model</td>
-                    <td rowspan="2">Rest periods<br>(min-max)</td>
-                    <td rowspan="2">Tempo<br>(average)</td>
-                    <td rowspan="2">Test<br>exercise</td>
-                    <td rowspan="2" class="orange">%<br>Increase</td>
+                    <td rowspan="2" [ngStyle]="isEmptyPrograms ? {'borderBottom': '2px solid #78cd18'} : {}" class="green">Frequency<br>(muscle gr.<br>pr. week)</td>
+                    <td rowspan="2" [ngStyle]="isEmptyPrograms ? {'borderBottom': '2px solid #78cd18'} : {}">Progression<br>model</td>
+                    <td rowspan="2" [ngStyle]="isEmptyPrograms ? {'borderBottom': '2px solid #78cd18'} : {}">Rest periods<br>(min-max)</td>
+                    <td rowspan="2" [ngStyle]="isEmptyPrograms ? {'borderBottom': '2px solid #78cd18'} : {}">Tempo<br>(average)</td>
+                    <td rowspan="2" style="border-left: 2px solid #78cd18">Test<br>exercise</td>
+                    <td rowspan="2" [ngStyle]="isEmptyPrograms ? {'borderBottom': '2px solid #ffa500'} : {}" class="orange">%<br>Increase</td>
                 </tr>
                 <tr>
-                    <td class="blue">Reps<br>(min-max)</td>
-                    <td class="blue">Sets<br>(min-max)</td>
-                    <td class="orange">% of 1RM<br>(min-max)</td>
-                    <td class="orange">Reps to failure<br>(min-max)</td>
+                    <td [ngStyle]="isEmptyPrograms ? {'borderBottom': '2px solid #78cd18'} : {}" class="blue">Reps<br>(min-max)</td>
+                    <td [ngStyle]="isEmptyPrograms ? {'borderBottom': '2px solid #78cd18'} : {}" class="blue">Sets<br>(min-max)</td>
+                    <td [ngStyle]="isEmptyPrograms ? {'borderBottom': '2px solid #78cd18'} : {}" class="orange">% of 1RM<br>(min-max)</td>
+                    <td [ngStyle]="isEmptyPrograms ? {'borderBottom': '2px solid #78cd18'} : {}" class="orange">Reps to failure<br>(min-max)</td>
                 </tr>
-                <!--  -->
-                <tr>
-                    <td rowspan="2">Chest</td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2"></td>
-                    <td class="green-border">Multi Joint</td>
+                <ng-container *ngFor="let bodypart of bodyparts">
+                  <tr *ngIf="topPrograms[bodypart] != undefined && topPrograms[bodypart].length > 0">
+                    <td [ngStyle]="{'borderLeft': '2px solid #dadada'}" [attr.rowspan]="topPrograms[bodypart].length">{{bodypart}}</td>
+                    <td>{{topPrograms[bodypart][0].program_name}}</td>
+                    <td>{{topPrograms[bodypart][0].level}}</td>
+                    <td style="border-left: 2px solid #78cd18;">{{topPrograms[bodypart][0].type}}</td>
+                    <td class="blue">{{topPrograms[bodypart][0].min_reps + ' - ' + topPrograms[bodypart][0].max_reps}}</td>
+                    <td class="blue">{{topPrograms[bodypart][0].min_set + ' - ' + topPrograms[bodypart][0].max_set}}</td>
+                    <td class="orange">{{topPrograms[bodypart][0].min_rm + ' - ' + topPrograms[bodypart][0].max_rm}}</td>
+                    <td class="orange">{{topPrograms[bodypart][0].min_rtf + ' - ' + topPrograms[bodypart][0].max_rtf}}</td>
+                    <td class="green">{{topPrograms[bodypart][0].min_freq + ' - ' + topPrograms[bodypart][0].max_freq}}</td>
+                    <td>Intensity</td>
+                    <td>{{topPrograms[bodypart][0].min_rest + ' - ' + topPrograms[bodypart][0].max_rest}}</td>
+                    <td>{{topPrograms[bodypart][0].min_tempo + ' - ' + topPrograms[bodypart][0].max_tempo}}</td>
+                    <td style="border-left: 2px solid #78cd18;">{{topPrograms[bodypart][0].exercise_name}}</td>
+                    <td class="orange">{{topPrograms[bodypart][0].increased}}</td>
+                  </tr>
+                  <ng-container *ngFor="let value of topPrograms[bodypart]; let i=index">
+                    <tr *ngIf="i > 0">
+                      <td>{{value.program_name}}</td>
+                      <td>{{value.level}}</td>
+                      <td style="border-left: 2px solid #78cd18;">{{value.type}}</td>
+                      <td class="blue">{{value.min_reps + ' - ' + value.max_reps}}</td>
+                      <td class="blue">{{value.min_set + ' - ' + value.max_set}}</td>
+                      <td class="orange">{{value.min_rm + ' - ' + value.max_rm}}</td>
+                      <td class="orange">{{value.min_rtf + ' - ' + value.max_rtf}}</td>
+                      <td class="green">{{value.min_freq + ' - ' + value.max_freq}}</td>
+                      <td>Intensity</td>
+                      <td>{{value.min_rest + ' - ' + value.max_rest}}</td>
+                      <td>{{value.min_tempo + ' - ' + value.max_tempo}}</td>
+                      <td style="border-left: 2px solid #78cd18;">{{value.exercise_name}}</td>
+                      <td class="orange">{{value.increased}}</td>
+                    </tr>
+                  </ng-container>
+
+                  <tr *ngIf="topPrograms[bodypart] != undefined && topPrograms[bodypart].length == 0">
+                    <td [ngStyle]="{'borderLeft': '2px solid #dadada'}">{{bodypart}}</td>
                     <td></td>
+                    <td></td>
+                    <td style="border-left: 2px solid #78cd18;"></td>
                     <td class="blue"></td>
                     <td class="blue"></td>
                     <td class="orange"></td>
@@ -78,231 +112,10 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2" class="orange"></td>
-                </tr>
-                <tr>
-                    <td class="green-border">Single Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
+                    <td style="border-left: 2px solid #78cd18;"></td>
                     <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <!--  -->
-                <tr>
-                    <td rowspan="2">Back</td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2"></td>
-                    <td class="green-border">Multi Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2" class="orange"></td>
-                </tr>
-                <tr>
-                    <td class="green-border">Single Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <!--  -->
-                <tr>
-                    <td rowspan="2">Quads</td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2"></td>
-                    <td class="green-border">Multi Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2" class="orange"></td>
-                </tr>
-                <tr>
-                    <td class="green-border">Single Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <!--  -->
-                <tr>
-                    <td rowspan="2">Shoulders</td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2"></td>
-                    <td class="green-border">Multi Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2" class="orange"></td>
-                </tr>
-                <tr>
-                    <td class="green-border">Single Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <!--  -->
-                <tr>
-                    <td rowspan="2">Hamstrings</td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2"></td>
-                    <td class="green-border">Multi Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2" class="orange"></td>
-                </tr>
-                <tr>
-                    <td class="green-border">Single Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <!--  -->
-                <tr>
-                    <td rowspan="2">Calves</td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2"></td>
-                    <td class="green-border">Multi Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2" class="orange"></td>
-                </tr>
-                <tr>
-                    <td class="green-border">Single Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <!--  -->
-                <tr>
-                    <td rowspan="2">Triceps</td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2"></td>
-                    <td class="green-border">Multi Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2" class="orange"></td>
-                </tr>
-                <tr>
-                    <td class="green-border">Single Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <!--  -->
-                <tr>
-                    <td rowspan="2">Biceps</td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2"></td>
-                    <td class="green-border">Multi Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2" class="orange"></td>
-                </tr>
-                <tr>
-                    <td class="green-border">Single Joint</td>
-                    <td></td>
-                    <td class="blue"></td>
-                    <td class="blue"></td>
-                    <td class="orange"></td>
-                    <td class="orange"></td>
-                    <td class="green"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                  </tr>
+                </ng-container>
             </tbody>
         </table>
     </div>

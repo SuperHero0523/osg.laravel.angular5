@@ -10,13 +10,10 @@
     <h4>Select Program</h4>
     <div class="dropdown white-dropdown with-label">
         <label for="">Program</label>
-        <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">German Volume Training (GVT)
+        <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{currentProgram ? currentProgram.name : ''}}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">5x5</a>
-            <a class="dropdown-item" href="#">Starting Strength</a>
-            <a class="dropdown-item" href="#">X-Shape</a>
-            <a class="dropdown-item" href="#">Athletic</a>
+            <a *ngFor="let program of published_programs; let ind = index;" class="dropdown-item" (click)="onSelected(program)">{{program.name}}</a>
         </div>
     </div>
     <div class="row mt-3">
@@ -27,23 +24,17 @@
                     <div class="checbox-dropdown">
                         <div class="checkbox custom-checkbox">
                             <label>
-                                <input type="checkbox" value="">
+                                <input type="checkbox" (click)="setBodyWeightForMaleChecked(!bodyWeightForMaleChecked)">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="dropdown white-dropdown with-label">
                             <label for="">Body Weight (kg)</label>
-                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">0 - 50</button>
+                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{bodyWeightsForMale[bodyWeightForMaleSelIndex]}}
+                            </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <a class="dropdown-item" href="#">0-50</a>
-                                <a class="dropdown-item" href="#">51-60</a>
-                                <a class="dropdown-item" href="#">61-70</a>
-                                <a class="dropdown-item" href="#">71-80</a>
-                                <a class="dropdown-item" href="#">81-90</a>
-                                <a class="dropdown-item" href="#">91-100</a>
-                                <a class="dropdown-item" href="#">101-110</a>
-                                <a class="dropdown-item" href="#">111-120</a>
-                                <a class="dropdown-item" href="#">121-160</a>
+                                <a class="dropdown-item" (click)="onClickBodyWeightForMale(i)" *ngFor="let bodyWeight of bodyWeightsForMale; let i=index">{{bodyWeight}}</a>
                             </div>
                         </div>
                     </div>
@@ -52,18 +43,17 @@
                     <div class="checbox-dropdown">
                         <div class="checkbox custom-checkbox">
                             <label>
-                                <input type="checkbox" value="">
+                                <input type="checkbox" (click)="setStrengthLevelForMaleChecked(!strengthLevelForMaleChecked)">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
-                        <div class="dropdown white-dropdown">
-                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Strength level </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <a class="dropdown-item" href="#">Untrained</a>
-                                <a class="dropdown-item" href="#">Novice</a>
-                                <a class="dropdown-item" href="#">Intermediate</a>
-                                <a class="dropdown-item" href="#">Advanced</a>
-                                <a class="dropdown-item" href="#">Elite</a>
+                        <div class="dropdown white-dropdown with-label">
+                            <label for="">Strength level</label>
+                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{strengthLevels[strengthLevelForMaleSelIndex]}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2" >
+                                <a class="dropdown-item" (click)="onClickStrengthLevelForMale(i)" *ngFor="let strengthLevel of strengthLevels; let i=index">{{strengthLevel}}</a>
                             </div>
                         </div>
                     </div>
@@ -75,19 +65,18 @@
                     <div class="checbox-dropdown">
                         <div class="checkbox custom-checkbox">
                             <label>
-                                <input type="checkbox" value="">
+                                <input type="checkbox" (click)="setWaistToHipRatioForMaleChecked(!waistToHipRatioForMaleChecked)">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
-                        <div class="dropdown white-dropdown">
-                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Waist to hip ratio (cm)</button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                                <a class="dropdown-item" href="#">0,71-0,80</a>
-                                <a class="dropdown-item" href="#">0.81-0,90</a>
-                                <a class="dropdown-item" href="#">0,91-1,00</a>
-                                <a class="dropdown-item" href="#">1,01-1,10</a>
-                                <a class="dropdown-item" href="#">1,11-1,20</a>
-                            </div>
+                        <div class="dropdown white-dropdown with-label">
+                          <label for="">Waist to hip ratio</label>
+                          <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{waistToHipRatiosForMale[waistToHipRatioForMaleSelIndex]}}
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                              <a class="dropdown-item" (click)="onClickWaistToHipRatiosForMale(i)" *ngFor="let waistToHipRatio of waistToHipRatiosForMale; let i=index">{{waistToHipRatio}}</a>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -95,22 +84,17 @@
                     <div class="checbox-dropdown">
                         <div class="checkbox custom-checkbox">
                             <label>
-                                <input type="checkbox" value="">
+                                <input type="checkbox" (click)="setHeightForMaleChecked(!heightForMaleChecked)">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="dropdown white-dropdown with-label">
                             <label for="">Height (cm)</label>
-                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">161 - 170</button>
+                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{heights[heightForMaleSelIndex]}}
+                            </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                                <a class="dropdown-item" href="#">0-150 </a>
-                                <a class="dropdown-item" href="#">151-160</a>
-                                <a class="dropdown-item" href="#">161-170</a>
-                                <a class="dropdown-item" href="#">171-180</a>
-                                <a class="dropdown-item" href="#">181-190</a>
-                                <a class="dropdown-item" href="#">191-200</a>
-                                <a class="dropdown-item" href="#">201-210</a>
-                                <a class="dropdown-item" href="#">211-220</a>
+                                <a class="dropdown-item" (click)="onClickHeightForMale(i)" *ngFor="let height of heights;let i=index">{{height}}</a>
                             </div>
                         </div>
                     </div>
@@ -122,19 +106,17 @@
                     <div class="checbox-dropdown">
                         <div class="checkbox custom-checkbox">
                             <label>
-                                <input type="checkbox" value="">
+                                <input type="checkbox" (click)="setAgeForMaleChekced(!ageForMaleChecked)">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
-                        <div class="dropdown white-dropdown">
-                            <button class="btn dropdown-toggle btn-block" type="button" id="5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Age (years)</button>
+                        <div class="dropdown white-dropdown with-label">
+                          <label for="">Age (years)</label>
+                            <button class="btn dropdown-toggle btn-block" type="button" id="5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{ages[ageForMaleSelIndex]}}
+                            </button>
                             <div class="dropdown-menu" aria-labelledby="5">
-                                <a class="dropdown-item" href="#">0-20</a>
-                                <a class="dropdown-item" href="#">21-30</a>
-                                <a class="dropdown-item" href="#">31-40</a>
-                                <a class="dropdown-item" href="#">41-50</a>
-                                <a class="dropdown-item" href="#">51-60</a>
-                                <a class="dropdown-item" href="#">61-80</a>
+                                <a class="dropdown-item" (click)="onClickAgeForMale(i)" *ngFor="let age of ages; let i=index">{{age}}</a>
                             </div>
                         </div>
                     </div>
@@ -143,17 +125,17 @@
                     <div class="checbox-dropdown">
                         <div class="checkbox custom-checkbox">
                             <label>
-                                <input type="checkbox" value="">
+                                <input type="checkbox" (click)="setMuscleFiberForMaleChecked(!muscleFiberForMaleChecked)">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="dropdown white-dropdown with-label">
                             <label for="">Muscle Fiber Type</label>
-                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Slow Twitch</button>
+                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{muscleFibers[muscleFiberForMaleSelIndex]}}
+                            </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
-                                <a class="dropdown-item" href="#">Slow twitch</a>
-                                <a class="dropdown-item" href="#">Fast twitch</a>
-                                <a class="dropdown-item" href="#">Fast and slow twitch</a>
+                                <a class="dropdown-item" (click)="onClickMuscleFiberForMale(i)" *ngFor="let muscleType of muscleFibers; let i=index">{{muscleType}}</a>
                             </div>
                         </div>
                     </div>
@@ -168,24 +150,17 @@
                     <div class="checbox-dropdown">
                         <div class="checkbox custom-checkbox">
                             <label>
-                                <input type="checkbox" value="">
+                                <input type="checkbox" (click)="setBodyWeightForFemaleChecked(!bodyWeightForFemaleChecked)">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="dropdown white-dropdown with-label">
                             <label for="">Body Weight (kg)</label>
-                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">0 - 40
+                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{bodyWeightsForFemale[bodyWeightForFemaleSelIndex]}}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                <a class="dropdown-item" href="#">0-40</a>
-                                <a class="dropdown-item" href="#">41-50</a>
-                                <a class="dropdown-item" href="#">51-60</a>
-                                <a class="dropdown-item" href="#">61-70</a>
-                                <a class="dropdown-item" href="#">71-80</a>
-                                <a class="dropdown-item" href="#">81-90</a>
-                                <a class="dropdown-item" href="#">91-100</a>
-                                <a class="dropdown-item" href="#">101-110</a>
-                                <a class="dropdown-item" href="#">111-130</a>
+                                <a class="dropdown-item" (click)="onClickBodyWeightForFemale(i)" *ngFor="let bodyWeight of bodyWeightsForFemale; let i=index">{{bodyWeight}}</a>
                             </div>
                         </div>
                     </div>
@@ -194,18 +169,17 @@
                     <div class="checbox-dropdown">
                         <div class="checkbox custom-checkbox">
                             <label>
-                                <input type="checkbox" value="">
+                                <input type="checkbox" (click)="setStrengthLevelForFemaleChecked(!strengthLevelForFemaleChecked)">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
-                        <div class="dropdown white-dropdown">
-                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Strength level</button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <a class="dropdown-item" href="#">Untrained</a>
-                                <a class="dropdown-item" href="#">Novice</a>
-                                <a class="dropdown-item" href="#">Intermediate</a>
-                                <a class="dropdown-item" href="#">Advanced</a>
-                                <a class="dropdown-item" href="#">Elite </a>
+                        <div class="dropdown white-dropdown with-label">
+                            <label for="">Strength level</label>
+                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton8" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{strengthLevels[strengthLevelForFemaleSelIndex]}}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton8" >
+                                <a class="dropdown-item" (click)="onClickStrengthLevelForFemale(i)" *ngFor="let strengthLevel of strengthLevels; let i=index">{{strengthLevel}}</a>
                             </div>
                         </div>
                     </div>
@@ -217,20 +191,18 @@
                     <div class="checbox-dropdown">
                         <div class="checkbox custom-checkbox">
                             <label>
-                                <input type="checkbox" value="">
+                                <input type="checkbox" (click)="setWaistToHipRatioForFemaleChecked(!waistToHipRatioForFemaleChecked)">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
-                        <div class="dropdown white-dropdown">
-                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Waist to Hip Ratio (cm)
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                                <a class="dropdown-item" href="#">0,61-0,70</a>
-                                <a class="dropdown-item" href="#">0,71-0,80</a>
-                                <a class="dropdown-item" href="#">0.81-0,90</a>
-                                <a class="dropdown-item" href="#">0,91-1,00</a>
-                                <a class="dropdown-item" href="#">1,01-1,10</a>
-                            </div>
+                        <div class="dropdown white-dropdown with-label">
+                          <label for="">Waist to hip ratio</label>
+                          <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton9" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{waistToHipRatiosForFemale[waistToHipRatioForFemaleSelIndex]}}
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton9">
+                              <a class="dropdown-item" (click)="onClickWaistToHipRatiosForFemale(i)" *ngFor="let waistToHipRatio of waistToHipRatiosForFemale; let i=index">{{waistToHipRatio}}</a>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -238,22 +210,17 @@
                     <div class="checbox-dropdown">
                         <div class="checkbox custom-checkbox">
                             <label>
-                                <input type="checkbox" value="">
+                                <input type="checkbox" (click)="setHeightForFemaleChecked(!heightForFemaleChecked)">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="dropdown white-dropdown with-label">
                             <label for="">Height (cm)</label>
-                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">161 - 170</button>
+                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{heights[heightForFemaleSelIndex]}}
+                            </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                                <a class="dropdown-item" href="#">0-140 </a>
-                                <a class="dropdown-item" href="#">141-150</a>
-                                <a class="dropdown-item" href="#">151-160</a>
-                                <a class="dropdown-item" href="#">161-170</a>
-                                <a class="dropdown-item" href="#">171-180</a>
-                                <a class="dropdown-item" href="#">181-190</a>
-                                <a class="dropdown-item" href="#">191-200</a>
-                                <a class="dropdown-item" href="#">201-210</a>
+                                <a class="dropdown-item" (click)="onClickHeightForFemale(i)" *ngFor="let height of heights;let i=index">{{height}}</a>
                             </div>
                         </div>
                     </div>
@@ -265,19 +232,17 @@
                     <div class="checbox-dropdown">
                         <div class="checkbox custom-checkbox">
                             <label>
-                                <input type="checkbox" value="">
+                                <input type="checkbox" (click)="setAgeForFemaleChecked(!ageForFemaleChecked)">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
-                        <div class="dropdown white-dropdown">
-                            <button class="btn dropdown-toggle btn-block" type="button" id="5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Age (years)</button>
+                        <div class="dropdown white-dropdown with-label">
+                          <label for="">Age (years)</label>
+                            <button class="btn dropdown-toggle btn-block" type="button" id="5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{ages[ageForFemaleSelIndex]}}
+                            </button>
                             <div class="dropdown-menu" aria-labelledby="5">
-                                <a class="dropdown-item" href="#">0-20</a>
-                                <a class="dropdown-item" href="#">21-30</a>
-                                <a class="dropdown-item" href="#">31-40</a>
-                                <a class="dropdown-item" href="#">41-50</a>
-                                <a class="dropdown-item" href="#">51-60</a>
-                                <a class="dropdown-item" href="#">61-80</a>
+                                <a class="dropdown-item" (click)="onClickAgeForFemale(i)" *ngFor="let age of ages; let i=index">{{age}}</a>
                             </div>
                         </div>
                     </div>
@@ -286,18 +251,18 @@
                     <div class="checbox-dropdown">
                         <div class="checkbox custom-checkbox">
                             <label>
-                                <input type="checkbox" value="">
+                                <input type="checkbox" (click)="setMuscleFiberForFemaleChecked(!muscleFiberForFemaleChecked)">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="dropdown white-dropdown with-label">
-                            <label for="">Muscle Fiber Type</label>
-                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Slow Twitch</button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
-                                <a class="dropdown-item" href="#">Slow twitch</a>
-                                <a class="dropdown-item" href="#">Fast twitch</a>
-                                <a class="dropdown-item" href="#">Fast and slow twitch </a>
-                            </div>
+                          <label for="">Muscle Fiber Type</label>
+                          <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{muscleFibers[muscleFiberForFemaleSelIndex]}}
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton12">
+                              <a class="dropdown-item" (click)="onClickMuscleFiberForFemale(i)" *ngFor="let muscleType of muscleFibers; let i=index">{{muscleType}}</a>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -309,18 +274,25 @@
         <div class="col-12 col-lg-8">
             <div class="gender">
                 <h4>Men: </h4>
-                <p>0-50 kg <span>x</span></p>
-                <p>161-170 cm <span>x</span></p>
-                <p>Slow Twitch <span>x</span></p>
+                <p *ngIf="bodyWeightForMaleChecked">{{bodyWeightsForMale[bodyWeightForMaleSelIndex] + ' kg'}} <span>x</span></p>
+                <p *ngIf="strengthLevelForMaleChecked">{{strengthLevels[strengthLevelForMaleSelIndex]}} <span>x</span></p>
+                <p *ngIf="waistToHipRatioForMaleChecked">{{waistToHipRatiosForMale[waistToHipRatioForMaleSelIndex]}} <span>x</span></p>
+                <p *ngIf="heightForMaleChecked">{{heights[heightForMaleSelIndex] + ' cm'}} <span>x</span></p>
+                <p *ngIf="ageForMaleChecked">{{ages[ageForMaleSelIndex] + ' years'}} <span>x</span></p>
+                <p *ngIf="muscleFiberForMaleChecked">{{muscleFibers[muscleFiberForMaleSelIndex]}} <span>x</span></p>
             </div>
             <div class="gender">
                 <h4>Women: </h4>
-                <p>0-50 kg <span>x</span></p>
-                <p>0-20 years <span>x</span></p>
+                <p *ngIf="bodyWeightForFemaleChecked">{{bodyWeightsForFemale[bodyWeightForFemaleSelIndex] + ' kg'}} <span>x</span></p>
+                <p *ngIf="strengthLevelForFemaleChecked">{{strengthLevels[strengthLevelForFemaleSelIndex]}} <span>x</span></p>
+                <p *ngIf="waistToHipRatioForFemaleChecked">{{waistToHipRatiosForFemale[waistToHipRatioForFemaleSelIndex]}} <span>x</span></p>
+                <p *ngIf="heightForFemaleChecked">{{heights[heightForFemaleSelIndex] + ' cm'}} <span>x</span></p>
+                <p *ngIf="ageForFemaleChecked">{{ages[ageForFemaleSelIndex] + ' years'}} <span>x</span></p>
+                <p *ngIf="muscleFiberForFemaleChecked">{{muscleFibers[muscleFiberForFemaleSelIndex]}} <span>x</span></p>
             </div>
         </div>
         <div class="col-12 col-lg-4 mt-2 mt-lg-0 text-center text-lg-right">
-            <a href="" class="btn btn-yellow-gradient py-2 btn-block">SHOW RESULTS</a>
+            <a (click)="onShowResult()" class="btn btn-yellow-gradient py-2 btn-block">SHOW RESULTS</a>
         </div>
     </div>
 </div>

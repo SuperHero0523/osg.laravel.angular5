@@ -60,13 +60,129 @@ osg-strength-athlete-performance-table{
 			}
 		}
 	}
-		
-	osg-strength-athlete-performance-result{
+
+	osg-strength-athlete-performance-programinfo {
 		background: #FFF;
         display: block;
         border: 1px solid #dadada;
         margin-bottom: 20px;
-		
+
+		p {
+			@media (min-width: 320px) {
+				font-size: 14px;
+			}
+			@media (min-width: 768px) {
+				font-size: 9px;
+			}
+			@media (min-width: 1366px) {
+				font-size: 12px;
+			}
+			@media (min-width: 1920px) {
+				font-size: 14px;
+			}
+		}
+		.detail-title {
+			font-family: "Gotham Bold";
+			h4 {
+				@media (min-width: 320px) {
+					font-size: 14px;
+				}
+				@media (min-width: 768px) {
+					font-size: 10px;
+				}
+				@media (min-width: 1280px) {
+					font-size: 14px;
+				}
+				@media (min-width: 1920px) {
+					font-size: 14px;
+				}
+			}
+		}
+		.program {
+			display: block;
+			border-bottom: 1px solid #dadada;
+			borde-right: 1px solid #dadada;
+			@media (min-width: 320px) {
+				padding: 10px 10px;
+			}
+			@media (min-width: 768px) {
+				padding: 18px 10px;
+			}
+			@media (min-width: 1024px) {
+				padding: 17px 10px;
+			}
+			@media (min-width: 1280px) {
+				padding: 15px 10px;
+			}
+			@media (min-width: 1366px) {
+				padding: 19px 10px;
+			}
+			h4 {
+				color: #000;
+				font-family: "Gotham Bold";
+				margin: 0;
+				&.title {
+					color: #128cf3;
+				}
+				@media (min-width: 320px) {
+					font-size: 14px;
+				}
+				@media (min-width: 768px) {
+					font-size: 10px;
+				}
+				@media (min-width: 1280px) {
+					font-size: 12px;
+				}
+				@media (min-width: 1366px) {
+					font-size: 14px;
+				}
+				@media (min-width: 1920px) {
+					font-size: 14px;
+				}
+			}
+			p {
+				color: #838383;
+				margin-bottom: 0;
+				@media (min-width: 320px) {
+					font-size: 14px;
+				}
+				@media (min-width: 768px) {
+					font-size: 10px;
+				}
+				@media (min-width: 1280px) {
+					font-size: 12px;
+				}
+				@media (min-width: 1366px) {
+					font-size: 14px;
+				}
+				@media (min-width: 1920px) {
+					font-size: 14px;
+				}
+			}
+			a {
+			    color: #000000;
+				font-size: 0.875rem;
+				span {
+					background: #000;
+					color: #ffa600;
+					text-align: center;
+					display: inline-block;
+					width: 25px;
+					height: 25px;
+					line-height: 25px;
+					border-radius: 3px;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+
+	osg-strength-athlete-performance-tests {
+		background: #FFF;
+        display: block;
+        border: 1px solid #dadada;
+        margin-bottom: 20px;
+
 		p {
 			@media (min-width: 320px) {
 				font-size: 14px;
@@ -198,7 +314,7 @@ osg-strength-athlete-performance-table{
 			}
 		}
 	}
-	
+
 	osg-strength-athlete-performance-slider {
 		.stepper-group {
 			display: flex;
@@ -304,7 +420,7 @@ osg-strength-athlete-performance-table{
 				}
 			}
 		}
-	}		
+	}
 	.table-responsive {
 		@media (min-width: 320px) {
 			margin-bottom: 20px;
@@ -326,7 +442,7 @@ osg-strength-athlete-performance-table{
 						}
 						@media (min-width: 1024px) {
 							font-size: 12px;
-							
+
 						}
 					}
 					font-weight: bold;
@@ -470,7 +586,7 @@ osg-strength-athlete-performance-table{
 			}
 		}
 	}
-	
+
 	osg-strength-athlete-performance-graph {
 		.graph{
 			display: block;
@@ -533,14 +649,14 @@ osg-strength-athlete-performance-table{
 					}
 				}
 			}
-			
+
 			.week-types{
 				display: flex;
 				flex-direction: row;
 				margin-top: 30px;
 				margin-left: 18px;
 				width: 1260px;
-				
+
 				> div{
 					width: 25%;
 					display: flex;
@@ -567,7 +683,7 @@ osg-strength-athlete-performance-table{
 							}
 						}
 					}
-					
+
 				}
 			}
 			.conventions {
@@ -576,7 +692,7 @@ osg-strength-athlete-performance-table{
 				padding: 20px 50px;
 				text-align: left;
 				width: 1260px;
-				
+
 				.box {
 					display: flex;
 					align-items: baseline;
@@ -588,13 +704,13 @@ osg-strength-athlete-performance-table{
 							background: $blue;
 						}
 						&.sleep {
-							background: $purple;
+							background: #800080;
 						}
 						&.stress {
-							background: $red;
+							background: #f00;
 						}
 						&.engergy {
-							background: #f8ef41;
+							background: #ff0;
 						}
 					}
 					.text {

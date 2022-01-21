@@ -6,14 +6,14 @@
             </div>
             <div class="col-12 col-sm-5">
                 <div class="control-slider">
-                    <p>AUGUST 2018</p>
-                    <a href="" class="btn-control prev"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
-                    <a href="" class="btn-control next"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <p>{{getMonthName() + " " + this.year}}</p>
+                    <a (click)="movePrevMonth()" class="btn-control prev"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+                    <a (click)="moveNextMonth()" class="btn-control next"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
                 </div>
             </div>
-            <div class="col-12 col-sm-2">
+            <!-- <div class="col-12 col-sm-1">
                 <a href="" class="edit"><img src="/assets/images/icons/icon-pencil.svg" class="img-fluid" alt=""></a>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -35,196 +35,19 @@
                 <div class="col">Saturday</div>
             </div>
             <div class="wrapper-weeks">
-                <div class="week">
-
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">30</span></div>
+                <div class="week" *ngFor="let week of this.calendar">
+                  <div class="cell" *ngFor="let day of week">
+                    <div class="checbox-dropdown" *ngIf="!from_other_profile">
+                      <osg-select [(value)]="day.status" [options]="dateStatusList" (change)="onChangeStatus(day)"></osg-select>
                     </div>
 
-                    <div class="day available" (click)="showModal()">
-                        <div>
-                            <span class="time">Jul 31</span>
-                        </div>
+                    <div [class]="getClassName(day)" (click)="showBookingModal(day)">
+                      <div class="panel">
+                        <span class="time">{{day.showDate}}</span>
+                      </div>
                     </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">Aug 1</span></div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div>
-                            <span class="time">2</span>
-                        </div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">3</span></div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div>
-                            <span class="time">4</span>
-                        </div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">5</span></div>
-                    </div>
-
+                  </div>
                 </div>
-
-                <div class="week">
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">6</span></div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div>
-                            <span class="time">6</span>
-                        </div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">7</span></div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div>
-                            <span class="time">9</span>
-                        </div>
-                    </div>
-
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">10</span></div>
-                    </div>
-
-                    <div class="day completely-full" (click)="showModal()">
-                        <div>
-                            <span class="time">11</span>
-                        </div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">12</span></div>
-                    </div>
-
-                </div>
-
-                <div class="week">
-
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">13</span></div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div>
-                            <span class="time">14</span>
-                        </div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">15</span></div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div>
-                            <span class="time">16</span>
-                        </div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">17</span></div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div>
-                            <span class="time">18</span>
-                        </div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">19</span></div>
-                    </div>
-
-                </div>
-
-                <div class="week">
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">20</span></div>
-                    </div>
-
-                    <div class="day completely-full" (click)="showModal()">
-                        <div>
-                            <span class="time">21</span>
-                        </div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">22</span></div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div>
-                            <span class="time">23</span>
-                        </div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">24</span></div>
-                    </div>
-
-                    <div class="day almost-full" (click)="showModal()">
-                        <div>
-                            <span class="time">25</span>
-                        </div>
-                    </div>
-
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">26</span></div>
-                    </div>
-
-                </div>
-
-                <div class="week">
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">27</span></div>
-                    </div>
-
-                    <div class="day almost-full" (click)="showModal()">
-                        <div>
-                            <span class="time">28</span>
-                        </div>
-                    </div>
-
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">29</span></div>
-                    </div>
-
-                    <div class="day almost-full" (click)="showModal()">
-                        <div>
-                            <span class="time">30</span>
-                        </div>
-                    </div>
-
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">Aug 31</span></div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div>
-                            <span class="time">Sep 1</span>
-                        </div>
-                    </div>
-
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">2</span></div>
-                    </div>
-
-                </div>
-
             </div>
         </div>
     </div>
@@ -237,14 +60,14 @@
             </div>
             <div class="col-12 col-sm-5">
                 <div class="control-slider">
-                    <p>AUGUST 2018</p>
-                    <a href="" class="btn-control prev"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
-                    <a href="" class="btn-control next"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <p>{{getMonthName() + " " + this.year}}</p>
+                    <a (click)="movePrevMonth()" class="btn-control prev"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+                    <a (click)="moveNextMonth()" class="btn-control next"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
                 </div>
             </div>
-            <div class="col-12 col-sm-1">
+            <!-- <div class="col-12 col-sm-1">
                 <a href="" class="edit"><img src="/assets/images/icons/icon-pencil.svg" class="img-fluid" alt=""></a>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -266,126 +89,20 @@
                 <div class="date">Sat</div>
             </div>
             <div class="wrapper-weeks">
-                <div class="week">
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">30</span></div>
+                <div class="week" *ngFor="let week of this.calendar">
+                  <div class="cell" *ngFor="let day of week">
+                    <div class="checbox-dropdown" *ngIf="!from_other_profile">
+                      <osg-select [(value)]="day.status" [options]="dateStatusList" (change)="onChangeStatus(day)"></osg-select>
                     </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">31</span></div>
+
+                    <div [class]="getClassName(day)" (click)="showBookingModal(day)">
+                      <div class="panel">
+                        <span class="time">{{day.showDate}}</span>
+                      </div>
                     </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">1</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">2</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">3</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">4</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">5</span></div>
-                    </div>
+                  </div>
                 </div>
-    
-                <div class="week">
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">6</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">6</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">7</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">9</span></div>
-                    </div>
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">10</span></div>
-                    </div>
-                    <div class="day completely-full" (click)="showModal()">
-                        <div><span class="time">11</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">12</span></div>
-                    </div>
-                </div>
-                
-                <div class="week">
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">13</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">14</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">15</span></div>
-                    </div>    
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">16</span></div>
-                    </div>    
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">17</span></div>
-                    </div>    
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">18</span></div>
-                    </div>    
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">19</span></div>
-                    </div>    
-                </div>
-    
-                <div class="week">
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">20</span></div>
-                    </div>
-                    <div class="day completely-full" (click)="showModal()">
-                        <div><span class="time">21</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">22</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">23</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">24</span></div>
-                    </div>
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">25</span></div>
-                    </div>
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">26</span></div>
-                    </div>
-                </div>
-    
-                <div class="week">
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">27</span></div>
-                    </div>
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">28</span></div>
-                    </div>
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">29</span></div>
-                    </div>
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">30</span></div>
-                    </div>
-                    <div class="day almost-full" (click)="showModal()">
-                        <div><span class="time">31</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">1</span></div>
-                    </div>
-                    <div class="day available" (click)="showModal()">
-                        <div><span class="time">2</span></div>
-                    </div>
-                </div>    
             </div>
         </div>
     </div>
-</div> 
+</div>

@@ -15,14 +15,13 @@ import { PlanBuilderCalendarComponent } from './components/calendar-builder/cale
 import { CalendarBuilderComponent } from './components/calendar-builder/main.component';
 import { ProgressionBuilderComponent } from './components/progression-builder/main.component';
 // tslint:disable-next-line: max-line-length
-import { ProgressionBuilderProgressiveOverloadGraphComponent } from './components/progression-builder/progressive-overload-graph/progressive-overload-graph.component';
 import { ProgressionBuilderTrainingProgramComponent } from './components/progression-builder/training-program/training-program.component';
-import { ProgressionBuilderProgramDesignComponent } from './components/progression-builder/program-design/program-design.component'
 import {ReactiveFormsModule} from "@angular/forms";
 
 import { FormsModule } from '@angular/forms';
 
 import { NgxSpinnerModule } from "ngx-spinner";
+import { CommonComponentsModule } from '../common/common.module';
 
 @NgModule({
   declarations: [
@@ -33,9 +32,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     PlanBuilderCalendarComponent,
 
     ProgressionBuilderComponent,
-    ProgressionBuilderProgressiveOverloadGraphComponent,
     ProgressionBuilderTrainingProgramComponent,
-    ProgressionBuilderProgramDesignComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +44,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     NgxMaskModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    CommonComponentsModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

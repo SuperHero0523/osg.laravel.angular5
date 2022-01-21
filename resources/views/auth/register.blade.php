@@ -1,5 +1,5 @@
 @extends('layouts.public')
-@section('title', 'Sign up') 
+@section('title', 'Sign up')
 
 @section('content')
     <div class="register">
@@ -38,7 +38,7 @@
                                     <h2>
                                         <small class="step_round">Step 1 of 2</small>Sign up
                                     </h2>
-                                    <h5 class="step_title">It's simple to get started.</h5>
+                                    <h5 class="step_title">Our web app is under development. Sign up now, and we will inform you once we are live.</h5>
                                 </div>
                                 <div class="image-upload mb-5">
                                     <div class="icon-box">
@@ -72,23 +72,25 @@
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6 mt-3 mt-lg-0">
                                             <input type="email" name="email" id="email" class="form-control" required data-msg-required="Please enter your email address" value="{{ isset($email) ? $email : '' }}">
                                             <label for="email">E-mail *</label>
-                                            @if ($errors->any())
-                                                @foreach ($errors->all() as $error)
-                                                    <span class="validate-error">{{ $error }}</span>
-                                                @endforeach
-                                            @endif
+                                            <span class="validate-error" id="email-validate" style="display: none;">The email has already been taken.</span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                                             <input type="password" class="form-control" name="password" id="password" required data-msg-required="Please enter a password" value="{{ isset($password) ? $password : '' }}">
                                             <label for="password">Password *</label>
+                                            <span class="validate-error" id="password-validate" style="display: none;">The password must be at least 8 characters.</span>
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6 mt-3 mt-lg-0">
                                             <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" equalTo="#password" value="{{ isset($password) ? $password : '' }}">
                                             <label for="password_confirmation">Retype password *</label>
                                         </div>
                                     </div>
+                                    @if ($errors->any())
+                                        @foreach ($errors->all() as $error)
+                                            <span class="validate-error">{{ $error }}</span>
+                                        @endforeach
+                                    @endif
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <label for="role" class="labelfocus">Select type of user *</label>
@@ -118,6 +120,8 @@
                                         <input type="submit" id="submit-button" value="CONTINUE" class="btn btn-green-gradient btn-block px-5 py-3">
                                     </div>
                                 </form>
+
+                                <!-------------------------------------------  Personal Trainer --------------------------------------->
                                 <form method="POST" action="{{ route('register') }}" id="personal-form">
                                     @csrf
                                     <div class="form-group row">
@@ -130,7 +134,7 @@
                                         </div>
                                         <div class="col-6">
                                             <label for="per_birth">Date of Birth *</label>
-                                            <input type="text" name="per_birth" id="per_birth" class="form-control" required data-msg-required="Please enter your date of your birth">
+                                            <input type="text" name="per_birth" id="per_birth" class="form-control date-picker" required data-msg-required="Please enter your date of your birth" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -192,6 +196,8 @@
                                         <input type="submit" value="SIGN UP" class="btn btn-green-gradient btn-block px-5 py-3 register-button">
                                     </div>
                                 </form>
+
+                                <!----------------------------------------- Program Designer --------------------------------------->
                                 <form method="POST" action="{{ route('register') }}" id="program-form">
                                     @csrf
                                     <div class="form-group row">
@@ -204,7 +210,7 @@
                                         </div>
                                         <div class="col-6">
                                             <label for="pro_birth">Date of Birth *</label>
-                                            <input type="text" name="pro_birth" id="pro_birth" class="form-control" required data-msg-required="Please enter your date of your birth">
+                                            <input type="text" name="pro_birth" id="pro_birth" class="form-control date-picker" required data-msg-required="Please enter your date of your birth" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -254,6 +260,8 @@
                                         <input type="submit" value="SIGN UP" class="btn btn-green-gradient btn-block px-5 py-3 register-button">
                                     </div>
                                 </form>
+
+                                <!--------------------------------------------- Strength Athlete ------------------------------------------>
                                 <form method="POST" action="{{ route('register') }}" id="strength-form">
                                     @csrf
                                     <div class="form-group row">
@@ -266,7 +274,7 @@
                                         </div>
                                         <div class="col-6">
                                             <label for="str_birth">Date of Birth *</label>
-                                            <input type="text" name="str_birth" id="str_birth" class="form-control" required data-msg-required="Please enter your date of your birth">
+                                            <input name="str_birth" id="str_birth" class="form-control" required data-msg-required="Please enter your date of your birth" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -343,9 +351,9 @@
                                         <input type="submit" value="SIGN UP" class="btn btn-green-gradient btn-block px-5 py-3 register-button">
                                     </div>
                                 </form>
-                                <div class="no-sign-up text-center mt-3">
+                                <!-- <div class="no-sign-up text-center mt-3">
                                     <p>Already have an account? <a href="{{ route('login') }}">Login to your account.</a></p>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

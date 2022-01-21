@@ -13,6 +13,7 @@ export interface IApplicationUser{
 
 export class ApplicationUser implements IApplicationUser{
     role: ApplicationUserRole;
+    profile: any;
     constructor(data?: IApplicationUser){
         if(data){
             for (var property in data) {

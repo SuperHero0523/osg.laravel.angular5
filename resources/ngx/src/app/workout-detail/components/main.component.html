@@ -1,11 +1,14 @@
 <div class="header">
-	<div class="status-tab {{type}}" *ngIf="status!='completed'">
+  <!------------------------------------------------ not completed day  --------------------------------->
+	<div class="status-tab chest" [ngStyle]="backgroundStyle" *ngIf="status != 'completed'">
 		<div class="date-time">
 			<div class="date-navigation">
-				<p class="date">{{date}}</p>
-				<p>{{day}} {{year}}</p>
+				<p class="date">{{day}}</p>
+				<p>{{date}}</p>
 				<a class="back_button" (click)="back()">
-					<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-left fa-w-14 fa-lg"> <path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z" class=""></path></svg>
+					<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-arrow-left fa-w-14 fa-lg">
+            <path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z" class=""></path>
+          </svg>
 				</a>
 			</div>
 			<div class="time-block">
@@ -15,8 +18,8 @@
 		</div>
 		<div class="action-tab">
 			<div class="type">
-				<p>Chest:</p>
-				<h5>Bench Press</h5>
+				<p>{{bodypart}}</p>
+				<h5>{{exercise}}</h5>
 			</div>
 			<div class="action">
 				<a class="button" (click)="slidePrev()">
@@ -30,16 +33,21 @@
 				</a>
 			</div>
 		</div>
-	</div>
-	<osg-workout-detail-complete *ngIf="status =='completed'"></osg-workout-detail-complete>
+	</div>  <!------------------------------------------------ not completed day  --------------------------------->
+
+  <!------------------------------------------------ completed day  --------------------------------->
+	<osg-workout-detail-complete *ngIf="status =='completed'" [summary]="summary" [alreadyCompleted]="alreadyCompleted"></osg-workout-detail-complete>
 </div>
+
+<!------------------------------------------------ not completed day  --------------------------------->
 <div class="container" *ngIf="status!='completed'">
 	<div class="card">
 		<div class="side-nav">
-			<div class="item-title start-title">set {{current_set}} of 30</div>
+			<div class="item-title start-title" *ngIf="!isLoadedWorkoutData"></div>
+			<div class="item-title start-title" *ngIf="isLoadedWorkoutData">set {{cur_index + 1}} of {{this.carouselData.length}}</div>
 			<div class="item-group">
-				<div class="item">Exercise</div>
-				<div class="item">Method
+				<div class="item" style="overflow: visible;">Exercise</div>
+				<div class="item" style="overflow: visible;">Method
 					<ng-template #popContent>
 							<b>Straight set:</b> is an ordinary set where you do a set of one exercise, rest and proceed to the next set.<br>
 							<b>Warm up set:</b> perform one or several sets with low weight and intensity prior to your work sets.<br>
@@ -54,75 +62,73 @@
 						<img src="/images/information-ikon.png"/>
 					</button>
 				</div>
-				<div class="item">Rest Period</div>
-				<div class="item">Tempo
+				<div class="item" style="overflow: visible;">Rest Period</div>
+				<div class="item" style="overflow: visible;">Tempo
 					<button type="button" class="btn btn-outline-secondary mr-2" placement="right" ngbPopover="E.g. “3-0-2-1”, means 3 seconds lowering the load (eccentric), 0 seconds in the bottom position (stretch), 2 seconds raising the load (concentric), and 1 second at the top position (peak).">
 						<img src="/images/information-ikon.png"/>
 					</button>
 				</div>
 			</div>
 			<div class="item-group">
-				<div class="item">Target Load
+				<div class="item" style="overflow: visible;">Target Load
 					<button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbPopover="shows the working load (kg) you are aiming at.">
 						<img src="/images/information-ikon.png"/>
 					</button>
 				</div>
-				<div class="item">Target RTF
+				<div class="item" style="overflow: visible;">Target RTF
 					<button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbPopover="is the number you are aiming for considering reps left in the tank, or how many reps more you could performed if you had to after completing the set.">
 						<img src="/images/information-ikon.png"/>
 					</button>
 				</div>
-				<div class="item">Target reps
+				<div class="item" style="overflow: visible;">Target reps
 					<button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbPopover="is how many repetitions you are aiming for.">
 						<img src="/images/information-ikon.png"/>
 					</button>
 				</div>
 			</div>
 			<div class="item-group">
-				<div class="item">Autoreg. load
+				<div class="item" style="overflow: visible;">Autoreg. load
 					<button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbPopover="your actual working load. When performing multiple sets for the same muscle group, the working load on the current set can be autoregulated. If you exceeded the target reps or target RTF in the previous set, the load in the current set is upregulated, and vice versa.">
 						<img src="/images/information-ikon.png"/>
 					</button>
 				</div>
-				<div class="item multi-line">Performed RTF
+				<div class="item multi-line" style="overflow: visible;">Performed RTF
 					<button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbPopover="the actual number of how many repetitions more you could performed if you had to after completing the set.">
 						<img src="/images/information-ikon.png"/>
 					</button>
 				</div>
-				<div class="item multi-line">Performed reps
+				<div class="item multi-line" style="overflow: visible;">Performed reps
 					<button type="button" class="btn btn-outline-secondary mr-2" placement="top" ngbPopover="the actual number of repetitions you performed.">
 						<img src="/images/information-ikon.png"/>
 					</button>
 				</div>
 			</div>
 		</div>
-		<ngx-siema [options]="options">
-			<ngx-siema-slide *ngFor="let set of carouselData">
-				<div [ngClass]="current_set == set.id?'active set':'set'">
+		<ngx-siema [options]="options" *ngIf="isLoadedWorkoutData">
+			<ngx-siema-slide *ngFor="let set of carouselData; let i=index;">
+				<div [ngClass]="cur_index == i ? 'active set' : 'set'">
 					<div class="item-title">{{set.text}}</div>
 					<div class="item-group">
 						<div class="item">{{set.exercise}}</div>
-						<div class="item">{{set.method}}</div>
+						<div class="item" [ngStyle]="set.method == 3 ? {background: '#b5e61d' } : ''">{{methods[set.method]}}</div>
 						<div class="item">{{set.rest_period}}</div>
 						<div class="item">{{set.tempo}}</div>
 					</div>
 					<div class="item-group">
-						<div class="item">{{set.target_load}} (kg)</div>
-						<div class="item">{{set.target_reps}}</div>
+						<div class="item" style="height:30px">{{set.target_load == 0 ? ' ' : set.target_load + ' (kg)'}}</div>
 						<div class="item">{{set.target_rtf}}</div>
+						<div class="item">{{set.target_reps}}</div>
 					</div>
 					<div class="item-group">
-						<div class="item">
-							<input type="text" id="autoreg_{{set.id}}" value="{{set.autoreg}}" *ngIf="set.autoreg != '0'">
-							<input type="text" id="autoreg_{{set.id}}" *ngIf="set.autoreg == '0'">
+						<div class="item" style="height:30px">
+							<input type="text" id="autoreg_{{i}}" [(ngModel)]="carouselData[i].autoreg_load" value="{{set.autoreg_load}}"
+              [readOnly]="cur_index > i || isCountingDown" [hidden]="set.target_load == '0' || set.target_load == '0.00' || set.target_load == ''">
 						</div>
 						<div class="item">
-							<input type="text" id="performed_rtf_{{set.id}}" value="{{set.performed_rtf}}" *ngIf="set.performed_rtf != '0'">
-							<input type="text" id="performed_rtf_{{set.id}}" *ngIf="set.performed_rtf == '0'">
+							<input type="text" id="performed_rtf_{{i}}" value="{{set.performed_rtf}}" (change)="onChangeRtf($event, i)" [readOnly]="cur_index > i || isCountingDown">
 						</div>
 						<div class="item">
-							<input type="text" id="performed_reps_{{set.id}}" value="{{set.performed_reps}}" *ngIf="set.performed_reps != '0'">
-							<input type="text" id="performed_reps_{{set.id}}" *ngIf="set.performed_reps == '0'">
+							<input type="text" id="performed_reps_{{i}}" value="{{set.performed_reps}}" (change)="onChangeReps($event, i)" [readOnly]="cur_index > i || isCountingDown">
 						</div>
 					</div>
 				</div>
@@ -131,7 +137,7 @@
 	</div>
 	<div class="card event">
 		<div class="form-progress">
-			<osg-workout-detail-progress [reps]="reps" [rtf]="rtf" (valueChange)="valueChange($event)"></osg-workout-detail-progress>
+			<osg-workout-detail-progress [reps]="reps" [rtf]="rtf" (valueChange)="valueChange($event)" [isCountingDown]="isCountingDown"></osg-workout-detail-progress>
 		</div>
 		<div class="form-buttons">
 			<div class="single-button finish" (click)="finishSet()">Ok</div>

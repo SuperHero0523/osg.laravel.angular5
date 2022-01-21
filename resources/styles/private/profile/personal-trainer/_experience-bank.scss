@@ -126,7 +126,7 @@ osg-personal-trainer-experience-bank{
                         background: #fff6e1;
                     }
                 }
-                td{
+                td {
                     background: #FFF;
                     color: $red;
                     border: solid 1px #e2ded3;
@@ -145,6 +145,9 @@ osg-personal-trainer-experience-bank{
                     span{
                         color: $light-blue;
                     }
+                }
+                .program-names {
+                    color: dodgerblue !important;
                 }
             }
         }

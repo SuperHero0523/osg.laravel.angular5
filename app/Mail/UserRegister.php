@@ -31,8 +31,11 @@ class UserRegister extends Mailable
      */
     public function build()
     {
-      return $this->view('email.user-register', compact('name', 'link'))
-      ->from("no-reply@osg.no", "Optimal Strength Gains")
+      return $this->view('email.user-register', [
+        'name' => $this->name,
+        'link' => $this->link
+      ])
+      ->from("no-reply@optimalstrengthgains.com", "Optimal Strength Gains")
       ->subject('Welcome to Optimal Strength Gains');
     }
 }

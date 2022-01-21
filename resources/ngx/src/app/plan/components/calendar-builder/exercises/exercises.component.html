@@ -24,12 +24,18 @@
                     <div class="exercise">
                         <figure *ngFor="let exercise of exercise_movement.data; let i = index"
                             (click)="selectExercise($event, j, exercise.exercise_code, exercise.exercise_name, i)"
-                            draggable="true" [attr.data-target-muscles]="exercise.target_muscles" [attr.data-exercise-code]="exercise.exercise_code" [attr.data-exercise-name]="exercise.exercise_name" (dragstart)="dragExercise($event)"
+                            draggable="true" [attr.data-target-muscles]="exercise.target_muscles"
+                                            [attr.data-exercise-code]="exercise.exercise_code"
+                                            [attr.data-exercise-name]="exercise.exercise_name"
+                                            [attr.data-equipment-name]="exercise.equipment_name" (dragstart)="dragExercise($event)"
                             [ngStyle]="{'border-color':exercise.selected==1?'#f49a11':'#d8ddd1'}"
                             >
                             <img alt="" class="d-block"  width="100%" [attr.src]="exercise.picture" draggable="false">
                             <div class="title" draggable="false">
                                 <h4 draggable="false">{{exercise.exercise_name}}</h4>
+                            </div>
+                            <div class="title" draggable="false" style="height:20px; color: red; " *ngIf="testable(exercise.exercise_code)">
+                                <h6 draggable="false" style="margin-top: -15px; font-size: 12px; font-weight: bold">TESTABLE</h6>
                             </div>
                         </figure>
                     </div>

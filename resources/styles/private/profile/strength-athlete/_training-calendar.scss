@@ -109,23 +109,23 @@ osg-strength-athlete-training-calendar {
 			}
         }
     }
-	
+
 	.responsive-calendar.desktop {
 		width: 100%;
-		
+
 		@media only screen and (max-width: 768px) {
 			overflow-x: auto;
 		}
-		
+
 		.conventions {
 			display: block;
 			text-align: center;
-			width: 100%;		
-			
+			width: 100%;
+
 			@media only screen and (max-width: 768px) {
 				width: 997px;
 			}
-			
+
 			p {
 				color: #838383;
 				font-size: rem(14);
@@ -169,17 +169,39 @@ osg-strength-athlete-training-calendar {
 						border-top: solid 3px #128cf3;
 					}
 				}
+
+                &.move-button {
+                    color: black;
+                }
+
+                a {
+                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    background: #000;
+                    color: #FFF;
+                    text-align: center;
+                    border-radius: 5px;
+                    line-height: 40px;
+                    font-size: rem(20);
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+
+                .not-movable {
+                    background: #AAA;
+                }
 			}
 		}
-			
+
 		.calendar {
 			display: block;
 			padding-bottom: 20px;
-			
+
 			@media only screen and (max-width: 768px) {
 				overflow-x: initial;
 			}
-			
+
 			.week-days {
 				@extend .row;
 				text-align: center;
@@ -315,6 +337,12 @@ osg-strength-athlete-training-calendar {
 								}
 							}
 						}
+
+                        &.none {
+                            div {
+                                background: none;
+                            }
+                        }
 					}
 				}
 			}
@@ -322,7 +350,29 @@ osg-strength-athlete-training-calendar {
 	}
 	.responsive-calendar.mobile {
 		width: 100%;
-			
+		.conventions {
+            display: flex;
+            justify-content: space-between;
+
+            a {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                background: #000;
+                color: #FFF;
+                text-align: center;
+                border-radius: 5px;
+                line-height: 40px;
+                font-size: rem(20);
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .not-movable {
+                background: #AAA;
+            }
+        }
+
 		.calendar {
 			display: block;
 			overflow-x: unset !important;
@@ -352,7 +402,7 @@ osg-strength-athlete-training-calendar {
 						@extend .col;
 						padding-right: 2px;
 						padding-left: 2px;
-						
+
 						div {
 							display: block;
 							background: #FFF;
@@ -448,6 +498,12 @@ osg-strength-athlete-training-calendar {
 								}
 							}
 						}
+
+                        &.none {
+                            div {
+                                background: none;
+                            }
+                        }
 					}
 				}
 			}
@@ -457,7 +513,7 @@ osg-strength-athlete-training-calendar {
 				p {
 					margin: 0;
 					text-decoration: underline;
-					font-family: "Gotham Medium"; 
+					font-family: "Gotham Medium";
 				}
 			}
 			.workout-item {
@@ -482,10 +538,10 @@ osg-strength-athlete-training-calendar {
 							}
 							@media screen and (max-width:360px) {
 								font-size: 11px;
-							}					
+							}
 							@media screen and (max-width:320px) {
 								font-size: 9px;
-							}						
+							}
 						}
 						.item-type {
 							color: #ffb20d;
@@ -509,7 +565,7 @@ osg-strength-athlete-training-calendar {
 							}
 							@media screen and (max-width:360px) {
 								font-size: 11px;
-							}					
+							}
 							@media screen and (max-width:320px) {
 								font-size: 10px;
 							}

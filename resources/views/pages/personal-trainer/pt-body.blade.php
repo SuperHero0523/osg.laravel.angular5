@@ -602,8 +602,8 @@
 		 <div class="col-lg-4 col-12 col-sm-10 col-md-8">
 			<div class="text-center mb-4">
 			   <h2>
-				  <small>REACH YOUR FITNESS GOALS</small>
-				  <br>LET’S GET STARTED
+				 		SIGN UP
+						<small>Our web app is under development. Sign up now, and we will inform you once we are live.</small>
 			   </h2>
 			</div>
 			<form method="POST" action="http://osg.fantasylab.io/register" novalidate="novalidate">

@@ -6,20 +6,28 @@
       <a href="{{ url('register') }}" id="register-btn">Create Free Account</a>
    </div>
    <div class="container-fluid tophead abouthead">
-      <div class="row desktop">
-         <div class="col-lg-5 offset-lg-2 about-mission">
-            <p>OUR MISSION</p>
-            <h2>Our mission is to make workout tracking simple and provide effective workouts with our state-of-the-art training platform.</h2>
+      <div class="row no-gutters desktop">
+         <div class="content">
+            <div class="left-head">
+               <p>OUR MISSION</p>
+               <h2>Our mission is to make workout tracking simple and provide effective workouts with our state-of-the-art training platform.</h2>
+            </div>
+            <div class="right-head">
+               <img src="/images/osg-about-banner-icon.png">
+            </div>
          </div>
       </div>
 
       <div class="row mobile">
-         <div class="col-12 about-mission">
-            <h2>Our mission is to provide you with the best and most comprehensive digital strength training platform available.</h2>
-         </div>
-         <div class="col-12">
-            <div class="img text-center">
-               <img src="images/mobileban2.png" class="img-fluid"/>
+         <div class="content">
+            <div class="left-head">
+               <p>OUR MISSION</p>
+               <h2>Our mission is to provide you with the best and most comprehensive digital strength training platform available.</h2>
+            </div>
+            <div class="right-head">
+               <div class="img text-center">
+                  <img src="images/mobileban2.png" class="img-fluid"/>
+               </div>
             </div>
          </div>
       </div>
@@ -27,7 +35,7 @@
    <div class="container-fluid whatsolve">
       <div class="row justify-content-center">
          <div class="col-lg-5 text-center pt-5">
-            <p>WHAT DO WE SOLVE</p>
+            <p>OUR SOLUTION</p>
             <h2>We want to help you make the right choices for your own unique performance and strength needs. We add intuitive feedback mechanisms to guide you through your strength performance journey. </h2>
          </div>
       </div>
@@ -52,17 +60,17 @@
    </div>
    <div class="container-fluid storybg">
       <div class="row">
-         <div class="col-lg-2">
-         </div>
-         <div class="col-lg-4 storycont">
-            <p>OUR STORY</p>
-            <h2>The OSG team is passionate about strength training.</h2>
-            <h4>A large portion of the strength training literature are just theories, and theories does not become knowledge until it has been thorough tested in practice. So we got the idea: how about creating a platform that identifies which programs that work, who they work for, and what unique characteristics these programs have? What about implementing scientific strength training principles and feedback mechanisms, which takes the guessing out of the equation? </h4>
-            <h4>We aspired to create something new and useful, where you save time and gain valuable insights and increased strength gains.</h4>
-            <h4>We hope that you will find OSG as helpful, intuitive and fun as we do.</h4>
-        </div>
-         <div class="col-lg-4">
-            <img src="images/Our-stort-Ipad.png" class="img-fluid">
+         <div class="content">
+            <div class="storycont">
+               <p>OUR STORY</p>
+               <h2>The OSG team is passionate about strength training.</h2>
+               <h4>A large portion of the strength training literature are just theories, and theories does not become knowledge until it has been thorough tested in practice. So we got the idea: how about creating a platform that identifies which programs that work, who they work for, and what unique characteristics these programs have? What about implementing scientific strength training principles and feedback mechanisms, which takes the guessing out of the equation? </h4>
+               <h4>We aspired to create something new and useful, where you save time and gain valuable insights and increased strength gains.</h4>
+               <h4>We hope that you will find OSG as helpful, intuitive and fun as we do.</h4>
+            </div>
+            <div class="img-cont">
+               <img src="images/Our-stort-Ipad.png" class="img-fluid">
+            </div>
          </div>
       </div>
    </div>
@@ -100,13 +108,13 @@
    </div>
    <div class="container-fluid get-started-content">
       <div class="row">
-         <div class="col-lg-6 offset-lg-2 no_left starter-text">
+         <div class="col-lg-6 offset-lg-2">
             <h4>GET STARTED</h4>
             <h3>Create your profile today and start achieving your fitness goals.</h3>
          </div>
       </div>
       <div class="row getstartgrid">
-         <div class="col-lg-3 offset-lg-2 no_left">
+         <div class="col-lg-3 offset-lg-2">
             <div class="img-content">
                <img src="images/howpro1.png" class="img-fluid">
                <h2>The Strength Athlete</h2>

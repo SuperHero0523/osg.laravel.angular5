@@ -6,9 +6,9 @@ osg-program-designer-training-calendar {
 	@media (min-width: 768px) {
 		margin-top: 50px;
 	}
-	
+
 	.training-program.desktop {
-	
+
 		.title {
 			@extend .row;
 			padding-bottom: 10px;
@@ -54,7 +54,7 @@ osg-program-designer-training-calendar {
 				font-family: "Gotham Bold";
 			}
 		}
-		
+
 		@media (min-width: 320px) {
 			.title {
 				margin-top: 7.5rem;
@@ -70,7 +70,7 @@ osg-program-designer-training-calendar {
 				text-align: initial;
 			}
 		}
-		
+
 		@media (min-width: 1440px) {
 			.title {
 				.btn {
@@ -78,7 +78,7 @@ osg-program-designer-training-calendar {
 				}
 			}
 		}
-		
+
 		.conventions {
 			display: block;
 			text-align: center;
@@ -130,8 +130,8 @@ osg-program-designer-training-calendar {
 					.day {
 						@extend .col;
 						padding-right: 2px;
-						padding-left: 2px;
-						
+                        padding-left: 2px;
+
 						@media (min-width: 1920px) {
 							padding-right: 5px;
 							padding-left: 5px;
@@ -147,7 +147,7 @@ osg-program-designer-training-calendar {
 							height: 180px;
 							position: relative;
 							padding: 30px rem(10) rem(10);
-							cursor: pointer;
+							// cursor: pointer;
 							transition: all 0.2s linear;
 
 							p {
@@ -178,7 +178,8 @@ osg-program-designer-training-calendar {
 								border-bottom-color: #4ba6f4;
 								border-left-color: #cae1f5;
 								border-right-color: #cae1f5;
-								background: #e2f2ff;
+                                background: #e2f2ff;
+                                cursor: pointer;
 
 								.time {
 									color: $light-blue;
@@ -195,7 +196,8 @@ osg-program-designer-training-calendar {
 								left: 5%;
 								border: dashed 2px $orange;
 								width: 88%;
-								height: 83%;
+                                height: 83%;
+                                cursor: pointer;
 							}
 						}
 
@@ -310,7 +312,7 @@ osg-program-designer-training-calendar {
 		}
 		.responsive-calendar {
 			width: 100%;
-				
+
 			.calendar {
 				display: block;
 				overflow-x: unset !important;
@@ -340,7 +342,7 @@ osg-program-designer-training-calendar {
 							@extend .col;
 							padding-right: 2px;
 							padding-left: 2px;
-							
+
 							div {
 								display: block;
 								background: #FFF;

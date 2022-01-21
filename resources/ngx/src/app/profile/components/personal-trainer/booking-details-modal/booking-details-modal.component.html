@@ -1,83 +1,26 @@
 <div class="modal-header d-block">
-    <h4 class="modal-title pull-left">Available for Mon, 7th August 2018</h4>
+    <h4 class="modal-title pull-left">{{ getTitleString() }}</h4>
     <div class="clearfix"></div>
-    <h5>Your available hours: <span>30</span></h5>
+    <h5>Your available hours: <span>{{availableHours}}</span></h5>
     <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="modal-body">
     <div class="list-booking-time">
-        <div class="card-booking-time">
+        <div class="card-booking-time" *ngFor="let booking of bookings; let i=index">
             <div class="hour">
-                <p>10:00</p>
-                <p>11:00</p>
+                <p>{{booking.time}}:00</p>
+                <p>{{booking.time + 1}}:00</p>
             </div>
-            <div class="wrapper-btn">
-                <a href="" class="btn btn-yellow-gradient text-uppercase py-2 px-3">Book Now</a>
+            <div class="user-name" *ngIf="!from_other_profile">
+                <p *ngIf="booking.user_name != ''"><span>SA </span>{{" " + booking.user_name}}</p>
             </div>
-        </div>
-        <div class="card-booking-time">
-            <div class="hour">
-                <p>12:00</p>
-                <p>13:00</p>
+            <div class="wrapper-btn" *ngIf="viewerRole != 'StrengthAthlete' && booking.user_id == 0">
+                <a class="btn btn-yellow-gradient text-uppercase py-2 px-3">Free</a>
             </div>
-            <div class="wrapper-btn">
-                <a href="" class="btn btn-yellow-gradient text-uppercase py-2 px-3">Book Now</a>
-            </div>
-        </div>
-        <div class="card-booking-time">
-            <div class="hour">
-                <p>14:00</p>
-                <p>15:00</p>
-            </div>
-            <div class="wrapper-btn">
-                <a href="" class="btn btn-yellow-gradient text-uppercase py-2 px-3">Book Now</a>
-            </div>
-        </div>
-        <div class="card-booking-time">
-            <div class="hour">
-                <p>16:00</p>
-                <p>17:00</p>
-            </div>
-            <div class="wrapper-btn">
-                <a href="" class="btn btn-yellow-gradient text-uppercase py-2 px-3">Book Now</a>
-            </div>
-        </div>
-        <div class="card-booking-time">
-            <div class="hour">
-                <p>18:00</p>
-                <p>19:00</p>
-            </div>
-            <div class="wrapper-btn">
-                <a href="" class="btn btn-yellow-gradient text-uppercase py-2 px-3">Book Now</a>
-            </div>
-        </div>
-        <div class="card-booking-time">
-            <div class="hour">
-                <p>18:00</p>
-                <p>19:00</p>
-            </div>
-            <div class="wrapper-btn">
-                <a href="" class="btn btn-yellow-gradient text-uppercase py-2 px-3">Book Now</a>
-            </div>
-        </div>
-        <div class="card-booking-time">
-            <div class="hour">
-                <p>18:00</p>
-                <p>19:00</p>
-            </div>
-            <div class="wrapper-btn">
-                <a href="" class="btn btn-yellow-gradient text-uppercase py-2 px-3">Book Now</a>
-            </div>
-        </div>
-        <div class="card-booking-time">
-            <div class="hour">
-                <p>18:00</p>
-                <p>19:00</p>
-            </div>
-            <div class="wrapper-btn">
-                <a href="" class="btn btn-yellow-gradient text-uppercase py-2 px-3">Book Now</a>
+            <div class="wrapper-btn" *ngIf="viewerRole == 'StrengthAthlete'">
+                <a (click)="updateBooking(i)" class="btn btn-yellow-gradient text-uppercase py-2 px-3">{{userId == booking.user_id ? "Cancel" : "Book"}}</a>
             </div>
         </div>
     </div>

@@ -1,0 +1,10 @@
+<ngx-spinner></ngx-spinner>
+<h4 class="container review-page-container review-page-title">All Reviews For: <span>{{first_program.name}}</span></h4>
+<div class="container review-page-container">
+
+  <div class="review-container">
+    <ng-container *ngFor="let review of reviews;">
+      <osg-review [review]="review"></osg-review>
+    </ng-container>
+  </div>
+</div>

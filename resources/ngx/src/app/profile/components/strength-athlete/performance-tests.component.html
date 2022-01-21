@@ -1,0 +1,38 @@
+<div class="detail-title text-center">
+    <h4>{{test.exercise_name}}</h4>
+    <p>Text exercise</p>
+</div>
+<div class="row no-gutters text-center">
+    <div class="col-12 col-sm-6 px-0">
+        <div class="test">
+            <p class="title">1RM Pretest (kg):</p>
+            <p><b>{{test.pre_rm ? test.pre_rm : 'Unrecorded'}}</b></p>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 px-0">
+        <div class="test">
+            <p class="title">1RM Posttest (kg):</p>
+            <p><b>{{test.post_rm ? test.post_rm : 'Unrecorded'}}</b></p>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 px-0">
+        <div class="graph">
+            <p><b>1RM Results:</b><br>(% increase)</p>
+            <div class="gauge-container">
+                <osg-gauge css="{{test.color}} no-circle" [value]="test.increased"></osg-gauge>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 px-0">
+        <div class="test">
+            <p class="title">Pretest (level):</p>
+            <p><b>{{test.pre_level ? test.pre_level : 'Unrecorded'}}</b></p>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 px-0">
+        <div class="test">
+            <p class="title">Posttest (level):</p>
+            <p><b>{{test.post_level ? test.post_level : 'Unrecorded'}}</b></p>
+        </div>
+    </div>
+</div>

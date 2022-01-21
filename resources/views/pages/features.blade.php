@@ -21,23 +21,26 @@
       </div>
    </div>
    <div class="container-fluid tophead featureshead">
-      <div class="row desktop">
-         <div class="col-lg-5 offset-lg-6 about-mission">
-            <p>FEATURES</p>
-            <h2>We are proud to present you with OSG’s features. By implementing important scientific strength training theory and principles, your training will become both effective and fun.
-            </h2>
+      <div class="row no-gutters desktop">
+         <div class="content">
+            <div class="left-head">
+               <img src="/images/osg-banner-icon.png">
+            </div>
+            <div class="right-head">
+               <p>FEATURES</p>
+               <h2>We are proud to present you with OSG’s features. By implementing important scientific strength training theory and principles, your training will become both effective and fun.
+               </h2>
+            </div>
          </div>
       </div>
       <div class="row mobile">
-         <div class="col-lg-6">
+         <div class="content">
             <img src="images/mobileban1.png" class="img-fluid"/>
-         </div>
-         <div class="col-12 col-lg-5 about-mission featban">
             <h2>We are proud to present you with Optimal Strength Gains features.</h2>
+            <!-- <div class="btn text-center p-0">
+               <a href="{{ url('register') }}" >Create Free Account</a>
+            </div> -->
          </div>
-         <!-- <div class="btn text-center p-0">
-            <a href="{{ url('register') }}" >Create Free Account</a>
-         </div> -->
       </div>
    </div>
    <div class="container-fluid starter123 top_start featuretop" id="strengthdiv">
@@ -59,7 +62,7 @@
             <img src="images/featurebg2.png" class="img-fluid" style="width: 80%!important;"/>
          </div>
 
-         <div class="col-lg-5 storycont">
+         <div class="col-lg-5 storycont text-center">
             <p>STRENGTH STANDARDS</p>
             <h2>Strength standards are objective benchmarks that shows how strong you are compared to other Strength athletes. Strength standards are beneficial when setting goals and tracking your individual progress.</h2>
          </div>
@@ -103,7 +106,7 @@
    </div>
    <div class="container-fluid starter123 top_start experience" id="expdiv">
       <div class="row">
-         <div class="col-lg-5 offset-lg-1">
+         <div class="col-lg-5 offset-lg-1 text-center">
             <img src="images/bankbg.png" class="img-fluid" style="width: 80%;"/>
          </div>
          <div class="col-lg-4 storycont experience-bank">
@@ -165,7 +168,7 @@
          <div class="col-lg-6 text-center mt-4">
             <img src="images/autobg.png" class="img-fluid" style="width: 80%!important;"/>
          </div>
-         <div class="col-lg-5 storycont">
+         <div class="col-lg-5 storycont text-center">
             <p>AUTO REGULATION</p>
             <h2>Strength does not always evolve as planned in the Progression builder, since predetermined programs does not take into account the individual lifters fatigue level on a daily basis.</h2>
          </div>
@@ -210,7 +213,7 @@
    </div>
    <div class="container-fluid starter123 top_start pdesign" id="designdiv">
       <div class="row">
-         <div class="col-lg-5 offset-lg-1">
+         <div class="col-lg-5 offset-lg-1 text-center">
             <img src="images/pdesignbg.png" class="img-fluid" style="width: 80%;"/>
          </div>
          <div class="col-lg-4 storycont experience-bank experience-bank1">
@@ -319,7 +322,7 @@
        var desiredPosition = 50;
        if (window.pageYOffset > desiredPosition) {
          element.style.cssText += "top: -46px;";
-       } else {
+       } else {                                                                        
          element.style.cssText += "top: -5px;";
        }
      }

@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 use App\Mail\UserRegister;
 
 class RegisterController extends Controller
@@ -64,6 +66,19 @@ class RegisterController extends Controller
     }
 
     /**
+     *
+     * @param [type] $user_id
+     * @return void
+     */
+    protected function registerTrainerOffers($user_id) {
+        DB::statement("INSERT INTO trainer_offers(user_id, offer_type, title, hours, price, image_url)
+                            VALUES ({$user_id}, 1, 'pt basic', 5, 2500, ''),
+                                    ({$user_id}, 2, 'pt premium', 10, 4700, ''),
+                                    ({$user_id}, 3, 'pt pro', 15, 6750, ''),
+                                    ({$user_id}, 4, 'pt business', 20, 8600, '');");
+    }
+
+    /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
@@ -81,9 +96,13 @@ class RegisterController extends Controller
             return Redirect::back()->withErrors($validator);
         } else {
             $user = $this->service->register($data);
+            if ($user->role == 'PersonalTrainer') {
+                $this->registerTrainerOffers($user->id);
+            }
             $link = URL::route('account-activate', $user->api_token);
             Mail::to($data['email'])->send(new UserRegister($data['name'], $link));
-            return Redirect::to('/email/verify');
+            toast('Thank you for your registration we will inform you once our web app is ready to go live.','success');
+            return Redirect::to('/');
         }
     }
 }

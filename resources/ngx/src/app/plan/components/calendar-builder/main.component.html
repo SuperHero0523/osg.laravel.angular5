@@ -1,6 +1,16 @@
 <div class="container desktop" *showItDevice="['tablet','desktop']">
-   
+
 	<h1>THE WORKOUT & CALENDAR BUILDER</h1>
+  <div class="description">
+    <ul>
+      <li>Find and choose exercises and create a workout.</li>
+      <li *ngIf="isShow">Choose at least one (or maximum 3) Test exercise(s) in at least one workout. <br>The available test exercises (barbell and dumbbell exercises) are marked as "Testable". <br>The test set are used to calculate the Strength athlete’s 1 RM, level and result. </li>      
+      <li *ngIf="isShow">Click on “save workout” and “new” to create a new workout. </li>
+      <li *ngIf="isShow">Drag and drop the workouts on the desired days in the calendar and add as many weeks as desired. </li>
+      <li *ngIf="isShow">Fill out the program information. </li>
+      <li *ngIf="isShow">Click on the “save program” button and proceed to the Progression builder. </li>
+    </ul>
+  </div>
 	<div class="clearfix"></div>
 	<div class="row mb-4">
 		<osg-plan-builder-exercises></osg-plan-builder-exercises>
@@ -19,6 +29,16 @@
 </div>
 
 <div class="container mobile" *showItDevice="['mobile']">
+  <div class="description">
+    <ul>
+      <li>Find and choose exercises and create a workout.</li>
+      <li *ngIf="isShow">Choose at least one (or maximum 3) Test exercise(s) in at least one workout. The test exercise (barbell or dumbbell exercise) must have method “Test (AMRAP) set” (as many reps as possible), on the last set. The first sets are warmup sets with lower loads and intensity (% of 1 RM and/or RTF). The Test set will only stick to the first and last week of the program. The test set are used to calculate the Strength athlete’s 1 RM, level and result. </li>
+      <li *ngIf="isShow">Click on “save workout” and “new” to create a new workout. </li>
+      <li *ngIf="isShow">Drag and drop the workouts on the desired days in the calendar and add as many weeks as desired. </li>
+      <li *ngIf="isShow">Fill out the program information. </li>
+      <li *ngIf="isShow">Click on the “save program” button and proceed to the Progression builder. </li>
+    </ul>
+  </div>
    <owl-carousel-o [options]="customOptions" (changed)="getPassedData($event)" #owlCar>
       <ng-template carouselSlide [width]='width==320?320:width==360?360:width==375?375:width==384?384:width==411?411:width==414?414:width==480?480:480'>
          <div class="content">

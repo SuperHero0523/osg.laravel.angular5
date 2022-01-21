@@ -16,10 +16,18 @@ class PagesController extends Controller
         return Auth::check() ? $this->ngx() : view('pages.home', ['title' => 'Home']);
     }
 
+    public function register() {
+        return view('auth.register', ['title' => 'Register']);
+    }
+
+    public function login() {
+        return view('auth.login', ['title' => 'Login']);
+    }
+
     public function ngx(){
         return Auth::user()->email_verified_at === null ? redirect('/email/verify') :view('pages.spa');
     }
-    
+
     public function about(){
         return view('pages.about', ['title' => 'About']);
     }
@@ -51,12 +59,12 @@ class PagesController extends Controller
 
     public function signupStep1(Request $request) {
         return view('auth.register', [
-            'first_name'=>$request->signup_first_name, 
-            'last_name'=>$request->signup_last_name, 
-            'phone'=>$request->signup_phone, 
-            'email'=>$request->signup_email, 
-            'password'=>$request->signup_password, 
-            'role'=>$request->signup_role, 
+            'first_name'=>$request->signup_first_name,
+            'last_name'=>$request->signup_last_name,
+            'phone'=>$request->signup_phone,
+            'email'=>$request->signup_email,
+            'password'=>$request->signup_password,
+            'role'=>$request->signup_role,
         ]);
     }
 }

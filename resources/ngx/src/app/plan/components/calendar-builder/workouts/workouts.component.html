@@ -78,17 +78,33 @@
                            [attr.data-index]="i"
                            [attr.data-exercise-index]="exercise_index"
                         >{{exercise_data.name}}</label>
-                        <ng-container *ngIf="i == exercise_data.data.length-1"><a class="add fa-add-tbl" (click)="addRecord($event)">+</a><a class="remove fa-rmv-tbl"  (click)="removeRecord($event)">-</a></ng-container>
+                        <div class="title" draggable="false" style="height:20px; color: red; " *ngIf="shouldShowTestable(exercise_data) && i==0">
+                            <h6 draggable="false" style="font-size: 12px;">TESTABLE</h6>
+                        </div>
+                        <ng-container *ngIf="i == exercise_data.data.length-1">
+                          <div>
+                            <a class="add fa-add-tbl" (click)="addRecord($event)">+</a>
+                            <a class="remove fa-rmv-tbl"  (click)="removeRecord($event)">-</a>
+                          </div>
+                        </ng-container>
                      </td>
                      <td>{{i+1}}</td>
-                     <td><input class="form-control" type="text" value="{{exercise.reps}}" (change)="changeOption($event, 'reps')"></td>
+                     <td><input class="form-control" type="text" [(ngModel)]="exercise.reps" (change)="changeOption($event, 'reps')"></td>
                      <td><input class="form-control" type="text" value="{{exercise.rtf}}" (change)="changeOption($event, 'rtf')"></td>
-                     <td>{{exercise.rm}}<input type="hidden" value="{{exercise.rm}}" class="form-control"></td>
+                     <td>{{exercise_data.rm_show ? exercise.rm : ''}}<input type="hidden" value="{{exercise.rm}}" class="form-control"></td>
+                     <!-- <td>{{exercise.rm}}<input type="hidden" value="{{exercise.rm}}" class="form-control"></td> -->
                      <td>
                         <img src="images/link.png" *ngIf="getLinked(exercise_data, exercise_index, exercise, i)" class="link-image">
-                        <select class="form-control" (change)="changeOption($event, 'method')" [ngStyle]="{'background':exercise.method==3?'#b5e61d':'white'}">
-                           <option *ngFor="let option of options; let i=index" [value]="i"
-                           [attr.selected]="exercise.method==i ? true : null">{{option}}</option>
+                        <select class="form-control" (change)="changeOption($event, 'method')"
+                            [ngStyle]="{'background': exercise.method == methods.TEST ? '#b5e61d' : 'white'}">
+                            <ng-container *ngIf="shouldShowTest(exercise_data, i)">
+                              <option *ngFor="let option of options;" [value]="option.value"
+                                [attr.selected]="exercise.method == option.value ? true : null">{{option.name}}</option>
+                            </ng-container>
+                            <ng-container *ngIf="!shouldShowTest(exercise_data, i)">
+                              <option *ngFor="let option of optionsWithoutTest;" [value]="option.value"
+                                [attr.selected]="exercise.method == option.value ? true : null">{{option.name}}</option>
+                            </ng-container>
                         </select>
                      </td>
                      <td><input type='text' mask="0-0-0-0" class="form-control" placeholder="---" value="{{exercise.tempo}}"  (change)="changeOption($event, 'tempo')"></td>

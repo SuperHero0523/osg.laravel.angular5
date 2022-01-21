@@ -22,7 +22,40 @@ osg-profile-about-me {
         .summary {
             width: 100%;
             margin: 30px 0;
-            
+
+            .entry {
+                span {
+                    display: block;
+                    font-size: rem(15);
+                    &:first-child {
+                        float: left;
+                        text-align: left;
+                        color: $black;
+                        img{
+                            width: 14px;
+                        }
+                    }
+
+                    &:last-child {
+                        float: right;
+                        text-align: right;
+                    }
+                }
+
+                &:after {
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+
+            }
+        }
+
+        .map-ref-panel {
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+
             .entry {
                 span {
                     display: block;

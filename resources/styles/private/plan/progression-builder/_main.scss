@@ -1,10 +1,14 @@
 osg-progression-builder{
     display: block;
-    overflow: hidden;
-    h1{
+    // overflow: hidden;
+    .container {
+        padding-top: 7.5rem;
+    }
+    h1 {
         width: 100%;
     }
-    .general-actions{
+    .general-actions {
+        margin-top: 40px;
         @extend .row;
         .btn{
             font-size: rem(14);
@@ -20,15 +24,15 @@ osg-progression-builder{
                 -webkit-clip-path: polygon(5% 0, 100% 0, 100% 100%, 5% 100%, 0 50%);
                 clip-path: polygon(5% 0, 100% 0, 100% 100%, 5% 100%, 0 50%);
 
-                &:after {
-                    display: block;
-                    content: "\f104";
-                    font: normal normal normal 25px/1 FontAwesome;
-                    color: #000;
-                    position: absolute;
-                    left: 8px;
-                    top: 2px;
-                }
+                // &:after {
+                //     display: block;
+                //     content: "\f104";
+                //     font: normal normal normal 25px/1 FontAwesome;
+                //     color: #000;
+                //     position: absolute;
+                //     left: 8px;
+                //     top: 2px;
+                // }
             }
         }
     }

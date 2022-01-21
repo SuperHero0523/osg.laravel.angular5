@@ -1,11 +1,12 @@
-<h2>Enter your information</h2>
+<h2>Enter your traits:</h2>
 
 <div class="row" *showItDevice="['mobile']">
     <div class="col-12 col-sm-6 col-md-4">
         <div class="checbox-dropdown">
             <div class="checkbox custom-checkbox">
                 <label>
-                    <input type="checkbox" value="">
+                    <input type="checkbox" [(ngModel)]="information.genderChecked" *ngIf="status==enterInfoStatusExperience">
+                    <input type="checkbox" checked="true" *ngIf="status==enterInfoStatusStrenStand" disabled="true">
                     <span class="checkmark"></span>
                 </label>
             </div>
@@ -17,11 +18,12 @@
         <div class="checbox-dropdown">
             <div class="checkbox custom-checkbox">
                 <label>
-                    <input type="checkbox" value="">
+                    <input type="checkbox" [(ngModel)]="information.weightChecked" *ngIf="status==enterInfoStatusExperience">
+                    <input type="checkbox" checked="true" *ngIf="status==enterInfoStatusStrenStand" disabled="true">
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <osg-select label="Body Weight (kg)" [(value)]="information.bodyWeight" [options]="bodyWeightOptions"></osg-select>
+            <osg-select label="Body Weight (kg)" [(value)]="information.weight" [options]="weightOptions"></osg-select>
         </div>
     </div>
 
@@ -29,11 +31,11 @@
         <div class="checbox-dropdown">
             <div class="checkbox custom-checkbox">
                 <label>
-                    <input type="checkbox" value="">
+                    <input type="checkbox" [(ngModel)]="information.heightChecked">
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <osg-select label="Height (cm)" [(value)]="information.height" [options]="heightOptions"></osg-select>
+            <osg-select label="Height (cm)" [(value)]="information.height" [(value)]="information.height" [options]="heightOptions"></osg-select>
         </div>
     </div>
 </div>
@@ -43,7 +45,8 @@
         <div class="checbox-dropdown">
             <div class="checkbox custom-checkbox">
                 <label>
-                    <input type="checkbox" value="">
+                    <input type="checkbox" [(ngModel)]="information.genderChecked" *ngIf="status==enterInfoStatusExperience">
+                    <input type="checkbox" checked="true" *ngIf="status==enterInfoStatusStrenStand" disabled="true">
                     <span class="checkmark"></span>
                 </label>
             </div>
@@ -55,11 +58,12 @@
         <div class="checbox-dropdown">
             <div class="checkbox custom-checkbox">
                 <label>
-                    <input type="checkbox" value="">
+                    <input type="checkbox" [(ngModel)]="information.weightChecked" *ngIf="status==enterInfoStatusExperience">
+                    <input type="checkbox" checked="true" *ngIf="status==enterInfoStatusStrenStand" disabled="true">
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <osg-select label="Body Weight (kg)" [(value)]="information.bodyWeight" [options]="bodyWeightOptions"></osg-select>
+            <osg-select label="Body Weight (kg)" [(value)]="information.weight" [options]="weightOptions"></osg-select>
         </div>
     </div>
 
@@ -67,7 +71,7 @@
         <div class="checbox-dropdown">
             <div class="checkbox custom-checkbox">
                 <label>
-                    <input type="checkbox" value="">
+                    <input type="checkbox" [(ngModel)]="information.heightChecked">
                     <span class="checkmark"></span>
                 </label>
             </div>
@@ -77,44 +81,44 @@
 </div>
 
 <div class="row">
-    <div class="col-12 col-sm-6" [ngClass]="(status=='experience')?'col-md-3':'col-md-4'">
+    <div class="col-12 col-sm-6" [ngClass]="(status==enterInfoStatusExperience)?'col-md-3':'col-md-4'">
         <div class="checbox-dropdown">
-            <div class="checkbox custom-checkbox" [ngClass]="(status=='experience')?'experience':''">
+            <div class="checkbox custom-checkbox" [ngClass]="(status==enterInfoStatusExperience)?enterInfoStatusExperience:''">
                 <label>
-                    <input type="checkbox" value="">
+                    <input type="checkbox" [(ngModel)]="information.waistHipRatioChecked">
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <osg-select label="Waist-Hip Ratio (cm)" [(value)]="information.waistHipRatio" [options]="waistToHipRatioOptions"></osg-select>
+            <osg-select label="Waist-Hip Ratio (cm)" [(value)]="information.waistHipRatio" [options]="waistHipRatioOptions"></osg-select>
         </div>
     </div>
-    <div class="col-12 col-sm-6" [ngClass]="(status=='experience')?'col-md-3':'col-md-4'">
+    <div class="col-12 col-sm-6" [ngClass]="(status==enterInfoStatusExperience)?'col-md-3':'col-md-4'">
         <div class="checbox-dropdown">
-            <div class="checkbox custom-checkbox" [ngClass]="(status=='experience')?'experience':''">
+            <div class="checkbox custom-checkbox" [ngClass]="(status==enterInfoStatusExperience)?enterInfoStatusExperience:''">
                 <label>
-                    <input type="checkbox" value="">
+                    <input type="checkbox" [(ngModel)]="information.ageChecked">
                     <span class="checkmark"></span>
                 </label>
             </div>
             <osg-select label="Age (years)" [(value)]="information.age" [options]="ageOptions"></osg-select>
         </div>
     </div>
-    <div class="col-12 col-sm-6" [ngClass]="(status=='experience')?'col-md-3':'col-md-4'">
+    <div class="col-12 col-sm-6" [ngClass]="(status==enterInfoStatusExperience)?'col-md-3':'col-md-4'">
         <div class="checbox-dropdown">
-            <div class="checkbox custom-checkbox" [ngClass]="(status=='experience')?'experience':''">
+            <div class="checkbox custom-checkbox" [ngClass]="(status==enterInfoStatusExperience)?enterInfoStatusExperience:''">
                 <label>
-                    <input type="checkbox" value="">
+                    <input type="checkbox" [(ngModel)]="information.muscleTypeChecked">
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <osg-select label="Muscle Fiber Type" [(value)]="information.muscleFiberType" [options]="muscleFiberOptions"></osg-select>
+            <osg-select label="Muscle Fiber Type" [(value)]="information.muscleType" [options]="muscleTypeOptions"></osg-select>
         </div>
     </div>
-    <div class="col-12 col-sm-6" [ngClass]="(status=='experience')?'col-md-3':'col-md-4'" *ngIf="status=='experience'">
+    <div class="col-12 col-sm-6" [ngClass]="(status==enterInfoStatusExperience)?'col-md-3':'col-md-4'" *ngIf="status==enterInfoStatusExperience">
         <div class="checbox-dropdown">
-            <div class="checkbox custom-checkbox" [ngClass]="(status=='experience')?'experience':''">
+            <div class="checkbox custom-checkbox" [ngClass]="(status==enterInfoStatusExperience)?enterInfoStatusExperience:''">
                 <label>
-                    <input type="checkbox" value="">
+                    <input type="checkbox" [(ngModel)]="information.levelChecked">
                     <span class="checkmark"></span>
                 </label>
             </div>
@@ -127,10 +131,10 @@
     <div class="col-12 col-lg-8">
         <div class="results">
             <h4>Results: </h4>
-            <p>Male<span>x</span></p>
+            <p>{{result}}</p>
         </div>
     </div>
     <div class="col-12 col-lg-3 mt-2 mt-lg-0 text-center text-lg-right">
-        <a href="" class="btn btn-yellow-gradient py-2 btn-block">DONE</a>
+        <a (click)="onDone()" class="btn btn-yellow-gradient py-2 btn-block">{{status == experienceBankPageStatus ? "Find programs" : "DONE"}}</a>
     </div>
 </div>

@@ -1,13 +1,32 @@
 <div class="container h-100">
     <div class="row h-100 align-items-center justify-content-center">
         <div class="col-12 col-sm-12 col-md-7 col-lg-4">
+            <input #avatarImage type="file" accept="image/*" hidden="true"/>
             <div class="information">
-                <a href="" class="edit"><img src="/assets/images/icons/icon-pencil.svg" class="img-fluid" alt=""></a>
+                <a *ngIf="!from_other_profile && !isEditing" (click)="onClickEdit()"class="edit"><img src="/assets/images/icons/icon-pencil.svg" class="img-fluid" alt=""></a>
                 <figure>
-                    <img [src]="avatar" class="img-fluid d-block m-auto" [ngStyle]="{'width': isdefault ? '25%' : '100%' }"/>
+                    <img (click)="onClickImage()" [src]="avatar" [class]="isEditing ? 'img-fluid d-block m-auto editing' : 'img-fluid d-block m-auto'" [ngStyle]="{'width': isdefault ? '25%' : '100%' }"/>
                 </figure>
-                <h2>{{fullName}}</h2>
-                <a href="" class="add-friend"><img src="/assets/images/icons/icon-add-friend.png" class="d-inline-block img-fluid mr-2" alt="">ADD FRIEND</a>
+                <h2 *ngIf="!isEditing">{{fullName}}</h2>
+                <h2 *ngIf="isEditing"><input type="text" [(ngModel)]="fullName"></h2>
+                <div class="row" *ngIf="isEditing">
+                  <div class="col-6">
+                    <button class="btn btn-yellow-gradient btn-block" (click)="save()">save</button>
+                  </div>
+                  <div class="col-6">
+                    <button class="btn btn-yellow-gradient btn-block" (click)="cancel()">cancel</button>
+                  </div>
+                </div>
+                <div [ngSwitch]="isfriend">
+                  <a (click)="requestFriend()" *ngSwitchCase="0" class="add-friend">
+                    <img src="/assets/images/icons/icon-add-friend.png" class="d-inline-block img-fluid mr-2" alt="">
+                    ADD FRIEND
+                  </a>
+                  <a *ngSwitchCase="1" class="request-friend">
+                    <img src="/assets/images/icons/icon-add-friend.png" class="d-inline-block img-fluid mr-2" alt="">
+                    Pending
+                  </a>
+                </div>
             </div>
         </div>
     </div>

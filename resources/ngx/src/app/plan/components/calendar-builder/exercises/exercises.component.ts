@@ -2,9 +2,12 @@ import {Component, Injectable, OnInit, Input} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {ApplicationUser} from 'src/app/core/classes/user';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { DataService } from '../../../../data.service';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { MessageService  } from '../../../../core/services/data.service';
+import * as _swal from 'sweetalert';
+import { SweetAlert } from 'sweetalert/typings/core';
 
 import { NgxSpinnerService } from "ngx-spinner";
 export class Program {
@@ -12,6 +15,7 @@ export class Program {
   category: string;
   split: string;
   description: string;
+  is_saved: number;
 }
 
 @Injectable()
@@ -22,28 +26,45 @@ export class Program {
 })
 
 export class PlanBuilderExercisesComponent implements OnInit {
+  // @Input() program: string;
+  swal: SweetAlert = _swal as any;
 
   exercise_data = [];
   keyword = new FormControl('');
   searchEngine = null;
-  program: Program = {
-    name : '',
-    category : '',
-    split : '',
-    description : ''
-  };
+
+  get program() {
+    return this.dataService.program;
+  }
+  set program(val) {
+    this.dataService.program = val;
+  }
+
+  get testable_exercises() {
+    return this.dataService.testable_exercises;
+  }
 
   subscription: Subscription;
 
-  constructor(private spinner: NgxSpinnerService, private http: HttpClient, private messageService: MessageService) {
+  constructor(private spinner: NgxSpinnerService, private http: HttpClient, private dataService: DataService, private messageService: MessageService) {
     this.subscription = this.messageService.getMessage().subscribe(message => {
       if (message.info === 'saveProgram') {
+        console.log('program = ', this.program);
         this.messageService.sendMessage('saveProgramFinally', JSON.stringify(this.program));
+      } else if (message.info === 'proceed') {
+        this.messageService.sendMessage('proceedFinally', JSON.stringify(this.program));
       }
-  });
+    });
   }
 
   @Input() applicationUser: ApplicationUser;
+
+  testable(exercise_id) {
+    if (this.testable_exercises.indexOf(exercise_id) == -1)
+      return false;
+
+    return true;
+  }
 
   sendMessage(): void {
     // send message to subscribers via observable subject
@@ -71,7 +92,16 @@ export class PlanBuilderExercisesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.searchExercises();
+    // var interval = setInterval(()=>{
+    //   if(this.dataService.cur_program_id != -1) {
+        this.searchExercises();
+    //     clearInterval(interval);
+    //   }
+    // }, 100);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   searchFunc() {
@@ -85,13 +115,14 @@ export class PlanBuilderExercisesComponent implements OnInit {
       this.searchEngine = null;
     }, 500);
   }
+
   selectExercise(event, movement_index, code, name, index) {
     this.exercise_data[movement_index]['data'][index]['selected'] = !this.exercise_data[movement_index]['data'][index]['selected'];
   }
-  searchExercises(keyword = '') {
 
+  searchExercises(keyword = '') {
     this.spinner.show();
-    this.http.post('search/exercise', {keyword: keyword}, {
+    this.http.post('search/exercise', {keyword: keyword, program_id: this.dataService.cur_program_id}, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       })
@@ -106,6 +137,7 @@ export class PlanBuilderExercisesComponent implements OnInit {
         this.exercise_data = resp['data']['exercise'];
         console.log(this.exercise_data);
         this.program = resp['data']['program'];
+        console.log('current program = ', this.program);
 
         this.spinner.hide();
       }

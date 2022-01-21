@@ -11,34 +11,10 @@
         <div id="performance-graph"></div>
     </div>
     <div class="week-types">
-        <div>
+        <div *ngFor="let week_info of weeks_info; let i=index" [ngStyle]="{width: (100 / weeks_info.length)+'%'}">
             <div>
-                <span>Week 1</span>
-                <span>Test & training week</span>
-            </div>
-        </div>
-        <div>
-            <div>
-                <span>Week 2</span>
-                <span>Training week</span>
-            </div>
-        </div>
-        <div>
-            <div>
-                <span>Week 3</span>
-                <span>Training week</span>
-            </div>
-        </div>
-        <div>
-            <div>
-                <span>Week 4</span>
-                <span>Deload week</span>
-            </div>
-        </div>
-        <div>
-            <div>
-                <span>Week 5</span>
-                <span>Training week</span>
+                <span>Week {{i+1}}</span>
+                <span>{{week_info}}</span>
             </div>
         </div>
     </div>

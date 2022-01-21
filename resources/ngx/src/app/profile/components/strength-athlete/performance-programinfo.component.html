@@ -1,0 +1,37 @@
+<div class="detail-title text-center" *ngIf="info.name != ''">
+    <h4>PROGRAM</h4>
+    <p>Information</p>
+</div>
+<div class="row no-gutters text-center" *ngIf="info.name != ''">
+    <div class="col-12 col-sm-12 px-0">
+        <div class="program text-center">
+            <p>Program:</p>
+            <h4 class="title" style="text-transform: uppercase;">{{info.name}}</h4>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 px-0">
+        <div class="program text-center">
+            <p>Category:</p>
+            <h4 style="text-transform: uppercase;">{{info.category}}</h4>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 px-0">
+        <div class="program text-center">
+            <p>Period:</p>
+            <h4 style="text-transform: uppercase;">{{info.period}}</h4>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 px-0">
+        <div class="program text-center">
+          <p>Trainer:</p>
+          <ng-container *ngIf="from_other_profile; then OnlyTrainerName; else SelectTrainerName"></ng-container>
+          <ng-template #OnlyTrainerName>
+            <a>{{info.trainer_name}}</a>
+          </ng-template>
+          <ng-template #SelectTrainerName>
+            <a *ngIf="info.trainer_name == null || info.trainer_name == ''" (click)="onClickAddPT()"><span>+</span>Add PT</a>
+            <a *ngIf="info.trainer_name != null && info.trainer_name != ''" (click)="onClickRemovePT()"><span>-</span>{{info.trainer_name}}</a>
+          </ng-template>
+        </div>
+    </div>
+</div>

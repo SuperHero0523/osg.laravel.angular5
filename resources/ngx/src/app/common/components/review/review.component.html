@@ -1,0 +1,77 @@
+<!------------------------------------ Desktop Tablet  ----------------------------------->
+<div class="review-body mb-2 d-flex flex-row" *showItDevice="['tablet','desktop']">
+  <div class="col-auto p-0">
+    <figure>
+      <img src="/assets/images/icons/icon-account-gray.png" class="img-fluid d-block mx-auto" />
+    </figure>
+  </div>
+  <div class="ml-2">
+    <div class="rating d-flex flex-row">
+      <p>{{review.score + '.0'}}</p>
+      <span class="fa-stack" [class]="review.score >= 1 ? 'fa-stack ' + rate_value[review.score] : 'fa-stack'">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="fa-stack" [class]="review.score >= 2 ? 'fa-stack ' + rate_value[review.score] : 'fa-stack'">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="fa-stack" [class]="review.score >= 3 ? 'fa-stack ' + rate_value[review.score] : 'fa-stack'">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="fa-stack" [class]="review.score >= 4 ? 'fa-stack ' + rate_value[review.score] : 'fa-stack'">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="fa-stack" [class]="review.score >= 5 ? 'fa-stack ' + rate_value[review.score] : 'fa-stack'">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+      </span>
+      <p style="position: relative; left: 20px;">{{review.date}}</p>
+    </div>
+    <div class="spliter mt-2 mb-2"></div>
+    <p class="user-name">{{review.user_name}}</p>
+    <p class="review-content mt-2" style="-webkit-box-orient: vertical;">{{review.content_text}}</p>
+  </div>
+</div>
+
+<!------------------------------------ Mobile  ----------------------------------->
+<div class="review-body mb-2 d-flex flex-row" *showItDevice="['mobile']">
+  <div class="col-auto p-0">
+    <figure>
+      <img src="/assets/images/icons/icon-account-gray.png" class="img-fluid d-block mx-auto" />
+    </figure>
+  </div>
+  <div class="ml-2">
+    <div class="rating d-flex flex-row">
+      <p>{{review.score + '.0'}}</p>
+      <span class="fa-stack" [class]="review.score >= 1 ? 'fa-stack ' + rate_value[review.score] : 'fa-stack'">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="fa-stack" [class]="review.score >= 2 ? 'fa-stack ' + rate_value[review.score] : 'fa-stack'">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="fa-stack" [class]="review.score >= 3 ? 'fa-stack ' + rate_value[review.score] : 'fa-stack'">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="fa-stack" [class]="review.score >= 4 ? 'fa-stack ' + rate_value[review.score] : 'fa-stack'">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="fa-stack" [class]="review.score >= 5 ? 'fa-stack ' + rate_value[review.score] : 'fa-stack'">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-star fa-stack-1x fa-inverse"></i>
+      </span>
+    </div>
+    <div>
+      <p style="position: relative; left: 20px;">{{review.date}}</p>
+    </div>
+    <div class="spliter mt-2 mb-2"></div>
+    <p class="user-name">{{review.user_name}}</p>
+    <p class="review-content mt-2" style="-webkit-box-orient: vertical;">{{review.content_text}}</p>
+  </div>
+</div>

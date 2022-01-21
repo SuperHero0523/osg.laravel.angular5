@@ -9,13 +9,9 @@
                         <img src="images/stars.png" class="img-fluid d-block mx-auto" alt="">
                     </div>
                     <div class="row justify-content-center mt-4">
-                        <div class="col-12 col-sm-12 col-md-10 col-lg-8">
-                            <form class="get-started" method="GET" action="{{route('register')}}">
-                                <div class="form-group row">
-                                    <div class="col-12 col-sm-6 col-lg-7"><input type="email" id="e-mail" name="email" placeholder="E-mail address" class="form-control py-3"></div>
-                                    <div class="col-12 col-sm-6 col-lg-5"><button type="submit" class="btn btn-green-gradient btn-block px-5 py-3 mt-3 mt-sm-0">Get started</button></div>
-                                </div>
-                            </form>
+                        <div class="button-group">
+                            <a class="btn btn-green-gradient px-5 py-3 mt-3 mt-sm-0" href="{{ url('register') }}">Get started</a>
+                            <a class="btn btn-yellow-gradient py-3 px-4 mr-0" href="{{ url('how-it-works') }}">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -32,8 +28,8 @@
             <div class="call-to-action calbg">
                 <img src="images/girl-training.jpg" class="w-100 img-fluid mx-auto d-block" alt="">
                 <div class="content">
-                    <h2><small>I am a </small>Strength Athlete</h2>
-                    <p>Complete programs and see how you responded compared to your mirror athletes. Learn which program designs that suits you best. </p>
+                    <h2><small>I am a</small>Strength Athlete</h2>
+                    <p>Discover the optimal strength training program for you and compare your results to other strength athletes similar to you.</p>
                     <div class="buttons">
                         <a class="btn btn-green-gradient py-3 px-4 mr-0 mr-md-4" href="{{route('register', ['strengthAthlete'])}}">Sign Up</a>
                         <a class="btn btn-yellow-gradient py-3 px-4 mr-0 mr-md-4" href="{{ url('strength-athlete') }}">Learn More</a>
@@ -46,8 +42,8 @@
             <div class="call-to-action calbg">
                 <img src="images/list.jpg" class="w-100 img-fluid mx-auto d-block" alt="">
                 <div class="content">
-                    <h2><small>I am a </small>Program Designer</h2>
-                    <p>Create and publish programs. Get feedback on how different strength athletes responds to your program through the Experience bank and strength athlete reviews. </p>
+                    <h2><small>I am a</small>Program Designer</h2>
+                    <p>Develop and publish training programs. Receive feedback and reviews on how different strength athletes respond to your program through our wide user experience database.</p>
                     <div class="buttons">
                         <a class="btn btn-green-gradient py-3 px-4 mr-0 mr-md-4" href="{{route('register', ['programDesigner'])}}">Sign Up</a>
                         <a class="btn btn-yellow-gradient py-3 px-4 mr-0 mr-md-4" href="{{ url('program-designer') }}">Learn More</a>
@@ -60,8 +56,8 @@
             <div class="call-to-action calbg personal-trainer">
                 <img src="images/hands-five.jpg" class="w-100 img-fluid mx-auto d-block" alt="">
                 <div class="content">
-                    <h2><small>I am a </small>Personal Trainer</h2>
-                    <p>Interact with your clients. Let Optimal Strength Gains find the best strength training programs for strength athletes with different needs and goals, freeing up your time and reducing frustration. </p>
+                    <h2><small>I am a</small>Personal Trainer</h2>
+                    <p>Build your client base and communicate with your clients. Find the best, tailored strength training programs for strength athletes.</p>
                     <div class="buttons">
                         <a class="btn btn-green-gradient py-3 px-4 mr-0 mr-md-4" href="{{route('register', ['personalTrainer'])}}">Sign Up</a>
                         <a class="btn btn-yellow-gradient py-3 px-4 mr-0 mr-md-4" href="{{ url('personal-trainer')}}">Learn More</a>

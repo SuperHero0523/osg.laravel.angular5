@@ -1,5 +1,5 @@
 @extends('layouts.public')
-@section('title', 'Sign in') 
+@section('title', 'Sign in')
 
 @section('content')
     <div class="login">
@@ -12,6 +12,16 @@
                         </h1>
                         <form method="POST" action="{{ route('login') }}" class="login-form mt-4">
                             @csrf
+
+                            <div class="form-group">
+                            @if(Session::has('alert-error'))
+                                <div class="alert alert-danger" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    {{ Session::get('alert-error') }}
+                                </div>
+                            @endif
+                            </div>
+
                             <div class="form-group">
                                 <input type="email" name="email" id="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" required data-msg="Please enter your email">
                                 <label for="email">Email *</label>
@@ -25,7 +35,7 @@
                             <div class="form-group">
                                 <input type="password" name="password" id="password" class="form-control" required data-msg="Please enter your password">
                                 <label for="password">Password *</label>
-                                
+
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>

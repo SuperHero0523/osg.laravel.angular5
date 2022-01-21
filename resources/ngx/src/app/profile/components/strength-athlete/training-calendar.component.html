@@ -1,415 +1,103 @@
-<div class="title">
+<div class="title" name="calender_workout_log" id="training-calendar" >
     <div class="row align-items-center">
         <div class="col-12 col-sm-6">
         <h3>CALENDAR & WORKOUT LOG</h3>
         </div>
-        <div class="col-12 col-sm-5">
+        <div class="col-12 col-sm-6">
             <div class="control-slider">
-                <p><span class="text-uppercase">{{current_month}}</span> {{current_year}}</p>
-                <a href="" class="btn-control prev"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
-                <a href="" class="btn-control next"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <p><span class="text-uppercase">{{cur_month_year}}</span></p>
+                <a (click)="this.prevMonth()" class="btn-control prev"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+                <a (click)="this.nextMonth()" class="btn-control next"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
             </div>
         </div>
-        <div class="col-12 col-sm-1">
+        <!-- <div class="col-12 col-sm-1">
             <a href="" class="edit"><img src="/assets/images/icons/icon-pencil.svg" class="img-fluid" alt=""></a>
-        </div>
+        </div> -->
     </div>
 </div>
 <div class="responsive-calendar desktop" *showItDevice="['tablet','desktop']">
 
     <div class="conventions">
-        <p class="test"><span></span>Test Sessions</p>
-        <p class="completed"><span></span>Completed Sessions</p>
-        <p class="missed"><span></span>Missed Sessions</p>
-        <p class="today"><span></span>Today</p>
-        <p class="upcoming"><span></span>Upcoming Sessions</p>
+      <p class="move-button" *ngIf="!from_other_profile">To Prev Week
+        <a (click)="this.toPrevWeek()" [class]="!isMovableToPrevWeek ? 'not-movable' : ''"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+      </p>
+      <p class="test"><span></span>Test Sessions</p>
+      <p class="completed"><span></span>Completed Sessions</p>
+      <p class="missed"><span></span>Missed Sessions</p>
+      <p class="today"><span></span>Today</p>
+      <p class="upcoming"><span></span>Upcoming Sessions</p>
+      <p class="move-button" *ngIf="!from_other_profile"><a (click)="this.toNextWeek()" [class]="!isMovableToNextWeek ? 'not-movable' : ''"><i class="fa fa-angle-down" aria-hidden="true"></i></a>To Next Week</p>
     </div>
-    
+
     <div class="calendar">
         <div class="week-days">
-          <div class="col">Sunday</div>
           <div class="col">Monday</div>
           <div class="col">Tuesday</div>
           <div class="col">Wednesday</div>
           <div class="col">Thursday</div>
           <div class="col">Friday</div>
           <div class="col">Saturday</div>
+          <div class="col">Sunday</div>
         </div>
         <div class="wrapper-weeks">
-          <div class="week">
-      
-            <div class="day">
-              <div><span class="time">30</span></div>
-            </div>
-      
-            <div class="day completed test">
-              <div>
-                <span class="time">Jul 31</span>
-                <b>Chest/<br>Shoulder/<br>Triceps</b>
-                <p>GVT</p>
+          <div *ngFor="let week_data of weeks_data; let i=index" class="week">
+            <ng-container *ngFor="let day_data of week_data; let j=index">
+              <div *ngIf="day_data.isCurMonth"
+                  [class]="day_data.bodyParts == '' ? 'day'
+                            : day_data.status == 'upcoming' ? day_data.testSession ? 'day test upcoming' : 'day upcoming'
+                            : day_data.status == 'missed' ? (day_data.isToday ? 'day missed today' : day_data.testSession ? 'day test missed' : 'day missed')
+                            : day_data.isToday ? 'day completed today' : 'day completed' ">
+                <div>
+                  <span class="time">{{day_data.date}}</span>
+                  <b>{{day_data.bodyParts}}</b>
+                  <p *ngIf="day_data.bodyParts != ''">{{day_data.program}}</p>
+                </div>
+                <a class="show-btn" *ngIf="day_data.bodyParts != ''" (click)="showWorkoutModal(day_data)"><img src="assets/images/icons/eye.png"></a>
               </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">Aug 1</span></div>
-            </div>
-      
-            <div class="day completed test">
-              <div>
-                <span class="time">2</span>
-                <b>Back/<br>Biceps</b>
-                <p>GVT </p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">3</span></div>
-            </div>
-      
-            <div class="day completed test">
-              <div>
-                <span class="time">4</span>
-                <b>Quadriceps/<br>Hamstrings/<br>Calves</b>
-                <p>GVT</p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">5</span></div>
-            </div>
-      
+              <div *ngIf="!day_data.isCurMonth" class="day none"></div>
+            </ng-container>
+
           </div>
-      
-          <div class="week">
-      
-            <div class="day">
-              <div><span class="time">6</span></div>
-            </div>
-      
-            <div class="day missed">
-              <div>
-                <span class="time">7</span>
-                <b>Quads/<br> Hamstrings/<br> Calves</b>
-                <p>GVT</p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">8</span></div>
-            </div>
-      
-            <div class="day completed">
-              <div>
-                <span class="time">9</span>
-                <b>Chest/<br>Shoulders/<br> Triceps</b>
-                <p>GVT</p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">10</span></div>
-            </div>
-      
-            <div class="day completed">
-              <div>
-                <span class="time">11</span>
-                <b>Back/<br> Biceps</b>
-                <p>GVT</p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day today">
-              <div><span class="time">12</span></div>
-            </div>
-      
-          </div>
-      
-          <div class="week">
-      
-            <div class="day">
-              <div><span class="time">13</span></div>
-            </div>
-      
-            <div class="day upcoming">
-              <div>
-                <span class="time">14</span>
-                <b>Quads/<br> Hamstrings/<br> Calves</b>
-                <p>GVT</p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">15</span></div>
-            </div>
-      
-            <div class="day upcoming">
-              <div>
-                <span class="time">16</span>
-                <b>Chest/<br>Shoulders/<br>Triceps </b>
-                <p>GVT</p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">17</span></div>
-            </div>
-      
-            <div class="day upcoming">
-              <div>
-                <span class="time">18</span>
-                <b>Back/<br>Biceps</b>
-                <p>GVT</p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">19</span></div>
-            </div>
-      
-          </div>
-      
-          <div class="week">
-      
-            <div class="day">
-              <div><span class="time">20</span></div>
-            </div>
-      
-            <div class="day upcoming">
-              <div>
-                <span class="time">21</span>
-                <b>Quads/<br> Hamstrings/<br>Calves</b>
-                <p>GVT</p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">22</span></div>
-            </div>
-      
-            <div class="day upcoming">
-              <div>
-                <span class="time">23</span>
-                <b>Chest/<br>Shoulders/<br>Triceps</b>
-                <p>GVT</p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">24</span></div>
-            </div>
-      
-            <div class="day upcoming">
-              <div>
-                <span class="time">25</span>
-                <b>Back/<br>Biceps</b>
-                <p>GVT</p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">26</span></div>
-            </div>
-      
-          </div>
-      
-          <div class="week">
-      
-            <div class="day">
-              <div><span class="time">27</span></div>
-            </div>
-      
-            <div class="day upcoming">
-              <div>
-                <span class="time">28</span>
-                <b>Quads/<br>Hamstrings/<br></b>
-                <p>GVT</p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">29</span></div>
-            </div>
-      
-            <div class="day upcoming">
-              <div>
-                <span class="time">30</span>
-                <b>Chest/<br>Shoulders/<br>Triceps</b>
-                <p>GVT </p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">Aug 31</span></div>
-            </div>
-      
-            <div class="day upcoming">
-              <div>
-                <span class="time">Sep 1</span>
-                <b>Back/<br>Biceps</b>
-                <p>GVT</p>
-              </div>
-              <a class="show-btn"><img src="assets/images/icons/eye.png"></a>
-            </div>
-      
-            <div class="day">
-              <div><span class="time">2</span></div>
-            </div>
-      
-          </div>      
         </div>
     </div>
 </div>
 
 <div class="responsive-calendar mobile" *showItDevice="['mobile']">
+  <div class="conventions" *ngIf="!from_other_profile">
+    <p>To Prev Week<a (click)="this.toPrevWeek()" [class]="!isMovableToPrevWeek ? 'not-movable' : ''"><i class="fa fa-angle-up" aria-hidden="true"></i></a></p>
+    <p><a (click)="this.toNextWeek()" [class]="!isMovableToNextWeek ? 'not-movable' : ''"><i class="fa fa-angle-down" aria-hidden="true"></i></a>To Next Week</p>
+  </div>
+
   <div class="calendar">
     <div class="week-days">
-      <div class="date">Sun</div>
       <div class="date">Mon</div>
       <div class="date">Tue</div>
       <div class="date">Wed</div>
       <div class="date">Thu</div>
       <div class="date">Fri</div>
       <div class="date">Sat</div>
+      <div class="date">Sun</div>
     </div>
     <div class="wrapper-weeks">
-      <div class="week">
-        <div class="day">
-          <div><span class="time">30</span></div>
-        </div>
-        <div class="day completed test" (click)="showWorkout('Monday, April 31', 'completed')">
-          <div><span class="time">31</span></div>
-        </div>
-        <div class="day">
-          <div><span class="time">1</span></div>
-        </div>
-        <div class="day completed test" (click)="showWorkout('Wednesday, May 2', 'completed')">
-          <div><span class="time">2</span></div>
-        </div>
-        <div class="day">
-          <div><span class="time">3</span></div>
-        </div>
-        <div class="day completed test" (click)="showWorkout('Friday, May 4', 'completed')">
-          <div><span class="time">4</span></div>
-        </div>
-        <div class="day">
-          <div><span class="time">5</span></div>
-        </div>
-      </div>  
-      <div class="week">
-        <div class="day">
-          <div><span class="time">6</span></div>
-        </div>
-        <div class="day missed" (click)="showWorkout('Monday, May 7', 'missed')">
-          <div><span class="time">7</span></div>
-        </div>  
-        <div class="day">
-          <div><span class="time">8</span></div>
-        </div>
-        <div class="day completed" (click)="showWorkout('Wednesday, May 9', 'completed')">
-          <div><span class="time">9</span></div>
-        </div>
-        <div class="day">
-          <div><span class="time">10</span></div>
-        </div>  
-        <div class="day completed" (click)="showWorkout('Friday, May 11', 'completed')">
-          <div><span class="time">11</span></div>
-        </div>
-        <div class="day today">
-          <div><span class="time">12</span></div>
-        </div>
-      </div>  
-      <div class="week">
-        <div class="day">
-          <div><span class="time">13</span></div>
-        </div>
-        <div class="day upcoming" (click)="showWorkout('Monday, May 14', 'upcoming')">
-          <div><span class="time">14</span></div>
-        </div>
-        <div class="day">
-          <div><span class="time">15</span></div>
-        </div>
-        <div class="day upcoming" (click)="showWorkout('Wednesday, May 16', 'upcoming')">
-          <div><span class="time">16</span></div>
-        </div>  
-        <div class="day">
-          <div><span class="time">17</span></div>
-        </div>  
-        <div class="day upcoming" (click)="showWorkout('Friday, May 18', 'upcoming')">
-          <div><span class="time">18</span></div>
-        </div>  
-        <div class="day">
-          <div><span class="time">19</span></div>
-        </div>  
-      </div>  
-      <div class="week">
-        <div class="day">
-          <div><span class="time">20</span></div>
-        </div>
-        <div class="day upcoming" (click)="showWorkout('Monday, May 21', 'upcoming')">
-          <div><span class="time">21</span></div>
-        </div>  
-        <div class="day">
-          <div><span class="time">22</span></div>
-        </div>  
-        <div class="day upcoming" (click)="showWorkout('Wednesday, May 23', 'upcoming')">
-          <div><span class="time">23</span></div>
-        </div>  
-        <div class="day">
-          <div><span class="time">24</span></div>
-        </div>  
-        <div class="day upcoming" (click)="showWorkout('Friday, May 25', 'upcoming')">
-          <div><span class="time">25</span></div>
-        </div>  
-        <div class="day">
-          <div><span class="time">26</span></div>
-        </div>
-      </div>  
-      <div class="week">
-        <div class="day">
-          <div><span class="time">27</span></div>
-        </div>  
-        <div class="day upcoming" (click)="showWorkout('Monday, May 28', 'upcoming')">
-          <div>
-            <span class="time">28</span>
+          <div *ngFor="let week_data of weeks_data; let i=index" class="week">
+            <ng-container *ngFor="let day_data of week_data; let j=index">
+
+            <div *ngIf="day_data.isCurMonth" (click)="day_data.bodyParts != '' ? showWorkoutModal(day_data) : null"
+                [class]="day_data.bodyParts == '' ? 'day'
+                          : day_data.status == 'upcoming' ? day_data.testSession ? 'day test upcoming' : 'day upcoming'
+                          : day_data.status == 'missed' ? (day_data.isToday ? 'day missed today' : day_data.testSession ? 'day test missed' : 'day missed')
+                          : day_data.isToday ? 'day completed today' : 'day completed' ">
+              <div>
+                <span class="time">{{day_data.date.substr(-2)}}</span>
+              </div>
+            </div>
+            <div *ngIf="!day_data.isCurMonth" class="day none"></div>
+          </ng-container>
+
           </div>
-        </div>  
-        <div class="day">
-          <div><span class="time">29</span></div>
-        </div>  
-        <div class="day upcoming" (click)="showWorkout('Wednesday, May 30', 'upcoming')">
-          <div>
-            <span class="time">30</span>
-          </div>
-        </div>  
-        <div class="day">
-          <div><span class="time">31</span></div>
-        </div>  
-        <div class="day upcoming" (click)="showWorkout('Friday, Jun 1', 'upcoming')">
-          <div>
-            <span class="time">1</span>
-          </div>
-        </div>  
-        <div class="day">
-          <div><span class="time">2</span></div>
-        </div>
-      </div>      
     </div>
   </div>
-  
+
   <div class="workout">
     <div class="workout-title">
       <p class="text-uppercase">today's workout:</p>
@@ -417,14 +105,14 @@
     <div class="workout-item">
       <div class="workout-item-text">
         <div class="workout-item-status">
-            <p class="date-status"><span>{{today}}</span></p>
-            <p class="item-type">Chest, Shoulders & Trcipes</p>
-            <p class="item-title">German Volume Training</p>
+            <p class="date-status"><span>{{today_info.date}}</span></p>
+            <p class="item-type">{{today_info.bodyParts}}</p>
+            <p class="item-title" style="text-transform: uppercase;">{{today_info.program}}</p>
         </div>
       </div>
       <div class="workout-item-button">
-        <a class="start_btn" (click)="start(today)">Start</a>
-        <a class="edit_btn" (click)="edit(today)"><img src="assets/images/icons/eye.png"></a>
+          <a *ngIf="today_info.bodyParts != '' && !today_info.completed" class="start_btn" (click)="start()">Start</a>
+          <a *ngIf="today_info.bodyParts != '' && today_info.completed" class="edit_btn" (click)="edit()"><img src="assets/images/icons/eye.png"></a>
       </div>
     </div>
   </div>

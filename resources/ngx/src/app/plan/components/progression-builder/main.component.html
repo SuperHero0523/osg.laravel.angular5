@@ -1,26 +1,49 @@
 <div class="container">
+  <ngx-spinner></ngx-spinner>
+
     <h1>THE PROGRESSION BUILDER</h1>
+    <div class="description">
+      <ul>
+        <li *ngIf="isShow">Choose at least one (or maximum 3) Test exercise(s) in at least one workout. The test exercise must have method “Test (AMRAP) set” (as many reps as possible), on the last set. The first sets are warmup sets with lower loads and intensity (% of 1 RM and/or RTF). The Test set will only stick to the first and last week of the program. The test set are used to calculate the Strength athlete’s 1 RM, level and result. </li>
+        <li>
+          Create a progressive overload strategy by gradually increasing or decreasing the variables:
+          <ul>
+            <li>Volume: sets x reps per body part.</li>
+            <li>Intensity: intensity of load (% of 1 RM) and/or intensity of effort (Reps to failure).</li>
+            <li>Frequency: workouts per body part per week.</li>
+          </ul>
+        </li>
+
+        <li *ngIf="isShow">The first and last week is a “Test & training week” where the test set is performed (method: test(AMRAP) set) in the choosen test exercise (barbell or dumbbell exercises). The weeks in between are Training weeks.</li>
+        <li *ngIf="isShow">In order to reduce fatigue and improve performance before the last test set(s) it can be beneficial to make the week before the last “Test & training week” a “deload week” where the volume, intensity and/or frequency are reduced.</li>
+        <li *ngIf="isShow">The Progressive overload graph will give you a visual overview of your progression strategy per body part.</li>
+        <li *ngIf="isShow">The Program design table will reveal how your program is designed.</li>
+        <li *ngIf="isShow">Click on “save program” or “publish program” if you want to make the program available for the strength athletes. You can not make further adjustments to the program after it is published.</li>
+        <li *ngIf="isShow">See how the strength athletes are responding to your published program at the Experience bank section.</li>
+      </ul>
+    </div>
     <div class="general-actions">
-        <div class="col-12 col-sm-6">
+        <!-- <div class="col-12 col-sm-6">
             <a (click)="back()" class="btn btn-gray btn-back py-2 pr-3 mt-3 mt-sm-0"> BACK: TO CALENDAR BUILDER</a>
-        </div>
-        <div class="col-12 col-sm-6 text-right">
-            <a href="" class="btn btn-black py-2 px-4"> <img src="/assets/images/icons/icon-save.svg" alt=""> SAVE PROGRAM</a>
-            <a href="" class="btn btn-green-gradient py-2 px-4 ml-2">PUBLISH PROGRAM</a>
+        </div> -->
+        <div class="col-12 col-sm-12 text-right">
+            <a (click)="onSave()" class="btn btn-black py-2 px-4"> <img src="/assets/images/icons/icon-save.svg" alt=""> SAVE PROGRAM</a>
+            <a (click)="onPublish()" class="btn btn-green-gradient py-2 px-4 ml-2">PUBLISH PROGRAM</a>
         </div>
     </div>
     <hr>
-    <osg-progression-builder-progressive-overload-graph></osg-progression-builder-progressive-overload-graph>
-    <osg-progression-builder-training-program></osg-progression-builder-training-program>
-    <osg-progression-builder-program-design></osg-progression-builder-program-design>
+    <osg-progressive-overload-graph></osg-progressive-overload-graph>
+    <osg-progression-builder-training-program ref="training_rogram"></osg-progression-builder-training-program>
+    <osg-program-design></osg-program-design>
+    <!-- <osg-progression-builder-program-design></osg-progression-builder-program-design> -->
 
     <div class="general-actions">
-        <div class="col-12 col-sm-6">
+        <!-- <div class="col-12 col-sm-6">
             <a (click)="back()" class="btn btn-gray btn-back py-2 pr-3 mt-3 mt-sm-0"> BACK: TO CALENDAR BUILDER</a>
-        </div>
-        <div class="col-12 col-sm-6 text-right">
-            <a href="" class="btn btn-black py-2 px-4"> <img src="/assets/images/icons/icon-save.svg" alt=""> SAVE PROGRAM</a>
-            <a href="" class="btn btn-green-gradient py-2 px-4 ml-2">PUBLISH PROGRAM</a>
+        </div> -->
+        <div class="col-12 col-sm-12 text-right">
+            <a (click)="onSave()" class="btn btn-black py-2 px-4"> <img src="/assets/images/icons/icon-save.svg" alt=""> SAVE PROGRAM</a>
+            <a (click)="onPublish()" class="btn btn-green-gradient py-2 px-4 ml-2">PUBLISH PROGRAM</a>
         </div>
     </div>
 </div>

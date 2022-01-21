@@ -15,6 +15,7 @@
     <div class="container-box" style="border-bottom: solid 0px #a9a9a9;" *ngIf="workout_list.length != 0">
         <div class="subtitle">
             <h3>Saved workouts</h3>
+            <h2 style="font-size: 16px;position: absolute;right: 20px;margin-top: -20px;">{{max_workouts > 0 ? min_workouts + " - " + max_workouts : ""}}</h2>
         </div>
         <div class="workouts-list" *ngIf="calendarWorkoutDrag == 0">
             <div class="workout" draggable="true" style="cursor: pointer"
@@ -44,7 +45,7 @@
                     <tr *ngFor="let calendar of calendar_list; let week_row=index">
                         <td>{{week_row+1}}</td>
                         <td *ngFor="let day of calendar; let day_index=index"  [attr.data-week-index]="week_row"  [attr.data-day-index]="day_index" (drop)="drop($event)" (dragover)="allowDrop($event)">
-                            <span *ngIf="day != NULL" [attr.data-week-index]="week_row"  [attr.data-day-index]="day_index" draggable="true" (dragstart)="dragWorkoutCalendar($event)">{{day}}</span></td>
+                            <span *ngIf="day != null" [attr.data-week-index]="week_row"  [attr.data-day-index]="day_index" draggable="true" (dragstart)="dragWorkoutCalendar($event)">{{day}}</span></td>
                     </tr>
                 </tbody>
             </table>

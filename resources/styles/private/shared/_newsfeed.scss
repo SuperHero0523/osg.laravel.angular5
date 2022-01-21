@@ -1,5 +1,69 @@
-osg-news-feed {
+osg-news-feed,
+osg-news-feed-page {
     display: block;
+
+    .slide_button {
+        top: 63px;
+        z-index: 1030;
+        position: sticky;
+        margin-top: -60px;
+        img {
+            width: 45px;
+        }
+        &.prev {
+            float: left;
+        }
+        &.next {
+            float: right;
+        }
+        @media (min-width: 320px) {
+            display: block;
+        }
+        @media (min-width: 1280px) {
+            display: none;
+        }
+    }
+
+    .slide-modal {
+        display: none;
+        position: fixed;
+        z-index: 1030;
+        padding-top: 70px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: #000000;
+
+        .slide-modal-content {
+            position: relative;
+            margin: auto;
+            padding: 0;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .close {
+            color: white;
+            position: absolute;
+            z-index: 1031;
+            top: 60px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+            &:hover, &:focus {
+                color: #888888;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+        .cursor {
+            cursor: pointer;
+        }
+        img {
+            width: 100%;
+        }
+    }
 
     h3 {
         @include section-title;
@@ -38,7 +102,7 @@ osg-news-feed {
             font-size: rem(15);
             margin-bottom: 10px;
             transition: all 0.2s linear;
-            &:focus{
+            &:focus {
                 box-shadow: 0px 0px 3px 0px #7b7b7b;
             }
         }
@@ -49,19 +113,21 @@ osg-news-feed {
             padding-top: 15px;
 
             .add-media {
+                cursor: pointer;
                 color: $text-gray;
                 font-size: rem(15);
+                display: flex;
+                align-items: center;
             }
-            .btn{
+            .btn {
                 font-size: rem(15);
-                img{
+                img {
                     width: 15px;
                     margin-right: 5px;
                 }
             }
         }
     }
-
 
     .post {
         border: solid 1px #dadada;
@@ -117,39 +183,39 @@ osg-news-feed {
                 p {
                     font-size: rem(15);
                 }
-                .photos{
+                .photos {
                     @extend .row;
-                    figure{
-                        img{
+                    figure {
+                        img {
                             @extend .img-fluid;
                             margin: 0px auto;
                             display: block;
                         }
                     }
-                    
+
                     /* one item */
                     figure:first-child:nth-last-child(1) {
                         @extend .col-12;
                     }
-                    
+
                     /* two items */
                     figure:first-child:nth-last-child(even),
                     figure:first-child:nth-last-child(even) ~ figure {
                         @extend .col-6;
                     }
-                    
+
                     /* three items */
                     figure:first-child:nth-last-child(odd),
                     figure:first-child:nth-last-child(odd) ~ figure {
                         @extend .col-4;
                     }
-                    
+
                     /* four items */
                     /* figure:first-child:nth-last-child(4),
                     figure:first-child:nth-last-child(4) ~ figure {
                         @extend .col-4;
                     } */
-                    
+
                     /* five items */
                     /* figure:first-child:nth-last-child(5),
                     figure:first-child:nth-last-child(5) ~ figure {
@@ -160,6 +226,14 @@ osg-news-feed {
         }
 
         .comments-box {
+            .load-more-container {
+                margin-bottom: 20px;
+            }
+            .load-more {
+                margin-left: 74px;
+                color: #007bff;
+                cursor: pointer;
+            }
 
             .comment {
                 padding: 20px 15px;
@@ -176,10 +250,10 @@ osg-news-feed {
                     background: #b6b6b6;
                     margin: 0;
                 }
-                .popover-menu{
+                .popover-menu {
                     top: 50%;
-                    &:before{
-                        margin: 0% 0% 0% 50%;
+                    &:before {
+                        margin: 0% 0% 0% 80%;
                     }
                 }
             }
@@ -217,7 +291,7 @@ osg-news-feed {
                         font-size: rem(15);
                         padding: 5px 20px 5px 10px;
                         transition: all 0.2s linear;
-                        &:focus{
+                        &:focus {
                             box-shadow: 0px 0px 3px 0px #7b7b7b;
                         }
                     }
@@ -232,7 +306,6 @@ osg-news-feed {
                         opacity: 0.7;
                     }
                 }
-
             }
 
             .comment {
@@ -272,40 +345,43 @@ osg-news-feed {
             }
         }
 
-        .popover-menu{
+        .popover-menu {
             text-align: right;
             position: absolute;
-            z-index: 5;
+            z-index: 8;
             top: 20px;
             right: -30px;
             font-size: 14px;
-            &:before{
+            background-color: transparent;
+            margin-top: -20px;
+            // transform: translate3d(-45px, 10px, 0px) !important;
+            border: 0;
+            &:before {
                 content: "";
                 pointer-events: none;
                 display: block;
-                margin: 0% 0% 0% 55%;
+                margin: 0% 0% 0% 80%;
                 width: 0;
                 height: 0;
                 border-color: transparent transparent #000 transparent;
                 border-style: solid;
                 border-width: 12px;
             }
-            ul{
+            .menu-items {
                 display: block;
                 background: #000;
                 list-style: none;
                 padding: 10px 15px;
                 margin: 0px;
                 border-radius: 5px;
-                li{
+                a {
                     display: block;
                     margin-bottom: 5px;
-                    a{
-                        color: $white;
-                        &:hover{
-                            color: $yellow;
-                            text-decoration: none;
-                        }
+                    color: $white;
+                    &:hover {
+                        color: $yellow;
+                        text-decoration: none;
+                        background-color: black;
                     }
                 }
             }
